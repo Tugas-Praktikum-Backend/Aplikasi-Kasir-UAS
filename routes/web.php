@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DiscountController;
 
-use App\Http\Controllers\ManagerController;
+s
+Route::resource('discounts', DiscountController::class);
 
 Route::get('/', function () {
     return redirect('/managers');

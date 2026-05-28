@@ -12,7 +12,8 @@ class DiscountController extends Controller
      */
     public function index()
     {
-        //
+        $discounts = Discount::all();
+        return view('discounts.index', compact('discounts'));
     }
 
     /**
@@ -20,7 +21,7 @@ class DiscountController extends Controller
      */
     public function create()
     {
-        //
+        return view('discounts.create');
     }
 
     /**
@@ -28,7 +29,16 @@ class DiscountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'percentage' => 'required|numeric|min:0|max:100',
+            'start_date' => 'nullable|date',
+            'end_date' => 'nullable|date|after_or_equal:start_date',
+        ]);
+
+        Discount::create($request->only('name', 'percentage', 'start_date', 'end_date'));
+
+        return redirect()->route('discounts.index')->with('success', 'Discount created successfully.');
     }
 
     /**
@@ -36,7 +46,7 @@ class DiscountController extends Controller
      */
     public function show(Discount $discount)
     {
-        //
+        return view('discounts.show', compact('discount'));
     }
 
     /**
@@ -44,7 +54,7 @@ class DiscountController extends Controller
      */
     public function edit(Discount $discount)
     {
-        //
+        return view('discounts.edit', compact('discount'));
     }
 
     /**
@@ -52,7 +62,16 @@ class DiscountController extends Controller
      */
     public function update(Request $request, Discount $discount)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'percentage' => 'required|numeric|min:0|max:100',
+            'start_date' => 'nullable|date',
+            'end_date' => 'nullable|date|after_or_equal:start_date',
+        ]);
+
+        $discount->update($request->only('name', 'percentage', 'start_date', 'end_date'));
+
+        return redirect()->route('discounts.index')->with('success', 'Discount updated successfully.');
     }
 
     /**
@@ -60,6 +79,8 @@ class DiscountController extends Controller
      */
     public function destroy(Discount $discount)
     {
-        //
+        $discount->delete();
+
+        return redirect()->route('discounts.index')->with('success', 'Discount deleted successfully.');
     }
 }
