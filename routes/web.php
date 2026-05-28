@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ManagerController;
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/managers');
 });
+
+Route::resource('managers', ManagerController::class);
