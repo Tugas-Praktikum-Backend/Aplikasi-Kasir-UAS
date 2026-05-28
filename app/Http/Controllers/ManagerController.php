@@ -79,4 +79,5 @@ class ManagerController extends Controller
 
         return redirect()->route('managers.index')->with('success', 'Manager deleted successfully.');
     }
+
 }
