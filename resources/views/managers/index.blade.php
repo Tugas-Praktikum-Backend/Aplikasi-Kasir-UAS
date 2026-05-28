@@ -1,4 +1,3 @@
-<h1>Manager Dashboard</h1>
+<h1>Manager Login</h1>
 
-
-<a href="{{ route('managers.show') }}">Manage employees</a>
+<a href="{{ route('managers.create') }}">Create new manager</a>
