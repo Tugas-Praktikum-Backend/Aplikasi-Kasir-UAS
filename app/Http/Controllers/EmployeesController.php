@@ -57,7 +57,8 @@ class EmployeesController extends Controller
     }
 
     public function logout() {
-        Session::flush();
+        Session::remove('employeeUsername');
+        Session::remove('employeeJoined');
         return redirect()->route("employees.login");
     }
 }
