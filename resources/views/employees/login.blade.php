@@ -1,11 +1,10 @@
 @php use function Laravel\Prompts\password; @endphp
 <html>
 <h1> Login Page </h1>
-@dump(password_hash('12345678', PASSWORD_BCRYPT))
 <form method="POST" action="{{ route('employees.login') }}">
     @csrf
-    Email <input type="email">
-    Password <input type="password">
+    Email <input type="email" name="email">
+    Password <input type="password" name="password">
     <button type="submit"> Login </button>
 </form>
 @if($loginFailed)

@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Employees;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use function compact;
-use function password_verify;
 use function redirect;
-use function var_dump;
+use function to_route;
 use function view;
 
 class EmployeesController extends Controller
@@ -16,40 +17,47 @@ class EmployeesController extends Controller
      * Display a listing of the resource.
      */
 
-    private bool $hasLogin = false;
-    private string $username = "";
-    private string $email = "";
-    private int $joined = 0;
+    public function __construct() {}
 
-    public function show()
+    public function index()
     {
-        if(!$this->hasLogin){
-            $loginFailed = false;
-            return view('employees.login', compact('loginFailed'));
+        if(!Session::get('employeeUsername')){
+            return redirect()->route('employees.login');
         }
-        $username = $this->username;
-        $joined = $this->joined;
+        $username = Session::get('employeeUsername');
+        $joined = Session::get('employeeJoined');
         return view('employees.index', compact('username', 'joined'));
     }
 
-    public function login(Request $request) {
-        if($this->hasLogin) {
-            $username = $this->username;
-            $joined = $this->joined;
-            return view('employees.index', compact('username', 'joined'));
+    public function loginPage() {
+        if(Session::get('employeeUsername')) {
+            return redirect()->route("employees.index");
         }
+        $loginFailed = false;
+        return view('employees.login', compact('loginFailed'));
+    }
+
+    public function login(Request $request) {
+        if(Session::get('employeeUsername')) {
+            return redirect()->route("employees.index");
+        }
+
         $data = $request->only('email', 'password');
         $employees = Employees::all();
         foreach ($employees as $e){
-            if($e->email === $data['email'] && password_verify($data['password'], $e->password)){
-                $this->username = $e->username;
-                $this->email = $e->email;
-                $this->joined = $e->created_at;
-                $this->hasLogin = true;
-                return $this->show();
+            if($e->email === $data['email'] && Hash::check($data['password'], $e->password)){
+                Session::put('employeeUsername', $e->username);
+                Session::put('employeeJoined', $e->created_at);
+                Session::save();
+                return redirect()->route('employees.index');
             }
         }
         $loginFailed = true;
         return view('employees.login', compact('loginFailed'));
+    }
+
+    public function logout() {
+        Session::flush();
+        return redirect()->route("employees.login");
     }
 }
