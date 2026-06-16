@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 Route::resource('products', ProductController::class);
 Route::resource('customers', CustomerController::class);
 Route::resource('discounts', DiscountController::class);
-Route::resource('employees', EmployeesController::class);
 
 Route::get('/', function () {
     return view('index');
