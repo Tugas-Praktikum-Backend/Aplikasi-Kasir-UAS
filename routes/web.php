@@ -16,4 +16,7 @@ Route::get('/', function () {
 });
 
 Route::post('employees/login', [EmployeesController::class, 'login'])->name('employees.login');
+Route::post('employees/logout', [EmployeesController::class. 'logout'])->name('employees.logout');
+Route::get('employees/login', [EmployeesController::class, 'loginPage']);
+Route::get('employees/logout', [EmployeesController::class, 'logout']);
 Route::post('customers/login', [CustomersController::class, 'login'])->name('customers.login');
