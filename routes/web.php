@@ -4,6 +4,7 @@ use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\ManagerController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('products', ProductController::class);
@@ -19,3 +20,6 @@ Route::post('employees/logout', [EmployeesController::class. 'logout'])->name('e
 Route::get('employees/login', [EmployeesController::class, 'loginPage']);
 Route::get('employees/logout', [EmployeesController::class, 'logout']);
 Route::post('customers/login', [CustomersController::class, 'login'])->name('customers.login');
+
+// Manager
+Route::post('manager', [ManagerController::class, 'index'])->name('manager.home');
