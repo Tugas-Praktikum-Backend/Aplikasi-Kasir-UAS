@@ -22,4 +22,10 @@ Route::get('employees/logout', [EmployeesController::class, 'logout']);
 Route::post('customers/login', [CustomersController::class, 'login'])->name('customers.login');
 
 // Manager
-Route::post('manager/dashboard', [ManagerController::class, 'index'])->name('manager.home');
+Route::post('manager/dashboard', [ManagerController::class, 'index'])->name('manager.dashboard');
+
+Route::resource('manager', ManagerController::class);
+
+Route::get('/manager', function () {
+    return redirect()->route('manager.dashboard');
+});
