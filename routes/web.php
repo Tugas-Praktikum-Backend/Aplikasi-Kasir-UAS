@@ -15,10 +15,13 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::post('employees/login', [EmployeesController::class, 'login'])->name('employees.login');
-Route::post('employees/logout', [EmployeesController::class. 'logout'])->name('employees.logout');
 Route::get('employees/login', [EmployeesController::class, 'loginPage']);
-Route::get('employees/logout', [EmployeesController::class, 'logout']);
+Route::post('employees/login', [EmployeesController::class, 'login'])->name('employees.login');
+Route::prefix('employees')->middleware(['auth:employee'])->group(function(){
+    Route::get('/', [EmployeesController::class, 'index'])->name('employees.index');
+    Route::get('/logout', [EmployeesController::class, 'logout'])->name('employees.logout');
+    Route::fallback(fn() => redirect()->route('employees.index'));
+});
 
 
 // Customer Authenication
