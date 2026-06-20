@@ -25,8 +25,12 @@ Route::get('employees/logout', [EmployeesController::class, 'logout']);
 Route::get('customers/login', [CustomerAuthController::class, 'showLogin'])->name('customer.login');
 Route::post('customers/login', [CustomerAuthController::class, 'login']);
 Route::post('customers/logout', [CustomerAuthController::class, 'logout'])->name('customer.logout');
-route::get('/customers/signup', [CustomerController::class, 'create'])->name('customer.register');
-route::post('/customers/signup', [CustomerAuthController::class, 'signup'])->name('customers.store');
+Route::get('/customers/signup', [CustomerController::class, 'create'])->name('customer.register');
+Route::post('/customers/signup', [CustomerAuthController::class, 'signup'])->name('customers.store');
+
+Route::get('login', function () {
+    return redirect()->route('customer.login');
+})->name('login');
 
 Route::get('/customers/vulnerable', function () {
     $name = request('name');
@@ -34,14 +38,10 @@ Route::get('/customers/vulnerable', function () {
     return $user;
 });
 
-// Customer
-Route::middleware('auth')->group(function() {
-    return view('customers.index');
+// Customer menggunakan middleware agar harus login untuk ke dashboard
+Route::middleware(['auth'])->group(function () {
+    Route::get('/customers/dashboard', [CustomerController::class, 'index'])->name('customers.index');
+    Route::get('/customers/topup', [CustomerController::class, 'topup'])->name('customers.topup');
+    Route::get('/customers/metodepembayaran', [CustomerController::class, 'metode'])->name('customers.metode');
+    Route::redirect('/customers', '/customers/dashboard');
 });
-
-Route::get('/customers/dashboard', [CustomerController::class, 'index'])->name('customers.index');
-Route::get('customers/topup', [CustomerController::class, 'topup'])->name('customers.topup');
-Route::get('customers/metodepembayaran', [CustomerController::class, 'metode'])->name('customers.metode');
-Route::redirect('/customers', '/customers/dashboard');
-
-Route::redirect('/customers', '/customers/dashboard');
