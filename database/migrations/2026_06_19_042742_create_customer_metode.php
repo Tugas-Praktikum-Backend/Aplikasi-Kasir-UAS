@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('metode_pembayaran', function (Blueprint $table) {
+        Schema::create('customer_metode', function (Blueprint $table) {
             $table->id();
-            $table->string('metode')->primary();
-            $table->integer('biaya_admin');
-            $table->integer('jumlah_pendaftar');
+            $table->foreignId('customer_id')->costrained()->cascadeOnDelete();
+            $table->foreignId('method_id')->costrained()->cascadeOnDelete();
+            $table->decimal('balance')->default(0);
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('metode_pembayaran');
+        Schema::dropIfExists('customer_metode');
     }
 };

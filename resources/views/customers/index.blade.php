@@ -8,4 +8,7 @@
 <a href="{{ route('customers.metode') }}">
     <button>Tambahkan metode pembayaran</button>
 </a>
-<button>Logout</button>
+<form action="{{ route('customer.logout') }}" method="POST" style="display: inline;">
+    @csrf
+    <button type="submit">Logout</button>
+</form>
