@@ -1,0 +1,24 @@
+<h1>Customer Sign Up</h1>
+<form method="POST" action="{{ route('customers.store') }}">
+    @csrf
+    Username:
+    <br>
+    <input name="username" required>
+    <br>
+    <br>
+    Email:
+    <br>
+    <input name="email" required>
+    <br>
+    <br>
+    Password:
+    <br>
+    <input name="password" required>
+    <br>
+    <br>
+    <button type="submit">Sign Up</button>
+</form>
+@if ($errors->any())
+    <p>Not a valid credentials</p>
+@endif
+<a href="{{ route('customer.login') }}">Return</a>

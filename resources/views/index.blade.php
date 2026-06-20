@@ -2,6 +2,6 @@
 <form action = "{{ route('employees.login') }}" method="GET">
     <button type="submit">Employee Login</button>
 </form>
-<form action = "{{ route('customers.login') }}" method="GET">
+<form action = "{{ route('customer.login') }}" method="GET">
     <button>Customer Login</button>
 </form>
