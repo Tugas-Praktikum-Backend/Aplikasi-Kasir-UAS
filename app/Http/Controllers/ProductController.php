@@ -12,7 +12,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with('inventory')->get();
         return view('products.index', compact('products'));
     }
 
@@ -30,12 +30,21 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'merek' => 'required|string|max:255',
             'nama' => 'required|string|max:255',
             'stock' => 'required|integer',
             'harga' => 'required|integer',
         ]);
 
-        Product::create($request->only('nama', 'stock', 'harga'));
+        $Product = Product::create([
+            'nama' => request('nama'), 
+            'harga' => request('harga'),
+        ]);
+
+        $Product -> inventory() -> create([
+            'merek' => request('merek'), 
+            'stock' => request('stock'),
+        ]);
 
         return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan.');
     }
@@ -62,14 +71,22 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
+            'merek' => 'required|string|max:255',
             'nama' => 'required|string|max:255',
             'stock' => 'required|integer',
             'harga' => 'required|integer',
         ]);
 
-        $product->update($request->only('nama', 'stock', 'harga'));
+        $product->update($request->only('merek','nama', 'stock', 'harga'));
 
         return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui.');
+    }
+
+    public function inventory()
+    {
+        $products = Product::with('inventory')->get();
+        
+        return view('products.inventory', compact('products')); 
     }
 
     /**

@@ -47,4 +47,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/customers/topup', [CustomerController::class, 'topup'])->name('customers.topup');
     Route::get('/customers/metodepembayaran', [CustomerController::class, 'metode'])->name('customers.metode');
     Route::redirect('/customers', '/customers/dashboard');
+    Route::resource('managers', ManagerController::class);
+    Route::resource('products', ProductController::class);
+    Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 });

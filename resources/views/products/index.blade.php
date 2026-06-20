@@ -1,7 +1,10 @@
-<h1>Inventory Produk</h1>
+<h1>Produk List</h1>
  
 <a href="{{ route('products.create') }}">Tambah Produk Baru</a> 
 <br><br> 
+
+<a href="{{ route('inventory') }}">Inventory</a>
+<br><br>
 
 @if(session('success'))
     <div style="color: green;">{{ session('success') }}</div>
@@ -10,9 +13,8 @@
 <table border="1" cellpadding="10" cellspacing="0"> 
   <thead> 
     <tr> 
-            <th>ID</th>
+            <th>Product ID</th>
             <th>Nama Produk</th>
-            <th>Stock</th>
             <th>Harga</th>
             <th>Aksi</th>
     </tr> 
@@ -20,9 +22,8 @@
 <tbody>
         @forelse($products as $product)
             <tr>
-                <td>{{ $product->id }}</td>
+                <td><strong>{{ $product->id }}</strong></td>
                 <td>{{ $product->nama }}</td>
-                <td>{{ $product->stock }}</td>
                 <td>Rp {{ number_format($product->harga, 0, ',', '.') }}</td>
                 <td>
                     <form action="{{ route('products.edit', $product->id) }}" method="GET" style="display:inline; margin-right: 5px;">
@@ -37,7 +38,7 @@
             </tr>
         @empty
             <tr>
-                <td colspan="5">Inventory is empty.</td>
+                <td colspan="5">Product List is empty.</td>
             </tr>
         @endforelse
     </tbody>
