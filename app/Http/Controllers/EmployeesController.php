@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employees;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+use function back;
 use function compact;
 use function redirect;
-use function to_route;
 use function view;
 
 class EmployeesController extends Controller
@@ -21,44 +19,42 @@ class EmployeesController extends Controller
 
     public function index()
     {
-        if(!Session::get('employeeUsername')){
+        if(!Auth::guard('employee')->check()){
             return redirect()->route('employees.login');
         }
-        $username = Session::get('employeeUsername');
-        $joined = Session::get('employeeJoined');
-        return view('employees.index', compact('username', 'joined'));
+
+        $employeeUser = Auth::guard('employee')->user();
+        return view('employees.index', compact('employeeUser'));
     }
 
     public function loginPage() {
-        if(Session::get('employeeUsername')) {
+        if(Auth::guard('employee')->check()) {
             return redirect()->route("employees.index");
         }
-        $loginFailed = false;
-        return view('employees.login', compact('loginFailed'));
+
+        return view('employees.login');
     }
 
     public function login(Request $request) {
-        if(Session::get('employeeUsername')) {
+        if(Auth::guard('employee')->check()) {
             return redirect()->route("employees.index");
         }
 
-        $data = $request->only('email', 'password');
-        $employees = Employees::all();
-        foreach ($employees as $e){
-            if($e->email === $data['email'] && Hash::check($data['password'], $e->password)){
-                Session::put('employeeUsername', $e->username);
-                Session::put('employeeJoined', $e->created_at);
-                Session::save();
-                return redirect()->route('employees.index');
-            }
+        $data = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+        if(Auth::guard('employee')->attempt($data)){
+            $request->session()->regenerate();
+            return redirect()->route('employees.index');
         }
-        $loginFailed = true;
-        return view('employees.login', compact('loginFailed'));
+
+        return back()->withErrors(['loginFailed' => 'Invalid'])->withInput();
     }
 
-    public function logout() {
-        Session::remove('employeeUsername');
-        Session::remove('employeeJoined');
+    public function logout(Request $request) {
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect()->route("employees.login");
     }
 }
