@@ -12,16 +12,6 @@ class CustomerController extends Controller
         return view('customers.index');
     }
 
-    public function metode()
-    {
-        return view('metodepembayaran.index');
-    }
-
-    public function topup()
-    {
-        return view('metodepembayaran.topup');
-    }
-
     public function create()
     {
         return view('auth.customerregister');
@@ -30,5 +20,20 @@ class CustomerController extends Controller
     public function login()
     {
         return view('auth.customerlogin');
+    }
+
+    public function editusername()
+    {
+
+    }
+
+    public function editpassword()
+    {
+        
+    }
+
+    public function destroy()
+    {
+
     }
 }

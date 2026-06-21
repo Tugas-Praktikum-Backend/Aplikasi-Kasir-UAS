@@ -21,9 +21,9 @@ class CustomerAuthController extends Controller
             'password' => ['required'],
         ]);
 
-        $customer = \App\Models\Customer::where('email', $credentials['email'])->first();
+        $customer = Customer::where('email', $credentials['email'])->first();
 
-        if ($customer && \Illuminate\Support\Facades\Hash::check($credentials['password'], $customer->password)) {
+        if ($customer && Hash::check($credentials['password'], $customer->password)) {
             Auth::login($customer);
             
             $request->session()->regenerate();
