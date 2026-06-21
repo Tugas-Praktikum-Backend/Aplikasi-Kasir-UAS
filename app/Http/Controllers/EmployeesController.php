@@ -57,4 +57,9 @@ class EmployeesController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route("employees.login");
     }
+
+    public function salaryPage(Request $request) {
+        $employeeUser = Auth::guard('employee')->user();
+        return view('employees.salary', compact('employeeUser'));
+    }
 }
