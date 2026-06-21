@@ -9,10 +9,12 @@ use App\Http\Controllers\ShiftController;
 use App\Models\Shift;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CustomerPaymentMethodController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('products', ProductController::class);
 Route::resource('discounts', DiscountController::class);
+Route::resource('categories', CategoryController::class);
 
 Route::get('/', function () {
     return view('index');
