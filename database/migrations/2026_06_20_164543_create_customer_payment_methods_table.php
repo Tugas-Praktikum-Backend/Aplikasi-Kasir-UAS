@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customer_metode', function (Blueprint $table) {
+        Schema::create('customer_payment_methods', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->costrained()->cascadeOnDelete();
-            $table->foreignId('method_id')->costrained()->cascadeOnDelete();
+            $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
+            $table->string('method_id');
+            $table->foreign('method_id')->references('method_id')->on('payment_methods')->cascadeOnDelete();
+            $table->unique(['customer_id', 'method_id']);
             $table->decimal('balance')->default(0);
             $table->timestamps();
         });
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customer_metode');
+        Schema::dropIfExists('customer_payment_methods');
     }
 };

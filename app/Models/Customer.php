@@ -13,8 +13,8 @@ class Customer extends Authenticatable
 
     protected $hidden = ['password', 'remember_token'];
 
-    public function metode_pembayaran()
+    public function customer_payment_method()
     {
-        
+        return $this->belongsToMany(CustomerPaymentMethod::class);
     }
 }
