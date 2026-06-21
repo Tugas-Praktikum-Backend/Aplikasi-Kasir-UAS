@@ -9,17 +9,19 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-  public function up(): void
-{
-    Schema::create('discounts', function (Blueprint $table) {
-        $table->id();
-        $table->string('name'); // e.g., "Promo Lebaran"
-        $table->decimal('percentage', 5, 2); // e.g., 10.00 for 10%
-        $table->date('start_date')->nullable();
-        $table->date('end_date')->nullable();
-        $table->timestamps();
-    });
-}
+    public function up(): void
+    {
+        Schema::create('discounts', function (Blueprint $table) {
+            $table->id();
+            // olom product_id sebagai foreign key
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+            $table->string('name'); 
+            $table->decimal('percentage', 5, 2); 
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
