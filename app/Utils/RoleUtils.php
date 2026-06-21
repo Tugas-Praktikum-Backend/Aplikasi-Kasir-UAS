@@ -23,14 +23,14 @@ class RoleUtils {
         self::PERM_PRODUCTS => "products.index"
     ];
 
-    public static function isPermitted(string $role, string $perm){
+    public static function isPermitted(string $role, string $perm): bool {
         return array_key_exists($role, self::$list) && in_array($perm, self::$list[$role]);
     }
 
-    public static function getAllowedRoutes(string $role) {
+    public static function getAllowedRoutes(string $role): array {
         $allowed = [];
         foreach (self::$list[$role] as $perm) {
-            $allowed[] = self::$routes[$perm];
+            $allowed[$perm] = self::$routes[$perm];
         }
         return $allowed;
     }
