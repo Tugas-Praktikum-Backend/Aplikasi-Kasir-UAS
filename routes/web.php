@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\CustomerAuthController;
+use App\Http\Controllers\ShiftController;
+use App\Models\Shift;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('products', ProductController::class);
@@ -20,6 +22,11 @@ Route::post('employees/login', [EmployeesController::class, 'login'])->name('emp
 Route::prefix('employees')->middleware(['auth:employee'])->group(function(){
     Route::get('/', [EmployeesController::class, 'index'])->name('employees.index');
     Route::get('/logout', [EmployeesController::class, 'logout'])->name('employees.logout');
+
+    Route::get('/shifts', [ShiftController::class, 'index'])->name('employees.shift');
+    Route::get('/shifts/start', [ShiftController::class, 'startShift'])->name('employees.start_shift');
+    Route::get('/shifts/end', [ShiftController::class, 'endShift'])->name('employees.stop_shift');
+
     Route::fallback(fn() => redirect()->route('employees.index'));
 });
 
