@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -21,7 +22,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -34,11 +36,13 @@ class ProductController extends Controller
             'nama' => 'required|string|max:255',
             'stock' => 'required|integer',
             'harga' => 'required|integer',
+            'category_id' => 'nullable|exists:categories,id',
         ]);
 
         $Product = Product::create([
             'nama' => request('nama'), 
             'harga' => request('harga'),
+            'category_id' => request('category_id'),
         ]);
 
         $Product -> inventory() -> create([
@@ -62,7 +66,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit', compact('product'));
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -75,9 +80,10 @@ class ProductController extends Controller
             'nama' => 'required|string|max:255',
             'stock' => 'required|integer',
             'harga' => 'required|integer',
+            'category_id' => 'nullable|exists:categories,id',
         ]);
 
-        $product->update($request->only('merek','nama', 'stock', 'harga'));
+        $product->update($request->only('nama', 'harga', 'category_id'));
 
         return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui.');
     }

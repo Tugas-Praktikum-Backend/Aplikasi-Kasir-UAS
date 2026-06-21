@@ -16,5 +16,17 @@
     <input type="number" name="harga" value="{{ $product->harga }}" required> 
     <br> 
     <br> 
+    <div>
+        <label>Kategori:</label><br>
+        <select name="category_id">
+            <option value="">-- Pilih Kategori --</option>
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
+                    {{ $category->nama }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+    <br>
     <button type="submit">Simpan</button> 
 </form>
