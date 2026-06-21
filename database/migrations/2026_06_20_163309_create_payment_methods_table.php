@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('metode_pembayaran', function (Blueprint $table) {
-            $table->id();
-            $table->string('metode')->primary();
-            $table->integer('biaya_admin');
-            $table->integer('jumlah_pendaftar');
+        Schema::create('payment_methods', function (Blueprint $table) {
+            $table->string('method_id')->primary();
+            $table->string('method_name');
+            $table->integer('admin_fee')->default(0);
+            $table->integer('registration_count')->default(0);
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('metode_pembayaran');
+        Schema::dropIfExists('payment_methods');
     }
 };

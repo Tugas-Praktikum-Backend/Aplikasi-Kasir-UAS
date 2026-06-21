@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\CustomerAuthController;
+use App\Http\Controllers\PaymentMethodController;
+use App\Http\Controllers\CustomerPaymentMethodController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('products', ProductController::class);
@@ -41,7 +43,7 @@ Route::get('/customers/vulnerable', function () {
 // Customer menggunakan middleware agar harus login untuk ke dashboard
 Route::middleware(['auth'])->group(function () {
     Route::get('/customers/dashboard', [CustomerController::class, 'index'])->name('customers.index');
-    Route::get('/customers/topup', [CustomerController::class, 'topup'])->name('customers.topup');
-    Route::get('/customers/metodepembayaran', [CustomerController::class, 'metode'])->name('customers.metode');
     Route::redirect('/customers', '/customers/dashboard');
+    Route::get('/customers/paymentmethods/{paymentmethod}/topup', [CustomerPaymentMethodController::class, 'topup'])->name('paymentmethods.topup');
+    Route::resource('customers/paymentmethods', CustomerPaymentMethodController::class);
 });
