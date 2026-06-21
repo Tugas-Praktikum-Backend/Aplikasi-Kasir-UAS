@@ -17,10 +17,13 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::post('employees/login', [EmployeesController::class, 'login'])->name('employees.login');
-Route::post('employees/logout', [EmployeesController::class. 'logout'])->name('employees.logout');
 Route::get('employees/login', [EmployeesController::class, 'loginPage']);
-Route::get('employees/logout', [EmployeesController::class, 'logout']);
+Route::post('employees/login', [EmployeesController::class, 'login'])->name('employees.login');
+Route::prefix('employees')->middleware(['auth:employee'])->group(function(){
+    Route::get('/', [EmployeesController::class, 'index'])->name('employees.index');
+    Route::get('/logout', [EmployeesController::class, 'logout'])->name('employees.logout');
+    Route::fallback(fn() => redirect()->route('employees.index'));
+});
 
 
 // Customer Authenication
@@ -46,4 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::redirect('/customers', '/customers/dashboard');
     Route::get('/customers/paymentmethods/{paymentmethod}/topup', [CustomerPaymentMethodController::class, 'topup'])->name('paymentmethods.topup');
     Route::resource('customers/paymentmethods', CustomerPaymentMethodController::class);
+    Route::resource('managers', ManagerController::class);
+    Route::resource('products', ProductController::class);
+    Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 });
