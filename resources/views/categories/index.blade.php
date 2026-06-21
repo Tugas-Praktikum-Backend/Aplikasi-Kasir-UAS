@@ -21,12 +21,15 @@
             <td>{{ $category->id }}</td>
             <td>{{ $category->nama }}</td>
             <td>
-                <form action="{{route('categories.edit', $category->id)}}" method="GET" style="display:inline; margin-right: 5px;">
+                <form action="{{ route('categories.show', $category->id) }}" method="GET" style="display:inline; margin-right: 5px;">
                     <button type="submit">Lihat Produk</button>
+                </form>
+
+                <form action="{{ route('categories.edit', $category->id) }}" method="GET" style="display:inline; margin-right: 5px;">
                     <button type="submit">Ubah</button>
                 </form>
 
-                <form action="{{route('categories.destroy', $category->id)}}" method="POST" style="display:inline;">
+                <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display:inline;">
                     @csrf @method('DELETE')
                     <button type="submit" onclick="return confirm('Apakah anda ingin menghapus kategori ini?')">Hapus</button>
                 </form>
