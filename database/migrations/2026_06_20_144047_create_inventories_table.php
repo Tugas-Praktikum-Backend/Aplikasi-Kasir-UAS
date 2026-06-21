@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('discounts', function (Blueprint $table) {
+        Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            // olom product_id sebagai foreign key
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
-            $table->string('name'); 
-            $table->decimal('percentage', 5, 2); 
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
+            $table->string('merek');
+            $table->integer('stock');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('discounts');
+        Schema::dropIfExists('inventories');
     }
 };

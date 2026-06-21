@@ -13,9 +13,18 @@
     <br>
     Password:
     <br>
-    <input name="password" required>
+    <input type="password" name="password" required>
     <br>
     <br>
     <button type="submit">Sign Up</button>
 </form>
-<a href="{{ route('customers.index') }}">Return</a>
+@if ($errors->any())
+    <div style="color: red;">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<a href="{{ route('customer.login') }}">Return</a>

@@ -7,70 +7,33 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $customers = Customer::all();
-        return view('customers.index', compact('customers'));
+        return view('customers.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('customers.create');
+        return view('auth.customerregister');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function login()
     {
-        $request->validate([
-            'username' => 'required|string|max:255',
-            'email' => 'required|string',
-            'password' => 'required|string',
-        ]);
-
-        Customer::create($request->only('username', 'email', 'password'));
-
-        return redirect()->route('customers.index')->with('success', 'Customer created successfully.');
+        return view('auth.customerlogin');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show()
+    public function editusername()
     {
-        return view('customers.login');
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Customer $customer)
+    public function editpassword()
     {
-        $request->validate([
-            'username' => 'required|string|max:255',
-            'email' => 'required|string',
-            'password' => 'required|string',
-        ]);
-
-        $post->update($request->only('username', 'email', 'password'));
-
-        return redirect()->route('customers.index')->with('success', 'Customer updated successfully.');
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Customer $customer)
+    public function destroy()
     {
-        $post->delete();
 
-        return redirect()->route('customers.index')->with('success', 'Customer deleted successfully.');
     }
 }

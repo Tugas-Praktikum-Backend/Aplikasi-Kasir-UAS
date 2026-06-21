@@ -1,7 +1,7 @@
 <h1>Home Page</h1>
 <form action = "{{ route('employees.login') }}" method="GET">
-    <button type="submit">Employee Login</button>
+    <button type="submit">Employee Menu</button>
 </form>
-<form action = "{{ route('customers.login') }}" method="GET">
-    <button>Customer Login</button>
+<form action = "{{ route('customers.index') }}" method="GET">
+    <button>Customer Menu</button>
 </form>

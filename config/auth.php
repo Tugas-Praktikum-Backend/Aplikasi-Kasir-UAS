@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Employees;
 use App\Models\User;
 
 return [
@@ -16,8 +17,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => env('AUTH_GUARD', 'web'),
-        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+        'guard' => 'customer',
+        'passwords' => 'users',
     ],
 
     /*
@@ -42,6 +43,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'customer' => [
+            'driver' => 'session',
+            'provider' => 'customers',
+        ],
+        'employee' => [
+            'driver' => 'session',
+            'provider' => 'employees'
+        ]
     ],
 
     /*
@@ -62,11 +71,14 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'customers' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', User::class),
+            'model' => App\Models\Customer::class,
         ],
-
+        'employees' => [
+            'driver' => 'eloquent',
+            'model' => Employees::class
+        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
