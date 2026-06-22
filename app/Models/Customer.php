@@ -9,7 +9,7 @@ class Customer extends Authenticatable
 {
     use HasFactory;
 
-    protected $fillable = ['username', 'email', 'password'];
+    protected $fillable = ['username', 'email', 'password', 'bills'];
 
     protected $hidden = ['password', 'remember_token'];
 
