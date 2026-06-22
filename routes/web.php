@@ -7,6 +7,7 @@ use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ShiftController;
+use App\Http\Controllers\TransactionController;
 use App\Models\Shift;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CustomerPaymentMethodController;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('products', ProductController::class);
 Route::resource('discounts', DiscountController::class);
 Route::resource('categories', CategoryController::class);
+Route::resource('transactions', TransactionController::class);
 
 Route::get('/', function () {
     return view('index');
