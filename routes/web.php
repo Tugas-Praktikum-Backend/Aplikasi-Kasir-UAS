@@ -7,6 +7,7 @@ use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ShiftController;
+use App\Http\Controllers\TransactionController;
 use App\Models\Shift;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CustomerPaymentMethodController;
@@ -22,7 +23,7 @@ Route::resource('categories', CategoryController::class);
 Route::resource('clients', ClientController::class);
 Route::resource('suppliers', SupplierController::class);
 Route::resource('purchases', PurchaseController::class);
-Route::resource('purchases', PurchaseController::class);
+Route::resource('transactions', TransactionController::class);
 
 Route::get('/', function () {
     return view('index');
