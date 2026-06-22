@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('inventory')->get();
+        $products = Product::with('inventory', 'category')->get();
         return view('products.index', compact('products'));
     }
 
@@ -90,7 +90,7 @@ class ProductController extends Controller
 
     public function inventory()
     {
-        $products = Product::with('inventory')->get();
+        $products = Product::with('inventory', 'category')->get();
         
         return view('products.inventory', compact('products')); 
     }
