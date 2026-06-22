@@ -16,13 +16,14 @@ class ProductSeeder extends Seeder
         $catPerawatan = Category::create(['nama' => 'Perawatan Diri & Mandi']);
 
         $product1 = Product::create([
-            'nama' => 'Indomie Mie Goreng (1 Dus)',
-            'harga' => 120000,
+            'nama' => 'Indomie Mie Goreng',
+            'harga' => 3000,
             'category_id' => $catSembako->id, 
         ]);
         $product1->inventory()->create([
             'merek' => 'Indofood',
-            'stock' => 50
+            'stock' => 50,
+            'isipc' => 40,
         ]);
 
         $product2 = Product::create([
@@ -32,7 +33,8 @@ class ProductSeeder extends Seeder
         ]);
         $product2->inventory()->create([
             'merek' => 'Sania',
-            'stock' => 20
+            'stock' => 20,
+            'isipc' => 5,
         ]);
 
         $product3 = Product::create([
@@ -42,27 +44,30 @@ class ProductSeeder extends Seeder
         ]);
         $product3->inventory()->create([
             'merek' => 'Bimoli',
-            'stock' => 30
+            'stock' => 30,
+            'isipc' => 6,
         ]);
 
         $product4 = Product::create([
-            'nama' => 'Aqua Air Mineral 600ml (1 Dus)',
-            'harga' => 50000,
+            'nama' => 'Aqua Air Mineral 600ml',
+            'harga' => 2500,
             'category_id' => $catMinuman->id, 
         ]);
         $product4->inventory()->create([
             'merek' => 'Danone Aqua',
-            'stock' => 100
+            'stock' => 100,
+            'isipc' => 24,
         ]);
 
         $product5 = Product::create([
-            'nama' => 'Teh Pucuk Harum 350ml (1 Dus)',
-            'harga' => 65000,
+            'nama' => 'Teh Pucuk Harum 350ml',
+            'harga' => 3000,
             'category_id' => $catMinuman->id, 
         ]);
         $product5->inventory()->create([
             'merek' => 'Mayora',
-            'stock' => 45
+            'stock' => 45,
+            'isipc' => 24,
         ]);
 
         $product6 = Product::create([
@@ -72,7 +77,8 @@ class ProductSeeder extends Seeder
         ]);
         $product6->inventory()->create([
             'merek' => 'Nestle',
-            'stock' => 120
+            'stock' => 120,
+            'isipc' => 30,
         ]);
 
         $product7 = Product::create([
@@ -82,7 +88,8 @@ class ProductSeeder extends Seeder
         ]);
         $product7->inventory()->create([
             'merek' => 'Kopi Kenangan',
-            'stock' => 60
+            'stock' => 60,
+            'isipc' => 24,
         ]);
 
         $product8 = Product::create([
@@ -92,7 +99,8 @@ class ProductSeeder extends Seeder
         ]);
         $product8->inventory()->create([
             'merek' => 'Indofood',
-            'stock' => 80
+            'stock' => 80,
+            'isipc' => 30,
         ]);
 
         $product9 = Product::create([
@@ -102,7 +110,8 @@ class ProductSeeder extends Seeder
         ]);
         $product9->inventory()->create([
             'merek' => 'Sari Roti',
-            'stock' => 15
+            'stock' => 15,
+            'isipc' => 10,
         ]);
 
         $product10 = Product::create([
@@ -112,7 +121,8 @@ class ProductSeeder extends Seeder
         ]);
         $product10->inventory()->create([
             'merek' => 'Delfi',
-            'stock' => 40
+            'stock' => 40,
+            'isipc' => 10,
         ]);
 
         $product11 = Product::create([
@@ -122,7 +132,8 @@ class ProductSeeder extends Seeder
         ]);
         $product11->inventory()->create([
             'merek' => 'Unilever',
-            'stock' => 50
+            'stock' => 50,
+            'isipc' => 48,
         ]);
 
         $product12 = Product::create([
@@ -132,7 +143,8 @@ class ProductSeeder extends Seeder
         ]);
         $product12->inventory()->create([
             'merek' => 'Unilever',
-            'stock' => 35
+            'stock' => 35,
+            'isipc' => 12,
         ]);
 
         $product13 = Product::create([
@@ -142,7 +154,8 @@ class ProductSeeder extends Seeder
         ]);
         $product13->inventory()->create([
             'merek' => 'Unilever',
-            'stock' => 25
+            'stock' => 25,
+            'isipc' => 12,
         ]);
     }
 }

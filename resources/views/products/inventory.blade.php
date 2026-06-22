@@ -8,6 +8,8 @@
             <th>Nama Produk</th>
             <th>Kategori</th>
             <th>Stock</th>
+            <th>PCS</th> 
+            <th>Harga Per Karton</th> </tr>
     </tr> 
   </thead> 
 <tbody>
@@ -18,6 +20,8 @@
                 <td>{{ $product->nama }}</td>
                 <td>{{ $product->category->nama ?? 'Tanpa Kategori' }}</td>
                 <td>{{ $product->inventory->stock ?? 0 }} KTN</td>
+                <td>{{ $product->inventory->isipc ?? 0 }} PC</td> 
+                <td>Rp {{ number_format(($product->harga * ($product->inventory->isipc ?? 1)), 0, ',', '.') }}</td>
             </tr>
         @empty
             <tr>
