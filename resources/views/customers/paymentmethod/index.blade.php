@@ -1,4 +1,7 @@
 <h1>Metode pembayaran Anda</h1>
+@if ($methods->isEmpty())
+    <p>Belum ada metode pembayaran</p>
+@else
 <table border="1" cellpadding="5" cellspacing="0">
     <thead>
         <tr>
@@ -29,6 +32,7 @@
         @endforeach
     </tbody>
 </table>
+@endif
 <br>
 <a href="{{ route('paymentmethods.create') }}">
     <button>Tambah metode pembayaran</button>
