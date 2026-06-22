@@ -63,6 +63,11 @@ Route::get('/customers/vulnerable', function () {
 // Customer menggunakan middleware agar harus login untuk ke dashboard
 Route::middleware(['auth'])->group(function () {
     Route::get('/customers/dashboard', [CustomerController::class, 'index'])->name('customers.index');
+    Route::get('/customers/changeusername', [CustomerController::class, 'changeusername'])->name('customers.changeusername');
+    Route::get('/customers/changepassword', [CustomerController::class, 'changepassword'])->name('customers.changepassword');
+    Route::put('/customers/updateusername', [CustomerController::class, 'updateusername'])->name('customers.updateusername');
+    Route::put('/customers/updatepassword', [CustomerController::class, 'updatepassword'])->name('customers.updatepassword');
+    Route::delete('/customers/deleteaccount', [CustomerController::class, 'destroy'])->name('customers.destroy');
     Route::redirect('/customers', '/customers/dashboard');
     Route::get('/customers/paymentmethods/{paymentmethod}/topup', [CustomerPaymentMethodController::class, 'topup'])->name('paymentmethods.topup');
     Route::resource('customers/paymentmethods', CustomerPaymentMethodController::class);
