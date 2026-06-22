@@ -16,6 +16,21 @@
         <input type="number" name="harga" required>
     </div>
     <br>
+    <div>
+        <label>Merek:</label><br>
+        <input type="text" name="merek" required>
+    </div>
+    <br>
+    <div>
+        <label>Kategori:</label><br>
+        <select name="category_id">
+            <option value="">-- Pilih Kategori --</option>
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->nama }}</option>
+            @endforeach
+        </select>
+    </div>
+    <br>
     <button type="submit">Simpan Produk</button>
     <a href="{{ route('products.index') }}">Batal</a>
 </form>
