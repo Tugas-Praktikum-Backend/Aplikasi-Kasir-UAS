@@ -1,13 +1,4 @@
 <h1>Produk List</h1>
- 
-<form action="{{ route('products.create') }}" method="GET" style="display:inline; margin-right: 5px;">
-    <button type="submit">Tambah Produk Baru</button>
-</form>
-
-<form action="{{ route('inventory') }}" method="GET" style="display:inline; margin-right: 5px;">
-    <button type="submit">Inventory</button>
-</form>
-<br><br>
 
 @if(session('success'))
     <div style="color: green;">{{ session('success') }}</div>
@@ -48,3 +39,12 @@
         @endforelse
     </tbody>
 </table>
+
+<br>
+<form action="{{ route('products.create') }}" method="GET" style="display:inline; margin-right: 5px;">
+    <button type="submit">Tambah Produk Baru</button>
+</form>
+
+<form action="{{ route('inventory') }}" method="GET" style="display:inline; margin-right: 5px;">
+    <button type="submit">Inventory</button>
+</form>

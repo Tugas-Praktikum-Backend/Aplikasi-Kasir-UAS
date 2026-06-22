@@ -1,18 +1,12 @@
 <h1>Inventory</h1>
 
-<form action="{{ route('products.index') }}" method="GET" style="display:inline; margin-right: 5px;">
-    <button type="submit">Kembali ke Product List</button>
-</form>
-<br><br>
-
-
 <table border="1" cellpadding="10" cellspacing="0"> 
   <thead> 
     <tr> 
             <th>Product ID</th>   
             <th>Merek</th>
             <th>Nama Produk</th>
-            <th>Kategori</th>>
+            <th>Kategori</th>
             <th>Stock</th>
     </tr> 
   </thead> 
@@ -32,3 +26,12 @@
         @endforelse
     </tbody>
 </table>
+
+<br>
+<form action="{{ route('products.create') }}" method="GET" style="display:inline; margin-right: 5px;">
+    <button type="submit">Tambah Produk Baru</button>
+</form>
+
+<form action="{{ route('products.index') }}" method="GET" style="display:inline; margin-right: 5px;">
+    <button type="submit">Kembali ke Product List</button>
+</form>
