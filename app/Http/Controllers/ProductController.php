@@ -34,8 +34,8 @@ class ProductController extends Controller
         $request->validate([
             'merek' => 'required|string|max:255',
             'nama' => 'required|string|max:255',
-            'stock' => 'required|integer',
-            'harga' => 'required|integer',
+            'stock' => 'required|integer|min:0',
+            'harga' => 'required|integer|min:0',
             'category_id' => 'nullable|exists:categories,id',
         ]);
 
@@ -78,8 +78,8 @@ class ProductController extends Controller
         $request->validate([
             'merek' => 'required|string|max:255',
             'nama' => 'required|string|max:255',
-            'stock' => 'required|integer',
-            'harga' => 'required|integer',
+            'stock' => 'required|integer|min:0',
+            'harga' => 'required|integer|min:0',
             'category_id' => 'nullable|exists:categories,id',
         ]);
 
