@@ -32,5 +32,8 @@
     </div>
     <br>
     <button type="submit">Simpan Produk</button>
-    <a href="{{ route('products.index') }}">Batal</a>
+    </form> 
+    <form action="{{ route('products.index') }}" method="GET">
+    <button type="submit">Batal</button>
+    </form>
 </form>

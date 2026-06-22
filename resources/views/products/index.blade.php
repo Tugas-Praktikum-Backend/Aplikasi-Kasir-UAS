@@ -1,10 +1,4 @@
 <h1>Produk List</h1>
- 
-<a href="{{ route('products.create') }}">Tambah Produk Baru</a> 
-<br><br> 
-
-<a href="{{ route('inventory') }}">Inventory</a>
-<br><br>
 
 @if(session('success'))
     <div style="color: green;">{{ session('success') }}</div>
@@ -15,6 +9,7 @@
     <tr> 
             <th>Product ID</th>
             <th>Nama Produk</th>
+            <th>Kategori</th>
             <th>Harga</th>
             <th>Aksi</th>
     </tr> 
@@ -24,6 +19,7 @@
             <tr>
                 <td><strong>{{ $product->id }}</strong></td>
                 <td>{{ $product->nama }}</td>
+                <td>{{ $product->category->nama ?? 'Tanpa Kategori' }}</td>
                 <td>Rp {{ number_format($product->harga, 0, ',', '.') }}</td>
                 <td>
                     <form action="{{ route('products.edit', $product->id) }}" method="GET" style="display:inline; margin-right: 5px;">
@@ -43,3 +39,12 @@
         @endforelse
     </tbody>
 </table>
+
+<br>
+<form action="{{ route('products.create') }}" method="GET" style="display:inline; margin-right: 5px;">
+    <button type="submit">Tambah Produk Baru</button>
+</form>
+
+<form action="{{ route('inventory') }}" method="GET" style="display:inline; margin-right: 5px;">
+    <button type="submit">Inventory</button>
+</form>

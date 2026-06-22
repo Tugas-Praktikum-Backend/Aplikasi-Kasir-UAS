@@ -15,6 +15,9 @@
 </form>
 <br><br><br><br>
 <p>ZONA BERBAHAYA</p>
-<button>Edit username</button>
-<button>Edit password</button>
-<button>Hapus akun</button>
+<a href="{{ route('customers.changeusername') }}"><button>Edit username</button></a>
+<a href="{{ route('customers.changepassword') }}"><button>Edit password</button></a>
+<form action="{{ route('customers.destroy') }}" method="POST">
+    @csrf @method('DELETE')
+    <button type="submit">Hapus akun</button>
+</form>

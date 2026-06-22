@@ -27,4 +27,4 @@
         </ul>
     </div>
 @endif
-<a href="{{ route('customer.login') }}">Return</a>
+<a href="{{ route('customer.login') }}"><button>Return</button></a>

@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payment_methods', function (Blueprint $table) {
-            $table->string('method_id')->primary();
-            $table->string('method_name');
-            $table->integer('admin_fee')->default(0);
-            $table->timestamps();
-        });
+        Schema::create('suppliers', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('product_id');
+        $table->foreignId('client_id');
+        $table->integer('jumlah');
+        $table->integer('modal');
+        $table->integer('harga');
+        $table->timestamps();
+    });
     }
 
     /**
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payment_methods');
+        Schema::dropIfExists('suppliers');
     }
 };

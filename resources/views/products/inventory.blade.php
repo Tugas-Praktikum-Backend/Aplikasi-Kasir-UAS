@@ -1,25 +1,22 @@
-<h1>Inverntory</h1>
-
-<a href="{{ route('products.index') }}">Kembali ke Product List</a>
-<br><br>
+<h1>Inventory</h1>
 
 <table border="1" cellpadding="10" cellspacing="0"> 
   <thead> 
     <tr> 
-            <th>Inventory ID</th> 
             <th>Product ID</th>   
             <th>Merek</th>
             <th>Nama Produk</th>
+            <th>Kategori</th>
             <th>Stock</th>
     </tr> 
   </thead> 
 <tbody>
         @forelse($products as $product)
             <tr>
-                <td>{{ $product->inventory->id ?? '-' }}</td>
                 <td><strong>{{ $product->id }}</strong></td>
                 <td>{{ $product->inventory->merek ?? '-' }}</td> 
                 <td>{{ $product->nama }}</td>
+                <td>{{ $product->category->nama ?? 'Tanpa Kategori' }}</td>
                 <td>{{ $product->inventory->stock ?? 0 }} KTN</td>
             </tr>
         @empty
@@ -29,3 +26,12 @@
         @endforelse
     </tbody>
 </table>
+
+<br>
+<form action="{{ route('products.create') }}" method="GET" style="display:inline; margin-right: 5px;">
+    <button type="submit">Tambah Produk Baru</button>
+</form>
+
+<form action="{{ route('products.index') }}" method="GET" style="display:inline; margin-right: 5px;">
+    <button type="submit">Kembali ke Product List</button>
+</form>

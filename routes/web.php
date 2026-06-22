@@ -12,11 +12,17 @@ use App\Models\Shift;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CustomerPaymentMethodController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PurchaseController;
 
 Route::resource('products', ProductController::class);
 Route::resource('discounts', DiscountController::class);
 Route::resource('categories', CategoryController::class);
+Route::resource('clients', ClientController::class);
+Route::resource('suppliers', SupplierController::class);
+Route::resource('purchases', PurchaseController::class);
 Route::resource('transactions', TransactionController::class);
 
 Route::get('/', function () {
@@ -39,6 +45,8 @@ Route::prefix('employees')->middleware(['auth:employee'])->group(function(){
     Route::fallback(fn() => redirect()->route('employees.index'));
 });
 
+Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
+
 
 // Customer Authenication
 Route::get('customers/login', [CustomerAuthController::class, 'showLogin'])->name('customer.login');
@@ -60,14 +68,28 @@ Route::get('/customers/vulnerable', function () {
 // Customer menggunakan middleware agar harus login untuk ke dashboard
 Route::middleware(['auth'])->group(function () {
     Route::get('/customers/dashboard', [CustomerController::class, 'index'])->name('customers.index');
+    Route::get('/customers/changeusername', [CustomerController::class, 'changeusername'])->name('customers.changeusername');
+    Route::get('/customers/changepassword', [CustomerController::class, 'changepassword'])->name('customers.changepassword');
+    Route::put('/customers/updateusername', [CustomerController::class, 'updateusername'])->name('customers.updateusername');
+    Route::put('/customers/updatepassword', [CustomerController::class, 'updatepassword'])->name('customers.updatepassword');
+    Route::delete('/customers/deleteaccount', [CustomerController::class, 'destroy'])->name('customers.destroy');
     Route::redirect('/customers', '/customers/dashboard');
     Route::get('/customers/paymentmethods/{paymentmethod}/topup', [CustomerPaymentMethodController::class, 'topup'])->name('paymentmethods.topup');
     Route::resource('customers/paymentmethods', CustomerPaymentMethodController::class);
-    Route::resource('products', ProductController::class);
-    Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 });
 
 Route::redirect('/managers', '/managers/dashboard');
 Route::get('/managers/dashboard', [ManagerController::class, 'index'])->name('managers.index');
-Route::get('/managers/manageemployees', [Managercontroller::class, 'manageemployee'])->name('managers.manageemployee');
-Route::get('/managers/managecustomers', [Managercontroller::class, 'managecustomer'])->name('managers.managecustomer');
+Route::get('/managers/manageemployees', [ManagerController::class, 'manageemployee'])->name('managers.manageemployee');
+Route::get('/managers/editemployees', [ManagerController::class, 'editmployee'])->name('managers.editemployee');
+Route::get('/managers/addemployees', [ManagerController::class, 'addemployee'])->name('managers.addemployee');
+Route::get('/managers/managepaymentmethod', [ManagerController::class, 'managepaymentmethod'])->name('managers.managepaymentmethod');
+Route::delete('/managers/deleteemployees', [ManagerController::class, 'deleteemployee'])->name('managers.deleteemployee');
+Route::put('/managers/givesalary', [ManagerController::class, 'givesalary'])->name('managers.givesalary');
+Route::get('/managers/addpaymentmethod', [ManagerController::class, 'addpaymentmethod'])->name('managers.addpaymentmethod');
+Route::get('/managers/editadminfee/{paymentmethod:method_id}', [ManagerController::class, 'editadminfee'])->name('managers.editadminfee');
+Route::get('/managers/addinvestment', [ManagerController::class, 'addinvestment'])->name('managers.addinvestment');
+Route::post('/managers/storeinvestment', [ManagerController::class, 'storeinvestment'])->name('managers.storeinvestment');
+Route::post('/managers/storepaymentmethod', [ManagerController::class, 'storepaymentmethod'])->name('managers.storepaymentmethod');
+Route::post('/managers/updateadminfee/{paymentmethod:method_id}', [ManagerController::class, 'updateadminfee'])->name('managers.updateadminfee');
+Route::delete('/managers/deletepaymentmethod/{paymentmethod:method_id}', [ManagerController::class, 'deletepaymentmethod'])->name('managers.deletepaymentmethod');
