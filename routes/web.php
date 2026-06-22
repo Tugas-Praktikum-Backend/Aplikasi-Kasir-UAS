@@ -12,10 +12,13 @@ use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CustomerPaymentMethodController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PurchaseController;
 
 Route::resource('products', ProductController::class);
 Route::resource('discounts', DiscountController::class);
 Route::resource('categories', CategoryController::class);
+Route::resource('purchases', PurchaseController::class);
+Route::resource('purchases', PurchaseController::class);
 
 Route::get('/', function () {
     return view('index');
