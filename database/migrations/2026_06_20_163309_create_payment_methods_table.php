@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('method_id')->primary();
             $table->string('method_name');
             $table->integer('admin_fee')->default(0);
-            $table->integer('registration_count')->default(0);
             $table->timestamps();
         });
     }
