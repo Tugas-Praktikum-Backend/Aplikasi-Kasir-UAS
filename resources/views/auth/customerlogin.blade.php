@@ -17,5 +17,5 @@
         </ul>
     </div>
 @endif
-<button><a href="{{ route('customer.register') }}">Signup</a></button>
-<button><a href="{{ route('home') }}">Return</a></button>
+<a href="{{ route('customer.register') }}"><button>Signup</button></a>
+<a href="{{ route('home') }}"><button>Return</button></a>
