@@ -16,7 +16,7 @@ class Transaction extends Model
     public function paymentMethod()
     {
         return $this->belongsTo(
-            CustomerPaymentMethod::class,
+            PaymentMethod::class,
             'payment_method_id'
         );
     }
