@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\CustomerAuthController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ShiftController;
 use App\Models\Shift;
 use App\Http\Controllers\PaymentMethodController;
@@ -60,7 +61,11 @@ Route::middleware(['auth'])->group(function () {
     Route::redirect('/customers', '/customers/dashboard');
     Route::get('/customers/paymentmethods/{paymentmethod}/topup', [CustomerPaymentMethodController::class, 'topup'])->name('paymentmethods.topup');
     Route::resource('customers/paymentmethods', CustomerPaymentMethodController::class);
-    Route::resource('managers', ManagerController::class);
     Route::resource('products', ProductController::class);
     Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 });
+
+Route::redirect('/managers', '/managers/dashboard');
+Route::get('/managers/dashboard', [ManagerController::class, 'index'])->name('managers.index');
+Route::get('/managers/manageemployees', [Managercontroller::class, 'manageemployee'])->name('managers.manageemployee');
+Route::get('/managers/managecustomers', [Managercontroller::class, 'managecustomer'])->name('managers.managecustomer');

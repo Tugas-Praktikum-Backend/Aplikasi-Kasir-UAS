@@ -2,21 +2,21 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Market;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class MarketSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      */
     public function run(): void
     {
-        $this->call([
-            MarketSeeder::class,
+        Market::create([
+            'id' => 1,
+            'total_pemasukan' => 0,
+            'modal_toko' => 0,
         ]);
     }
 }
