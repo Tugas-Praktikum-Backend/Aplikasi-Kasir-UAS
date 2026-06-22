@@ -11,12 +11,16 @@ use App\Models\Shift;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CustomerPaymentMethodController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PurchaseController;
 
 Route::resource('products', ProductController::class);
 Route::resource('discounts', DiscountController::class);
 Route::resource('categories', CategoryController::class);
+Route::resource('clients', ClientController::class);
+Route::resource('suppliers', SupplierController::class);
 Route::resource('purchases', PurchaseController::class);
 Route::resource('purchases', PurchaseController::class);
 
