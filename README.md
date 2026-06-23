@@ -1,59 +1,247 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Aplikasi Kasir
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 1. Employees
 
-## About Laravel
+### 1.1 Employees Login
+URL : http://127.0.0.1:8000/employees/login
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Penjelasan :
+Halaman login untuk karyawan.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Contoh Output :
+Form login karyawan.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+--------------------------------------------------
 
-## Learning Laravel
+### 1.2 Employees Dashboard
+URL : http://127.0.0.1:8000/employees
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Penjelasan :
+Dashboard utama karyawan.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Contoh Output :
+Ringkasan aktivitas karyawan.
 
-## Laravel Sponsors
+--------------------------------------------------
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 1.3 Employees Logout
+URL : http://127.0.0.1:8000/employees/logout
 
-### Premium Partners
+Penjelasan :
+Keluar dari sistem.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+--------------------------------------------------
 
-## Contributing
+## 2. Cashier
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 2.1 Cashier
+URL : http://127.0.0.1:8000/cashier
 
-## Code of Conduct
+Penjelasan :
+Halaman utama kasir.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+--------------------------------------------------
 
-## Security Vulnerabilities
+### 2.2 Create Transaction
+URL : http://127.0.0.1:8000/cashier/create
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Penjelasan :
+Membuat transaksi baru.
 
-## License
+--------------------------------------------------
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 2.3 Add Product
+URL : http://127.0.0.1:8000/cashier/create/add
+
+Penjelasan :
+Menambahkan produk ke transaksi.
+
+--------------------------------------------------
+
+### 2.4 Delete Product
+URL : http://127.0.0.1:8000/cashier/create/delete
+
+Penjelasan :
+Menghapus produk dari transaksi.
+
+--------------------------------------------------
+
+### 2.5 Process Transaction
+URL : http://127.0.0.1:8000/cashier/create/process
+
+Penjelasan :
+Memproses pembayaran.
+
+--------------------------------------------------
+
+## 3. Inventory
+
+### 3.1 Inventory
+URL : http://127.0.0.1:8000/inventory
+
+Penjelasan :
+Menampilkan data inventaris.
+
+--------------------------------------------------
+
+## 4. Products
+
+### 4.1 Product List
+URL : http://127.0.0.1:8000/products
+
+Penjelasan :
+Menampilkan daftar seluruh produk yang tersedia di sistem.
+
+Contoh Output :
+Tabel berisi nama produk, harga, jumlah stok, dan kategori.
+
+--------------------------------------------------
+
+### 4.2 Create Product
+URL : http://127.0.0.1:8000/products/create
+
+Penjelasan :
+Halaman form untuk menambahkan data produk baru ke dalam sistem.
+
+Contoh Output :
+Form input untuk nama produk, harga, stok awal, dan deskripsi produk.
+
+--------------------------------------------------
+
+### 4.3 Product Detail
+URL : http://127.0.0.1:8000/products/{product}
+
+Penjelasan :
+Menampilkan informasi detail dari satu produk spesifik.
+
+Contoh Output :
+Halaman detail berisi foto produk, deskripsi lengkap, harga, dan riwayat stok.
+
+--------------------------------------------------
+
+### 4.4 Edit Product
+URL : http://127.0.0.1:8000/products/{product}/edit
+
+Penjelasan :
+Halaman form untuk mengubah atau memperbarui data produk yang sudah ada.
+
+Contoh Output :
+Form input yang sudah terisi dengan data produk saat ini untuk diedit dan disimpan.
+
+--------------------------------------------------
+
+## 5. Customers
+
+### 5.1 Customer Login
+URL : http://127.0.0.1:8000/customers/login
+
+Penjelasan :
+Halaman login khusus untuk pelanggan (customer).
+
+Contoh Output :
+Form login pelanggan berisi input email/username dan password.
+
+--------------------------------------------------
+
+### 5.2 Customer Signup
+URL : http://127.0.0.1:8000/customers/signup
+
+Penjelasan :
+Halaman pendaftaran (registrasi) akun untuk pelanggan baru.
+
+Contoh Output :
+Form pendaftaran berisi input nama lengkap, email, password, dan nomor telepon.
+
+--------------------------------------------------
+
+### 5.3 Customer Dashboard
+URL : http://127.0.0.1:8000/customers/dashboard
+
+Penjelasan :
+Dashboard utama untuk pelanggan setelah berhasil login.
+
+Contoh Output :
+Ringkasan profil pelanggan, poin loyalitas (jika ada), dan riwayat pembelian terakhir.
+
+--------------------------------------------------
+
+## 6. Transactions
+
+### 6.1 Transaction List
+URL : http://127.0.0.1:8000/transactions
+
+Penjelasan :
+Menampilkan daftar seluruh transaksi yang telah terjadi di dalam sistem.
+
+Contoh Output :
+Tabel riwayat transaksi beserta ID transaksi, tanggal, nama kasir, dan total harga.
+
+--------------------------------------------------
+
+### 6.2 Create Transaction
+URL : http://127.0.0.1:8000/transactions/create
+
+Penjelasan :
+Halaman untuk mencatat dan membuat transaksi baru (selain dari halaman kasir utama).
+
+Contoh Output :
+Form pembuatan transaksi atau antarmuka Point of Sale (POS).
+
+--------------------------------------------------
+
+### 6.3 Transaction Bill
+URL : http://127.0.0.1:8000/transactions/{id}/bill
+
+Penjelasan :
+Menampilkan tagihan atau struk (invoice) dari transaksi tertentu.
+
+Contoh Output :
+Halaman cetak struk/invoice dengan rincian produk yang dibeli, pajak, dan total tagihan.
+
+--------------------------------------------------
+
+### 6.4 Transaction Payment
+URL : http://127.0.0.1:8000/transactions/{id}/pay
+
+Penjelasan :
+Halaman untuk memproses pembayaran dari sebuah transaksi yang belum lunas.
+
+Contoh Output :
+Pilihan metode pembayaran (tunai/kartu/e-wallet) dan form konfirmasi nominal uang yang dibayarkan.
+
+--------------------------------------------------
+
+## 7. Managers
+
+### 7.1 Manager Dashboard
+URL : http://127.0.0.1:8000/managers/dashboard
+
+Penjelasan :
+Dashboard utama untuk manajer yang berisi ringkasan bisnis, laporan, dan analitik.
+
+Contoh Output :
+Grafik pendapatan bulanan, ringkasan produk terlaris, dan performa kasir.
+
+--------------------------------------------------
+
+### 7.2 Manage Employees
+URL : http://127.0.0.1:8000/managers/manageemployees
+
+Penjelasan :
+Halaman untuk melihat dan mengelola data seluruh karyawan.
+
+Contoh Output :
+Tabel daftar karyawan beserta informasi kontak, jabatan, dan status keaktifan.
+
+--------------------------------------------------
+
+### 7.3 Add Employee
+URL : http://127.0.0.1:8000/managers/addemployees
+
+Penjelasan :
+Halaman form untuk mendaftarkan akun karyawan baru ke dalam sistem.
+
+Contoh Output :
+Form pengisian data diri karyawan, penentuan posisi/role (kasir/admin), dan pengaturan kredensial login.
+
+--------------------------------------------------
