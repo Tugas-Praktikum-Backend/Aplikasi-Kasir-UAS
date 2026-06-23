@@ -1,13 +1,5 @@
 <h1>Daftar Tagihan</h1>
 
-@if(session('success'))
-    <p style="color: green;">{{ session('success') }}</p>
-@endif
-
-@if(session('error'))
-    <p style="color: red;">{{ session('error') }}</p>
-@endif
-
 @if(count($list) >= 1)
     <table border="1" cellpadding="10" cellspacing="0">
         <thead>
@@ -38,7 +30,7 @@
                 @if($transaction[1])
                     <p> {{ $transaction[2] }} </p>
                 @else
-                    <select id='payment_method'>
+                    <select name='payment' form='payment{{ $i }}'>
                         @foreach ($payments as $payment)
                             <option value={{ $payment }}> {{ $payment }} </option>
                         @endforeach
@@ -59,11 +51,10 @@
                         @if(count($payments) < 1)
                             <p style="color:red"> Tidak ada metode pembayaran yang dipilih </p>
                         @else
-                            <form action='{{ route('transactions.payment') }}' method='get'>
+                            <form id='payment{{ $i }}' action='{{ route('transactions.payment') }}' method='get'>
                                 <input type='hidden' name='transaction_id' value='{{ $i }}'>
                                 <input type='hidden' name='transaction' value='@json($transaction[0])'>
                                 <input type='hidden' name='prices' value='{{ $prices }}'>
-                                <input type='hidden' id='payment' name='payment' value='BCA'>
                                 <button type='submit'> Bayar </button>
                             </form>
                         @endif
@@ -84,10 +75,3 @@
 
 <br> <br>
 <a href="{{ route('customers.index') }}"> <button> Kembali ke menu utama </button> </a>
-
-<script>
-    document.getElementById('payment_method').addEventListener('change', function () {
-        document.getElementById('payment').value = this.value;
-    });
-    document.getElementById('payment_method').dispatchEvent(new Event('change'));
-</script>
