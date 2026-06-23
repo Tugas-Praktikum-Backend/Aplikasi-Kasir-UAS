@@ -54,4 +54,16 @@ class TransactionController extends Controller
             ->route('transactions.index')
             ->with('success', 'Transaksi berhasil dibuat.');
     }
+        public function receipt(Transaction $transaction)
+{
+        $transaction->load([
+            'product',
+            'paymentMethod'
+    ]);
+
+    return view(
+        'transactions.receipt',
+        compact('transaction')
+    );
+    }
 }
