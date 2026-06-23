@@ -19,6 +19,11 @@ use App\Http\Controllers\PurchaseController;
 
 Route::get('/', fn() => view('index'))->name('home');
 
+
+Route::get('/', function () {
+    return view('index');
+})->name('home');
+
 Route::middleware(['auth:employee'])->group(function(){
     Route::resource('products', ProductController::class);
     Route::resource('discounts', DiscountController::class);
@@ -33,12 +38,13 @@ Route::middleware(['auth:employee'])->group(function(){
 });
 
 Route::prefix('/transactions')->middleware(['auth:customer,employee'])->group(function(){
-    Route::get('/{id}/bill', [TransactionController::class, 'bill'])->name('transactions.bill');
-    Route::post('/{id}/pay', [TransactionController::class, 'pay'])->name('transactions.pay');
+    Route::get('/', [TransactionController::class, 'index'])->name('transactions.index');
+    Route::get('/payment', [TransactionController::class, 'payment'])->name('transactions.payment');
+    Route::post('/pay', [TransactionController::class, 'pay'])->name('transactions.pay');
 });
 
 Route::prefix('/receipts')->middleware(['auth:employee'])->group(function(){
-    Route::get('/{id}', [ReceiptController::class, 'show'])->name('receipts.show');
+    Route::get('/', [ReceiptController::class, 'show'])->name('receipts.show');
 });
 
 Route::get('employees/login', [EmployeesController::class, 'loginPage']);

@@ -3,71 +3,85 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
-use App\Models\Product;
 use App\Models\PaymentMethod;
+use App\Models\Customer;
+use App\Models\Product;
+use App\Models\CustomerPaymentMethod;
+use App\Models\Inventory as Inventories;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+
 
 class TransactionController extends Controller
 {
     public function index()
     {
-        $transactions = Transaction::with(['product', 'paymentMethod'])->latest()->get();
-        return view('transactions.index', compact('transactions'));
+        $uid = Auth::user()->id;
+        $transactions = Customer::query()->where('id', $uid)->first();
+        $list = [];
+        foreach(json_decode($transactions->bills, true) as $id => $data){
+            $products = [];
+            foreach($data as $item => $amount){
+                $productData = Product::query()->where('id', (int)$item)->first();
+                $products[] = [$item, $productData->nama, $amount, $productData->harga];
+            }
+            $hasPaid = false;
+            $paid = Transaction::query()->where('customer_id', $uid)->get()->toArray();
+            foreach($paid as $paidId => $data){
+                if($id === $paidId)$hasPaid = true;
+            }
+            $list[$id] = [$products, $hasPaid];
+        }
+        $payments = [];
+        foreach(CustomerPaymentMethod::query()->where('customer_id', $uid)->get() as $data){
+            $payments[] = $data->method_id;
+        }
+        return view('transactions.index', compact('list', 'payments'));
     }
 
-    public function create()
+    public function payment(Request $request)
     {
-        $products = Product::all();
-        return view('transactions.create', compact('products'));
+        $uid = Auth::user()->id;
+        $transactions = Customer::query()->where('id', $uid)->first();
+        $list = [];
+        $reqData = $request->only('transaction_id', 'transaction', 'prices', 'payment');
+        $transaction = json_decode($reqData['transaction']);
+        $prices = $reqData['prices'];
+        $payment = $reqData['payment'];
+        $tid = $reqData['transaction_id'];
+        $data = $transactions->bills[$tid];
+        return view('transactions.payment', compact('transaction', 'prices', 'payment', 'tid'));
     }
 
-    // tahap 1: customer pilih barang -> buat tagihan
-    public function store(Request $request)
+    public function pay(Request $request)
     {
-        $request->validate([
-            'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer|min:1',
+        $uid = Auth::user()->id;
+        $transactions = Customer::query()->where('id', $uid)->first();
+        $list = [];
+        $reqData = $request->only('transaction_id', 'transaction', 'prices', 'payment');
+        $transaction = json_decode($reqData['transaction'], true);
+        $prices = $reqData['prices'];
+        $payment = $reqData['payment'];
+        $tid = $reqData['transaction_id'];
+        $data = $transactions->bills[$tid];
+
+        $methods = CustomerPaymentMethod::where('customer_id', $uid)->get();
+        $current = $methods->where('method_id', $payment)->first()['balance'];
+        CustomerPaymentMethod::where('customer_id', $uid)->where('method_id', $payment)
+            ->update(['balance' => max(0, $current - $prices)]);
+
+        foreach($transaction as $data){
+            $invData = Inventories::query()->where('id', $data[0])->first();
+            Inventories::query()->where('id', $data[0])->update(['stock' => $invData->stock - $data[2]]);
+        }
+
+        Transaction::query()->insert([
+            'customer_id' => $uid,
+            'transaction_id' => $tid,
+            'total_price' => $prices,
+            'payment_method' => $payment
         ]);
 
-        $product = Product::findOrFail($request->product_id);
-        $totalPrice = $product->harga * $request->quantity;
-
-        $transaction = Transaction::create([
-            'product_id' => $request->product_id,
-            'quantity' => $request->quantity,
-            'total_price' => $totalPrice,
-            'payment_method_id' => null,
-            'status' => 'pending',
-        ]);
-
-        return redirect()->route('transactions.bill', $transaction->id)
-            ->with('success', 'Tagihan berhasil dibuat');
-    }
-
-    // tahap 2: tampilkan tagihan + pilihan metode pembayaran
-    public function bill($id)
-    {
-        $transaction = Transaction::with('product')->findOrFail($id);
-        $paymentMethods = PaymentMethod::all();
-
-        return view('transactions.bill', compact('transaction', 'paymentMethods'));
-    }
-
-    // tahap 3: customer bayar -> update payment method + status paid
-    public function pay(Request $request, $id)
-    {
-        $request->validate([
-            'payment_method_id' => 'required|exists:payment_methods,method_id',
-        ]);
-
-        $transaction = Transaction::findOrFail($id);
-
-        $transaction->update([
-            'payment_method_id' => $request->payment_method_id,
-            'status' => 'paid',
-        ]);
-
-        return redirect()->route('receipts.show', $transaction->id)
-            ->with('success', 'Pembayaran berhasil');
+        return redirect()->route('receipts.show')->with(['tid' => $tid]);
     }
 }

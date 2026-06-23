@@ -8,7 +8,6 @@ class Transaction extends Model
 {
     protected $fillable = [
         'product_id',
-        'quantity',
         'total_price',
         'payment_method_id',
         'status',
@@ -16,7 +15,7 @@ class Transaction extends Model
 
     public function product()
     {
-        return $this->belongsTo(Product::class, 'product_id', 'id');
+        return $this->belongsTo(Product::class, 'product_id');
     }
 
     public function paymentMethod()

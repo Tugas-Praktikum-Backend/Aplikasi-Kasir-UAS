@@ -10,16 +10,10 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id');
-            $table->integer('quantity');
+            $table->string('customer_id');
+            $table->integer('transaction_id');
             $table->integer('total_price');
-
-            // payment method belum dipilih saat tagihan dibuat
-            $table->string('payment_method_id')->nullable();
-
-            // status transaksi: pending / paid
-            $table->string('status')->default('pending');
-
+            $table->string('payment_method');
             $table->timestamps();
         });
     }
