@@ -1,7 +1,7 @@
 <h1>Manager Dashboard</h1>
 <div>
-    <p>Jumlah pemasukan: {{ $market->total_pemasukan }}</p>
-    <p>Total modal toko sekarang: {{ $market->modal_toko }}</p>
+    <p>Jumlah pemasukan: Rp {{ number_format($market->total_pemasukan, 0, ',', '.') }}</p>
+    <p>Total modal toko sekarang: Rp {{ number_format($market->modal_toko, 0, ',', '.') }}</p>
     <a href={{ route('managers.addinvestment') }}><button>Masukkan uang ke toko</button></a>
 </div>
 <br>

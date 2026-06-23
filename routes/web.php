@@ -39,18 +39,18 @@ Route::prefix('employees')->middleware(['auth:employee'])->group(function(){
 
     Route::get('/salary', [EmployeesController::class, 'salaryPage'])->name('employees.salary');
 
-    Route::get('/cashier', [CashierController::class, 'index'])->name('employees.cashier');
-    Route::get('/cashier/create', [CashierController::class, 'create'])->name('employees.cashier_create');
-    Route::get('/cashier/create/add', [CashierController::class, 'add'])->name('employees.cashier_add');
-    Route::get('/cashier/create/delete', [CashierController::class, 'delete'])->name('employees.cashier_delete');
-    Route::get('/cashier/create/process', [CashierController::class, 'process'])->name('employees.cashier_process');
-
     Route::get('/shifts', [ShiftController::class, 'index'])->name('employees.shift');
     Route::get('/shifts/start', [ShiftController::class, 'startShift'])->name('employees.start_shift');
     Route::get('/shifts/end', [ShiftController::class, 'endShift'])->name('employees.stop_shift');
 
     Route::fallback(fn() => redirect()->route('employees.index'));
 });
+
+Route::get('cashier', [CashierController::class, 'index'])->name('cashier.index');
+Route::get('cashier/create', [CashierController::class, 'create'])->name('cashier.create');
+Route::get('cashier/create/add', [CashierController::class, 'add'])->name('cashier.add');
+Route::get('cashier/create/delete', [CashierController::class, 'delete'])->name('cashier.delete');
+Route::get('cashier/create/process', [CashierController::class, 'process'])->name('cashier.process');
 
 Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 
@@ -88,11 +88,12 @@ Route::middleware(['auth'])->group(function () {
 Route::redirect('/managers', '/managers/dashboard');
 Route::get('/managers/dashboard', [ManagerController::class, 'index'])->name('managers.index');
 Route::get('/managers/manageemployees', [ManagerController::class, 'manageemployee'])->name('managers.manageemployee');
-Route::get('/managers/editemployees', [ManagerController::class, 'editmployee'])->name('managers.editemployee');
+Route::get('/managers/editemployees/{employee}', [ManagerController::class, 'editemployee'])->name('managers.editemployee');
 Route::get('/managers/addemployees', [ManagerController::class, 'addemployee'])->name('managers.addemployee');
 Route::get('/managers/managepaymentmethod', [ManagerController::class, 'managepaymentmethod'])->name('managers.managepaymentmethod');
-Route::delete('/managers/deleteemployees', [ManagerController::class, 'deleteemployee'])->name('managers.deleteemployee');
-Route::put('/managers/givesalary', [ManagerController::class, 'givesalary'])->name('managers.givesalary');
+Route::delete('/managers/removeemployee/{employee}', [ManagerController::class, 'removeemployee'])->name('managers.removeemployee');
+Route::get('/managers/givesalary/{employee}', [ManagerController::class, 'givesalary'])->name('managers.givesalary');
+Route::put('/managers/transfersalary/{employee}', [ManagerController::class, 'transfersalary'])->name('managers.transfersalary');
 Route::get('/managers/addpaymentmethod', [ManagerController::class, 'addpaymentmethod'])->name('managers.addpaymentmethod');
 Route::get('/managers/editadminfee/{paymentmethod:method_id}', [ManagerController::class, 'editadminfee'])->name('managers.editadminfee');
 Route::get('/managers/addinvestment', [ManagerController::class, 'addinvestment'])->name('managers.addinvestment');
@@ -100,3 +101,7 @@ Route::post('/managers/storeinvestment', [ManagerController::class, 'storeinvest
 Route::post('/managers/storepaymentmethod', [ManagerController::class, 'storepaymentmethod'])->name('managers.storepaymentmethod');
 Route::post('/managers/updateadminfee/{paymentmethod:method_id}', [ManagerController::class, 'updateadminfee'])->name('managers.updateadminfee');
 Route::delete('/managers/deletepaymentmethod/{paymentmethod:method_id}', [ManagerController::class, 'deletepaymentmethod'])->name('managers.deletepaymentmethod');
+Route::post('/managers/storeemployee', [ManagerController::class, 'storeemployee'])->name('managers.storeemployee');
+Route::put('/managers/updateemployee/{employee}', [ManagerController::class, 'updateemployee'])->name('managers.updateemployee');
+
+Route::fallback(fn() => redirect()->route('home'));

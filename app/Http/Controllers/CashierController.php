@@ -71,7 +71,7 @@ class CashierController extends Controller
         $cat = $inputData[2];
         $data[$id] = [($data[$id] ?? [0])[0] + $amount, $cat];
 
-        return redirect()->route('employees.cashier_create')->with('data', $data);
+        return redirect()->route('cashier.create')->with('data', $data);
     }
 
     public function delete(Request $request) {
@@ -81,7 +81,7 @@ class CashierController extends Controller
         $data = Crypt::decrypt($data);
         unset($data[$request->input('id')]);
 
-        return redirect()->route('employees.cashier_create')->with('data', $data);
+        return redirect()->route('cashier.create')->with('data', $data);
     }
 
     public function process(Request $request) {

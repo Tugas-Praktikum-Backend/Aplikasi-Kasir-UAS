@@ -22,7 +22,7 @@ class RoleUtils {
     private static array $routes = [
         self::PERM_SHIFT => "employees.shift",
         self::PERM_PRODUCTS => "products.index",
-        self::PERM_CASHIER => 'employees.cashier'
+        self::PERM_CASHIER => 'cashier.index'
     ];
 
     public static function isPermitted(string $role, string $perm): bool {
@@ -36,4 +36,8 @@ class RoleUtils {
         }
         return $allowed;
     }
+
+    public static function getRoles(): array {
+    return array_keys(self::$list); 
+}
 }

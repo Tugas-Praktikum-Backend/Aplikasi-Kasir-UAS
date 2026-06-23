@@ -26,7 +26,7 @@
                 <td> {{ $d[0] }} </td>
                 <td> {{ $productData[2] * $d[0] }} </td>
                 <td>
-                    <form action="{{ route('employees.cashier_delete') }}" method="get">
+                    <form action="{{ route('cashier.delete') }}" method="get">
                         @csrf
                         <input type="hidden" name="id" value={{ $i }}>
                         <input type="hidden" name="data" value={{ Crypt::encrypt($data) }}>
@@ -41,7 +41,7 @@
     <br> <br>
 @endif
 
-<form action="{{ route('employees.cashier_add') }}" method="get">
+<form action="{{ route('cashier.add') }}" method="get">
     @csrf
     <input type="hidden" name="data" value={{ Crypt::encrypt($data) }}>
     <br>
@@ -65,7 +65,7 @@
 <br> <br>
 
 @if(count($data) > 0)
-    <form action="{{ route('employees.cashier_process') }}" method="get">
+    <form action="{{ route('cashier.process') }}" method="get">
         @csrf
         <input type="hidden" name="data" value={{ Crypt::encrypt($data) }}>
         Username Customer <input required name="customer_id">
@@ -79,7 +79,7 @@
     <br> <br>
 @endif
 
-<a href="{{ route('employees.index') }}"> Kembali ke menu utama </a>
+<a href="{{ route('employees.index') }}"> <button> Kembali ke menu utama </button> </a>
 </html>
 
 <style>
