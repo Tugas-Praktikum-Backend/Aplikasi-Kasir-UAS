@@ -40,6 +40,8 @@ composer run dev
 > Aplikasi ini menggunakan implementasi JavaScript secara aktif. Jika hanya menjalankan `php artisan serve`, kompilasi aset JavaScript tidak akan berjalan, yang akan mengakibatkan aplikasi tidak berfungsi. Oleh karena itu, diwajibkan untuk menggunakan perintah `composer run dev`.
 
 --------------------------------------------------
+## Dokumentasi Fitur & URL
+--------------------------------------------------
 
 ## 1. Employees
 
