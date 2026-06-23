@@ -76,6 +76,7 @@ Contoh Output :
 
 
 
+
 <img width="137" height="28" alt="Screenshot 2026-06-23 174042" src="https://github.com/user-attachments/assets/5da4d8b5-441f-42d8-8b27-b88b8dff9bd3" />
 
 
@@ -93,6 +94,7 @@ Contoh Output :
 
 
 
+
 <img width="126" height="28" alt="Screenshot 2026-06-23 174315" src="https://github.com/user-attachments/assets/04b71487-61be-4b84-a3e8-a72283d9df6a" />
 
 
@@ -104,6 +106,8 @@ URL : http://127.0.0.1:8000/cashier/create/process
 Penjelasan :
 Memproses pembayaran.
 
+Contoh Output : Belum Di Tambah
+
 --------------------------------------------------
 
 ## 3. Inventory
@@ -113,6 +117,12 @@ URL : http://127.0.0.1:8000/inventory
 
 Penjelasan :
 Menampilkan data inventaris.
+
+Contoh Output :
+
+
+
+<img width="1603" height="868" alt="Screenshot 2026-06-23 175347" src="https://github.com/user-attachments/assets/5f068296-b9e5-4789-9891-4b5c724b73d8" />
 
 --------------------------------------------------
 
@@ -125,7 +135,8 @@ Penjelasan :
 Menampilkan daftar seluruh produk yang tersedia di sistem.
 
 Contoh Output :
-Tabel berisi nama produk, harga, jumlah stok, dan kategori.
+
+<img width="885" height="820" alt="Screenshot 2026-06-23 175440" src="https://github.com/user-attachments/assets/f65e6273-91a4-4b67-8f51-962c418c9250" />
 
 --------------------------------------------------
 
@@ -136,29 +147,20 @@ Penjelasan :
 Halaman form untuk menambahkan data produk baru ke dalam sistem.
 
 Contoh Output :
-Form input untuk nama produk, harga, stok awal, dan deskripsi produk.
+
+<img width="381" height="506" alt="Screenshot 2026-06-23 175524" src="https://github.com/user-attachments/assets/64e4efd9-45bf-413d-acd2-c0d0c73721e7" />
 
 --------------------------------------------------
 
-### 4.3 Product Detail
-URL : http://127.0.0.1:8000/products/{product}
-
-Penjelasan :
-Menampilkan informasi detail dari satu produk spesifik.
-
-Contoh Output :
-Halaman detail berisi foto produk, deskripsi lengkap, harga, dan riwayat stok.
-
---------------------------------------------------
-
-### 4.4 Edit Product
+### 4.3 Edit Product
 URL : http://127.0.0.1:8000/products/{product}/edit
 
 Penjelasan :
 Halaman form untuk mengubah atau memperbarui data produk yang sudah ada.
 
 Contoh Output :
-Form input yang sudah terisi dengan data produk saat ini untuk diedit dan disimpan.
+
+<img width="265" height="506" alt="Screenshot 2026-06-23 175656" src="https://github.com/user-attachments/assets/5e1cbd14-f880-41e9-9470-6e89f5eb0d29" />
 
 --------------------------------------------------
 
@@ -206,7 +208,8 @@ Penjelasan :
 Menampilkan daftar seluruh transaksi yang telah terjadi di dalam sistem.
 
 Contoh Output :
-Tabel riwayat transaksi beserta ID transaksi, tanggal, nama kasir, dan total harga.
+
+<img width="728" height="222" alt="Screenshot 2026-06-23 180206" src="https://github.com/user-attachments/assets/5e81883a-842c-4356-8f2b-8b28e1b96cce" />
 
 --------------------------------------------------
 
@@ -217,7 +220,8 @@ Penjelasan :
 Halaman untuk mencatat dan membuat transaksi baru (selain dari halaman kasir utama).
 
 Contoh Output :
-Form pembuatan transaksi atau antarmuka Point of Sale (POS).
+
+<img width="168" height="24" alt="Screenshot 2026-06-23 180242" src="https://github.com/user-attachments/assets/780dbd0b-2563-4fdd-b689-cdca267fac1f" />
 
 --------------------------------------------------
 
@@ -252,7 +256,8 @@ Penjelasan :
 Dashboard utama untuk manajer yang berisi ringkasan bisnis, laporan, dan analitik.
 
 Contoh Output :
-Grafik pendapatan bulanan, ringkasan produk terlaris, dan performa kasir.
+
+<img width="925" height="235" alt="Screenshot 2026-06-23 180331" src="https://github.com/user-attachments/assets/5c415abd-63e7-43e3-bbfd-5d2a4aeec442" />
 
 --------------------------------------------------
 
@@ -263,7 +268,8 @@ Penjelasan :
 Halaman untuk melihat dan mengelola data seluruh karyawan.
 
 Contoh Output :
-Tabel daftar karyawan beserta informasi kontak, jabatan, dan status keaktifan.
+
+<img width="923" height="354" alt="Screenshot 2026-06-23 180411" src="https://github.com/user-attachments/assets/0fb197cd-f2f8-4fe0-a5b7-8ccf68789fdb" />
 
 --------------------------------------------------
 
@@ -274,6 +280,7 @@ Penjelasan :
 Halaman form untuk mendaftarkan akun karyawan baru ke dalam sistem.
 
 Contoh Output :
-Form pengisian data diri karyawan, penentuan posisi/role (kasir/admin), dan pengaturan kredensial login.
+
+<img width="161" height="32" alt="Screenshot 2026-06-23 180434" src="https://github.com/user-attachments/assets/9a0fb777-a33f-4638-99f0-260b802675e7" />
 
 --------------------------------------------------
