@@ -9,3 +9,6 @@
 
     <button type="submit">Ganti Username</button>
 </form>
+<a href="{{ route('customers.index') }}">
+    <button>Balik</button>
+</a>

@@ -13,10 +13,12 @@ class MarketSeeder extends Seeder
      */
     public function run(): void
     {
-        Market::create([
-            'id' => 1,
-            'total_pemasukan' => 0,
-            'modal_toko' => 0,
-        ]);
+        Market::updateOrCreate(
+            ['id' => 1], 
+            [
+                'total_pemasukan' => 0,
+                'modal_toko' => 0,
+            ]
+        );
     }
 }

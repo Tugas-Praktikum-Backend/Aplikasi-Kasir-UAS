@@ -39,4 +39,8 @@ class RoleUtils {
     public static function getAllowedRoutes(string $role): array {
         return self::$list[$role] ?? [];
     }
+
+    public static function getRoles(): array {
+    return array_keys(self::$list);
+}
 }

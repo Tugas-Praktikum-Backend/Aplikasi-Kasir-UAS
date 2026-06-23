@@ -25,7 +25,6 @@
         <input type="number" name="harga" required min="0">
     </div>
     <br>
-    <br>
     <div>
         <label>Merek:</label><br>
         <input type="text" name="merek" required>
@@ -43,7 +42,6 @@
     <br>
     <button type="submit">Simpan Produk</button>
     </form> 
-    <form action="{{ route('products.index') }}" method="GET">
+<form action="{{ route('inventory') }}" method="GET" style="margin-top: 10px;">
     <button type="submit">Batal</button>
-    </form>
 </form>
