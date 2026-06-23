@@ -16,12 +16,12 @@ class ManagerController extends Controller
     {
         $market = Market::first();
 
-        return view('employees.manager.index', compact('market'));
+        return view('manager.index', compact('market'));
     }
 
     public function addinvestment()
     {
-        return view('employees.manager.addinvestment');
+        return view('manager.addinvestment');
     }
 
     public function storeinvestment(Request $request)
@@ -42,14 +42,14 @@ class ManagerController extends Controller
     {
         $employees = Employees::all();
 
-        return view('employees.manager.manageemployee', compact('employees'));
+        return view('manager.manageemployee', compact('employees'));
     }
 
     public function addemployee()
     {
         $roles = RoleUtils::getRoles(); 
     
-        return view('employees.manager.addemployee', compact('roles'));
+        return view('manager.addemployee', compact('roles'));
     }
 
     public function storeemployee(Request $request)
@@ -81,7 +81,7 @@ class ManagerController extends Controller
 
     public function givesalary(Employees $employee)
     {
-        return view('employees.manager.givesalary', compact('employee'));
+        return view('manager.givesalary', compact('employee'));
     }
 
     public function transfersalary(Request $request, Employees $employee)
@@ -99,7 +99,7 @@ class ManagerController extends Controller
 
     public function editemployee(Employees $employee)
     {
-        return view('employees.manager.editemployee', compact('employee'));
+        return view('manager.editemployee', compact('employee'));
     }
 
     public function updateemployee(Request $request, Employees $employee)
@@ -122,7 +122,7 @@ class ManagerController extends Controller
 
     public function addpaymentmethod()
     {
-        return view('employees.manager.addpaymentmethod');
+        return view('manager.addpaymentmethod');
     }
 
     public function storepaymentmethod(Request $request)
@@ -149,12 +149,12 @@ class ManagerController extends Controller
     {
         $paymentmethod = PaymentMethod::all();
 
-        return view('employees.manager.managepaymentmethod', compact('paymentmethod'));
+        return view('manager.managepaymentmethod', compact('paymentmethod'));
     }
 
     public function editadminfee(PaymentMethod $paymentmethod)
     {
-        return view('employees.manager.editadminfee', compact('paymentmethod'));
+        return view('manager.editadminfee', compact('paymentmethod'));
     }
 
     public function updateadminfee(Request $request, PaymentMethod $paymentmethod)
