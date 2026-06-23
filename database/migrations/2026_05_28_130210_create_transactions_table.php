@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('customer_id');
             $table->integer('transaction_id');
+            $table->string('discounts');
             $table->integer('total_price');
             $table->string('payment_method');
             $table->timestamps();

@@ -11,8 +11,9 @@ class Receipt extends Model
     protected $fillable = [
         'product_id',
         'total_price',
-        'payment_method_id',
+        'payment_method',
         'status',
+        'discounts'
     ];
 
     public function product()

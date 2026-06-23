@@ -8,18 +8,19 @@
     <p style="color: red;">{{ session('error') }}</p>
 @endif
 
-<table border="1" cellpadding="10" cellspacing="0">
-    <thead>
+@if(count($list) >= 1)
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
         <tr>
-            <th>ID Transaksi</th>
-            <th>Produk</th>
-            <th>Metode Pembayaran</th>
-            <th>Total Harga</th>
-            <th>Status</th>
-            <th>Aksi</th>
+            <th> ID Transaksi </th>
+            <th> Produk </th>
+            <th> Metode Pembayaran </th>
+            <th> Total </th>
+            <th> Status </th>
+            <th> Aksi </th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         @foreach($list as $i => $transaction)
             <tr>
                 <td>{{ $i }}</td>
@@ -28,13 +29,13 @@
                     $prices = 0;
                     foreach($transaction[0] as $id => $data){
                         $products[] = "{$data[2]}x $data[1]";
-                        $prices += $data[2] * $data[3];
+                        $prices += $data[5];
                     }
                     $productString = implode(', ', $products);
                 @endphp
                 <td>{{ $productString }}</td>
                 <td>
-                    <select id='payment_method'> 
+                    <select id='payment_method'>
                         @foreach ($payments as $payment)
                             <option value={{ $payment }}> {{ $payment }} </option>
                         @endforeach
@@ -65,17 +66,19 @@
                     @endif
                 </td>
             </tr>
-        {{-- @empty
-            <tr>
-                <td colspan="8">Belum ada data transaksi</td>
-            </tr> --}}
         @endforeach
-    </tbody>
-</table>
+        </tbody>
+    </table>
+@else
+    <p> Belum ada data transaksi </p>
+@endif
+
+<br> <br>
+<a href="{{ route('customers.index') }}"> <button> Kembali ke menu utama </button> </a>
 
 <script>
     document.getElementById('payment_method').addEventListener('change', function () {
         document.getElementById('payment').value = this.value;
     });
-    document.getElementById('payment_method').dispatchEvent('change');
+    document.getElementById('payment_method').dispatchEvent(new Event('change'));
 </script>

@@ -15,8 +15,8 @@ class CustomerSeeder extends Seeder
     public function run(): void
     {
         Customer::query()->insert([
-            'email' => 'upinipin@gmail.com',
-            'username' => 'upinipin',
+            'email' => 'andika@gmail.com',
+            'username' => 'AndikaSurya',
             'password' => Hash::make('12345678'),
             'created_at' => now(),
             'updated_at' => now(),

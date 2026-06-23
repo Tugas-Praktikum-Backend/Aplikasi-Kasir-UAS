@@ -19,11 +19,6 @@ use App\Http\Controllers\PurchaseController;
 
 Route::get('/', fn() => view('index'))->name('home');
 
-
-Route::get('/', function () {
-    return view('index');
-})->name('home');
-
 Route::middleware(['auth:employee'])->group(function(){
     Route::resource('products', ProductController::class);
     Route::resource('discounts', DiscountController::class);
@@ -76,7 +71,7 @@ Route::post('/customers/login', [CustomerAuthController::class, 'login']);
 Route::post('/customers/logout', [CustomerAuthController::class, 'logout'])->name('customer.logout');
 Route::get('/customers/signup', [CustomerController::class, 'create'])->name('customer.register');
 Route::post('/customers/signup', [CustomerAuthController::class, 'signup'])->name('customers.store');
-Route::prefix('/customers')->middleware(['auth:customer'])->group(function () {
+Route::prefix('customers')->middleware(['auth:customer'])->group(function () {
     Route::get('/dashboard', [CustomerController::class, 'index'])->name('customers.index');
     Route::get('/changeusername', [CustomerController::class, 'changeusername'])->name('customers.changeusername');
     Route::get('/changepassword', [CustomerController::class, 'changepassword'])->name('customers.changepassword');
@@ -85,9 +80,8 @@ Route::prefix('/customers')->middleware(['auth:customer'])->group(function () {
     Route::delete('/deleteaccount', [CustomerController::class, 'destroy'])->name('customers.destroy');
     Route::get('/paymentmethods/{paymentmethod}/topup', [CustomerPaymentMethodController::class, 'topup'])->name('paymentmethods.topup');
     Route::resource('/paymentmethods', CustomerPaymentMethodController::class);
+    Route::fallback(fn() => redirect()->route('customers.index'));
 });
-Route::redirect('/customers/', '/customer/dashboard');
-Route::redirect('/customers', '/customer/dashboard');
 
 Route::prefix('/managers')->middleware(['auth:employee'])->group(function(){
     Route::get('/dashboard', [ManagerController::class, 'index'])->name('managers.index');
