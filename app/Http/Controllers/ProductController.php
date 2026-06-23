@@ -35,6 +35,7 @@ class ProductController extends Controller
             'merek' => 'required|string|max:255',
             'nama' => 'required|string|max:255',
             'stock' => 'required|integer|min:0',
+            'isipc' => 'required|integer|min:1',
             'harga' => 'required|integer|min:0',
             'category_id' => 'nullable|exists:categories,id',
         ]);
@@ -45,12 +46,16 @@ class ProductController extends Controller
             'category_id' => request('category_id'),
         ]);
 
+        $hrgktn = request('harga') * request('isipc');
+
         $Product -> inventory() -> create([
             'merek' => request('merek'), 
             'stock' => request('stock'),
+            'isipc' => $request->isipc,
+            'hrgktn' => $hrgktn,
         ]);
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan.');
+        return redirect()->route('inventory')->with('success', 'Produk berhasil ditambahkan.');
     }
 
     /**
@@ -79,13 +84,25 @@ class ProductController extends Controller
             'merek' => 'required|string|max:255',
             'nama' => 'required|string|max:255',
             'stock' => 'required|integer|min:0',
+            'isipc' => 'required|integer|min:1',
             'harga' => 'required|integer|min:0',
             'category_id' => 'nullable|exists:categories,id',
         ]);
 
         $product->update($request->only('nama', 'harga', 'category_id'));
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui.');
+        if ($product->inventory) {
+            $hrgktn = $request->harga * $request->isipc;
+            
+            $product->inventory->update([
+                'merek' => $request->merek,
+                'stock' => $request->stock,
+                'isipc' => $request->isipc,
+                'hrgktn' => $hrgktn,
+            ]);
+        }
+
+        return redirect()->route('inventory')->with('success', 'Produk berhasil diperbarui.');
     }
 
     public function inventory()
@@ -102,6 +119,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus.');
+        return redirect()->route('inventory')->with('success', 'Produk berhasil dihapus.');
     }
 }

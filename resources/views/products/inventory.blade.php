@@ -8,6 +8,10 @@
             <th>Nama Produk</th>
             <th>Kategori</th>
             <th>Stock</th>
+            <th>PCS</th> 
+            <th>Harga Per Karton</th> 
+            <th>Harga Per PC</th>
+            <th>Aksi</th>
     </tr> 
   </thead> 
 <tbody>
@@ -18,10 +22,22 @@
                 <td>{{ $product->nama }}</td>
                 <td>{{ $product->category->nama ?? 'Tanpa Kategori' }}</td>
                 <td>{{ $product->inventory->stock ?? 0 }} KTN</td>
+                <td>{{ $product->inventory->isipc ?? 0 }} PC</td> 
+                <td>Rp {{ number_format(($product->harga * ($product->inventory->isipc ?? 1)), 0, ',', '.') }}</td>
+                <td>Rp {{ number_format($product->harga, 0, ',', '.') }}</td>
+                <td>
+                <form action="{{ route('products.edit', $product->id) }}" method="GET" style="display:inline; margin-right: 5px;">
+                    <button type="submit">Ubah</button>
+                </form>
+                <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
+                    @csrf @method('DELETE')
+                    <button type="submit" onclick="return confirm('Apakah anda ingin menghapus produk ini?')">Hapus</button>
+                </form>
+            </td>    
             </tr>
         @empty
             <tr>
-                <td colspan="5">Inventory List is empty.</td>
+                <td colspan="9">Inventory List is empty.</td>
             </tr>
         @endforelse
     </tbody>

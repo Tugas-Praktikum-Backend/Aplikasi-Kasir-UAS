@@ -12,15 +12,17 @@ class RoleUtils {
 
     public const PERM_SHIFT = "shifts";
     public const PERM_PRODUCTS = "products";
+    public const PERM_CASHIER = "cashier";
 
     private static array $list = [
-        self::ROLE_CASHIER => [self::PERM_SHIFT],
+        self::ROLE_CASHIER => [self::PERM_SHIFT, self::PERM_CASHIER],
         self::ROLE_MANAGER => [self::PERM_PRODUCTS]
     ];
 
     private static array $routes = [
         self::PERM_SHIFT => "employees.shift",
-        self::PERM_PRODUCTS => "products.index"
+        self::PERM_PRODUCTS => "products.index",
+        self::PERM_CASHIER => 'cashier.index'
     ];
 
     public static function isPermitted(string $role, string $perm): bool {
@@ -34,4 +36,8 @@ class RoleUtils {
         }
         return $allowed;
     }
+
+    public static function getRoles(): array {
+    return array_keys(self::$list); 
+}
 }

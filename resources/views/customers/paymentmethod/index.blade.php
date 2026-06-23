@@ -17,7 +17,7 @@
                     {{ $method->method_id }}
                 </td>
                 <td>
-                    {{ $method->balance }}
+                    Rp {{ number_format($method->balance, 0, ',', '.') }}
                 </td>
                 <td style="text-align: center">
                     <a href="{{ route('paymentmethods.topup', $method) }}">
