@@ -1,5 +1,46 @@
 # Aplikasi Kasir (POS System)
 
+--------------------------------------------------
+
+## Setup & Instalasi
+
+Ikuti langkah-langkah berikut ini untuk menjalankan Aplikasi Kasir (POS System) di lingkungan lokal.
+
+### 1. Instalasi Dependensi Node.js
+
+Langkah pertama yang harus dilakukan adalah menginstal seluruh dependensi JavaScript yang dibutuhkan oleh aplikasi. Buka terminal Anda, lalu jalankan perintah berikut:
+
+```bash
+npm install
+
+```
+
+### 2. Migrasi dan Seeding Database
+
+Setelah dependensi terinstal. Anda perlu memasuki data-data penting dengan proses seeding, agar sistem dapat langsung digunakan, seperti data product toko dan akun karyawan.
+
+Jalankan perintah migrasi dan seeding berikut:
+
+```bash
+php artisan migrate --seed
+
+```
+
+### 3. Menjalankan Server Development
+
+Terakhir, jalankan aplikasi agar dapat diakses melalui browser dengan menggunakan perintah berikut:
+
+```bash
+composer run dev
+
+```
+
+> **FAQ:**
+> **Mengapa tidak menggunakan `php artisan serve`?**
+> Aplikasi ini menggunakan implementasi JavaScript secara aktif. Jika hanya menjalankan `php artisan serve`, kompilasi aset JavaScript tidak akan berjalan, yang akan mengakibatkan aplikasi tidak berfungsi. Oleh karena itu, diwajibkan untuk menggunakan perintah `composer run dev`.
+
+--------------------------------------------------
+
 ## 1. Employees
 
 ### 1.1 Employees Login
