@@ -55,7 +55,7 @@ class ProductController extends Controller
             'hrgktn' => $hrgktn,
         ]);
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan.');
+        return redirect()->route('inventory')->with('success', 'Produk berhasil ditambahkan.');
     }
 
     /**
@@ -102,7 +102,7 @@ class ProductController extends Controller
             ]);
         }
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui.');
+        return redirect()->route('inventory')->with('success', 'Produk berhasil diperbarui.');
     }
 
     public function inventory()
@@ -119,6 +119,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus.');
+        return redirect()->route('inventory')->with('success', 'Produk berhasil dihapus.');
     }
 }

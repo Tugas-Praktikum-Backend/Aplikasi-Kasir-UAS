@@ -11,7 +11,6 @@
             <th>Nama Produk</th>
             <th>Kategori</th>
             <th>Harga</th>
-            <th>Aksi</th>
     </tr> 
   </thead> 
 <tbody>
@@ -21,30 +20,11 @@
                 <td>{{ $product->nama }}</td>
                 <td>{{ $product->category->nama ?? 'Tanpa Kategori' }}</td>
                 <td>Rp {{ number_format($product->harga, 0, ',', '.') }}</td>
-                <td>
-                    <form action="{{ route('products.edit', $product->id) }}" method="GET" style="display:inline; margin-right: 5px;">
-                        <button type="submit">Ubah</button>
-                    </form>
-                    
-                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
-                        @csrf @method('DELETE')
-                        <button type="submit" onclick="return confirm('Apakah anda ingin menghapus produk ini?')">Hapus</button>
-                    </form>
-                </td>
             </tr>
         @empty
             <tr>
-                <td colspan="5">Product List is empty.</td>
+                <td colspan="4">Product List is empty.</td>
             </tr>
         @endforelse
     </tbody>
 </table>
-
-<br>
-<form action="{{ route('products.create') }}" method="GET" style="display:inline; margin-right: 5px;">
-    <button type="submit">Tambah Produk Baru</button>
-</form>
-
-<form action="{{ route('inventory') }}" method="GET" style="display:inline; margin-right: 5px;">
-    <button type="submit">Inventory</button>
-</form>
