@@ -24,7 +24,7 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-Route::middleware(['auth:employee'])->group(function(){
+Route::middleware(['auth:employee', 'check.shift'])->group(function(){
     Route::resource('products', ProductController::class);
     Route::resource('discounts', DiscountController::class);
     Route::resource('categories', CategoryController::class);
@@ -59,7 +59,7 @@ Route::prefix('employees')->middleware(['auth:employee'])->group(function(){
     Route::fallback(fn() => redirect()->route('employees.index'));
 });
 
-Route::prefix('cashier')->middleware(['auth:employee'])->group(function(){
+Route::prefix('cashier')->middleware(['auth:employee', 'check.shift'])->group(function(){
     Route::get('/', [CashierController::class, 'index'])->name('cashier.index');
     Route::get('/create', [CashierController::class, 'create'])->name('cashier.create');
     Route::get('/create/add', [CashierController::class, 'add'])->name('cashier.add');
@@ -67,9 +67,10 @@ Route::prefix('cashier')->middleware(['auth:employee'])->group(function(){
     Route::get('/create/process', [CashierController::class, 'process'])->name('cashier.process');
 });
 
-Route::prefix('inventory')->middleware(['auth:employee'])->group(function(){
+Route::prefix('inventory')->middleware(['auth:employee', 'check.shift'])->group(function(){
     Route::get('/', [ProductController::class, 'inventory'])->name('inventory');
 });
+
 
 Route::get('/customers/login', [CustomerAuthController::class, 'showLogin'])->name('customer.login');
 Route::post('/customers/login', [CustomerAuthController::class, 'login']);
