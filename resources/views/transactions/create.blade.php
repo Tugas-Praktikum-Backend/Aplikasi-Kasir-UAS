@@ -45,13 +45,7 @@
 
     <br><br>
 
-<<<<<<< HEAD
-    <button type="submit">
-        Simpan Transaksi
-    </button>
-=======
     <button type="submit">Simpan Transaksi</button>
->>>>>>> 458eac1c21e0881c399a80f4e3d10bd30c44cb62
 </form>
 
 <br>
