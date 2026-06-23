@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CashierController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
@@ -22,7 +21,6 @@ Route::resource('products', ProductController::class);
 Route::resource('discounts', DiscountController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('clients', ClientController::class);
-Route::resource('suppliers', SupplierController::class);
 Route::resource('purchases', PurchaseController::class);
 Route::resource('transactions', TransactionController::class);
 
@@ -59,6 +57,8 @@ Route::get('cashier/create/process', [CashierController::class, 'process'])->nam
 
 Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 
+Route::get('suppliers/history', [SupplierController::class, 'history'])->name('suppliers.history');
+Route::resource('suppliers', SupplierController::class);
 
 // Customer Authenication
 Route::get('customers/login', [CustomerAuthController::class, 'showLogin'])->name('customer.login');

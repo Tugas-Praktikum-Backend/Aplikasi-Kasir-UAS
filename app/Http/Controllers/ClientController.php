@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -21,7 +22,8 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('clients.create');
+        $products = Product::all();
+        return view('clients.create', compact('products'));
     }
 
     /**
@@ -30,12 +32,22 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
+            'nama' => 'required|string|max:255',
+            'products' => 'nullable|array',
+            'products.*' => 'exists:products,id',
+            'harga' => 'nullable|array',
+            'harga.*' => 'nullable|integer|min:0',
         ]);
 
-        Client::create($request->only('nama'));
+        $client = Client::create($request->only('nama'));
 
-        return redirect()->route('clients.index')->with('success', 'Klien berhasil ditambahkan');
+        $syncData = [];
+        foreach ($request->input('products', []) as $productId) {
+            $syncData[$productId] = ['harga' => (int) $request->input("harga.$productId")];
+        }
+        $client->products()->sync($syncData);
+
+        return redirect()->route('clients.index')->with('success', 'Klien berhasil ditambahkan.');
     }
 
     /**
@@ -52,7 +64,8 @@ class ClientController extends Controller
     public function edit(string $id)
     {
         $client = Client::findOrFail($id);
-        return view('clients.edit', compact('client'));
+        $products = Product::all();
+        return view('clients.edit', compact('client', 'products'));
     }
 
     /**
@@ -60,14 +73,25 @@ class ClientController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $client = Client::findOrFail($id);
+
         $request->validate([
-            'nama' => 'required',
+            'nama' => 'required|string|max:255',
+            'products' => 'nullable|array',
+            'products.*' => 'exists:products,id',
+            'harga' => 'nullable|array',
+            'harga.*' => 'nullable|integer|min:0',
         ]);
 
-        $client = Client::findOrFail($id);
         $client->update($request->only('nama'));
 
-        return redirect()->route('clients.index')->with('success', 'Klien berhasil diupdate');
+        $syncData = [];
+        foreach ($request->input('products', []) as $productId) {
+            $syncData[$productId] = ['harga' => $request->input("harga.$productId", 0)];
+        }
+        $client->products()->sync($syncData);
+
+        return redirect()->route('clients.index')->with('success', 'Klien berhasil diperbarui.');
     }
 
     /**
@@ -76,8 +100,9 @@ class ClientController extends Controller
     public function destroy(string $id)
     {
         $client = Client::findOrFail($id);
+        $client->products()->detach();
         $client->delete();
 
-        return redirect()->route('clients.index')->with('success', 'Klien berhasil dihapus');
+        return redirect()->route('clients.index')->with('success', 'Klien berhasil dihapus.');
     }
 }

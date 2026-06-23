@@ -7,5 +7,5 @@
     </div>
     <br>
     <button type="submit">Simpan Kategori</button>
-    <a href=" route('categories.index') ">Batal</a>
+    <a href="{{ route('categories.index') }}">Batal</a>
 </form>
