@@ -9,7 +9,7 @@ Penjelasan :
 Halaman login untuk karyawan.
 
 Contoh Output :
-<img width="947" height="264" alt="Screenshot 2026-06-23 172618" src="https://github.com/user-attachments/assets/b00ba507-c9eb-40bc-87a7-38afdddc1e73" />
+<img width="403" height="274" alt="Screenshot 2026-06-23 172829" src="https://github.com/user-attachments/assets/a806757a-49a1-477d-8e42-131e9b09ef21" />
 
 --------------------------------------------------
 
@@ -20,7 +20,7 @@ Penjelasan :
 Dashboard utama karyawan.
 
 Contoh Output :
-Ringkasan aktivitas karyawan.
+<img width="947" height="264" alt="Screenshot 2026-06-23 172618" src="https://github.com/user-attachments/assets/b00ba507-c9eb-40bc-87a7-38afdddc1e73" />
 
 --------------------------------------------------
 
