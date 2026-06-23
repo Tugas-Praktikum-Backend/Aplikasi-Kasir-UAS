@@ -1,3 +1,6 @@
+<head>
+    <title>Tambah Modal Toko</title>
+</head>
 <h1>Tambah modal toko</h1>
 <form method="POST" action="{{ route('managers.storeinvestment') }}">
     @csrf

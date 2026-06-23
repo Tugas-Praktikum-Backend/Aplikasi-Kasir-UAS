@@ -1,3 +1,6 @@
+<head>
+    <title>Tambah Pembelian Barang</title>
+</head>
 <h1>Tambah Pembelian Barang</h1>
 <form method="POST" action="{{ route('purchases.store') }}">
     @csrf

@@ -1,3 +1,6 @@
+<head>
+    <title>Inventory</title>
+</head>
 <h1>Inventory</h1>
 
 <table border="1" cellpadding="10" cellspacing="0"> 

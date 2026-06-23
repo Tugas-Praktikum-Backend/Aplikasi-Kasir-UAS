@@ -1,3 +1,6 @@
+<head>
+    <title>Edit Biaya Admin</title>
+</head>
 <h1>Edit Biaya Admin {{ $paymentmethod->method_name }}</h1>
 <form method="POST" action="{{ route('managers.updateadminfee', $paymentmethod->method_id) }}">
     @csrf

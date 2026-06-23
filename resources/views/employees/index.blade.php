@@ -1,5 +1,8 @@
 @php use App\Utils\RoleUtils; @endphp
 <html>
+    <head>
+        <title>Dashboard Karyawan</title>
+    </head>
     <h1> Employees Dashboard </h1>
     <h2> Halo, {{ $employeeUser->username }} </h2>
 

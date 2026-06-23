@@ -1,3 +1,6 @@
+<head>
+    <title>Dashboard Customer</title>
+</head>
 <h1>Dashboard Customer</h1>
 <button> Tagihan </button>
 <br><br>

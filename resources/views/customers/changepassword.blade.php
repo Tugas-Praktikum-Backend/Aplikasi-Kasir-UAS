@@ -1,3 +1,6 @@
+<head>
+    <title>Ubah Password</title>
+</head>
 <h1>Ubah Password</h1>
 <form method="POST" action="{{ route('customers.updatepassword') }}">
     @csrf @method('PUT')

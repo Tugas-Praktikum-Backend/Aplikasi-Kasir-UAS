@@ -1,3 +1,6 @@
+<head>
+    <title>Manager Dashboard</title>
+</head>
 <h1>Manager Dashboard</h1>
 <div>
     <p>Jumlah pemasukan: Rp {{ number_format($market->total_pemasukan, 0, ',', '.') }}</p>

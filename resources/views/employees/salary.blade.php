@@ -1,5 +1,8 @@
 @php use function Laravel\Prompts\number; @endphp
 <html>
+    <head>
+        <title>Informasi Gaji</title>
+    </head>
 <h1> Informasi Gaji </h1>
 
 <p1>

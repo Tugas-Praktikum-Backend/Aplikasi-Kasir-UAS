@@ -1,3 +1,6 @@
+<head>
+    <title>Riwayat Restock (Supplier)</title>
+</head>
 <h1>History Restock (Supplier)</h1>
 
 @if(session('success'))

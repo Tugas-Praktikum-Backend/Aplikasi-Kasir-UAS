@@ -1,3 +1,6 @@
+<head>
+    <title>Daftar Klien</title>
+</head>
 <h1>Daftar Klien</h1>
 
 @if(session('success'))
@@ -45,3 +48,5 @@
 <form action="{{ route('suppliers.index') }}" method="GET" style="display:inline; margin-right:5px;">
     <button type="submit">Supplier</button>
 </form>
+
+<a href={{ route('employees.index') }}><button>Balik</button></a>

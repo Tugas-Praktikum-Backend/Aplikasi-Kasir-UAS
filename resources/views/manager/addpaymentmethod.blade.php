@@ -1,3 +1,6 @@
+<head>
+    <title>Tambah Metode Pembayaran</title>
+</head>
 <h1>Tambah metode pembayaran</h1>
 <form method="POST" action="{{ route('managers.storepaymentmethod') }}">
     @csrf

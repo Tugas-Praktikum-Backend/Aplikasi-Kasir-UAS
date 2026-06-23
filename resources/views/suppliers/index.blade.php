@@ -1,3 +1,6 @@
+<head>
+    <title>Supplier</title>
+</head>
 <h1>Supplier</h1>
 
 @if(session('success'))
@@ -38,3 +41,5 @@
     <button type="submit">Kelola Klien</button>
 </form>
 <p><strong>Modal toko:</strong> Rp {{ number_format($market->modal_toko ?? 0) }}</p>
+
+<a href={{ route('employees.index') }}><button>Balik</button></a>

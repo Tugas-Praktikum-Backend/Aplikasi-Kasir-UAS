@@ -1,6 +1,8 @@
 @php use App\Models\Shift;use Illuminate\Support\Facades\Auth; @endphp
 <html>
-
+<head>
+    <title>Absen Shift</title>
+</head>
 <h1> Absen Shift </h1>
 @if($shiftData->start_shift)
     <form action="{{ route('employees.stop_shift') }}" method="get">

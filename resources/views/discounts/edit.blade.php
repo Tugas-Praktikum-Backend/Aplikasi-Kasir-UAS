@@ -1,3 +1,6 @@
+<head>
+    <title>Ubah Diskon</title>
+</head>
 <h1>Ubah Diskon</h1>
 <form method="POST" action="{{ route('discounts.update', $discount->id) }}">
     @csrf @method('PUT')

@@ -1,3 +1,6 @@
+<head>
+    <title>Ubah Kategori</title>
+</head>
 <h1>Ubah Kategori</h1>
 <form method="POST" action="{{route('categories.update', $category->id)}}">
     @csrf @method('PUT')

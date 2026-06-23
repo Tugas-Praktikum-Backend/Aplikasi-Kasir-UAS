@@ -1,3 +1,6 @@
+<head>
+    <title>Customer Sign Up</title>
+</head>
 <h1>Customer Sign Up</h1>
 <form method="POST" action="{{ route('customers.store') }}">
     @csrf

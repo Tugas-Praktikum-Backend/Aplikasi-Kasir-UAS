@@ -1,3 +1,6 @@
+<head>
+    <title>Manage Metode Pembayaran</title>
+</head>
 <h1>Manage Metode Pembayaran</h1>
 <a href="{{ route('managers.addpaymentmethod') }}"><button>Tambah Metode Pembayaran</button></a>
 <a href="{{ route('managers.index') }}"><button>Balik</button></a>

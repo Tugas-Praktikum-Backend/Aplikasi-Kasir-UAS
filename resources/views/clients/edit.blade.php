@@ -1,3 +1,6 @@
+<head>
+    <title>Edit Klien</title>
+</head>
 <h1>Edit Klien</h1>
 
 @if($errors->any())

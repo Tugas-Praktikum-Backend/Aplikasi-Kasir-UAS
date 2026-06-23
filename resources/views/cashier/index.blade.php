@@ -1,4 +1,7 @@
 <html>
+<head>
+    <title>Menu Kasir</title>
+</head>
 <h1> Pengelolaan Kasir </h1>
 
 <form method="get">

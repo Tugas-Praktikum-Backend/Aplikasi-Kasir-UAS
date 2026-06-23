@@ -1,3 +1,6 @@
+<head>
+    <title>Login Customer</title>
+</head>
 <h1>Login Customer</h1>
     
 <form method="POST" action="/customers/login">

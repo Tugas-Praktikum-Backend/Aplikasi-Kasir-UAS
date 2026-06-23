@@ -1,3 +1,6 @@
+<head>
+    <title>Beri gaji ke {{ $employee->username }}</title>
+</head>
 <h1>Berikan gaji ke {{ $employee->username }}</h1>
 <form method="POST" action="{{ route('managers.transfersalary', $employee->id) }}">
     @csrf @method('PUT')

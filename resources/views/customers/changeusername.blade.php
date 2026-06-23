@@ -1,3 +1,6 @@
+<head>
+    <title>Ubah Username</title>
+</head>
 <h1>Ubah Username</h1>
 <form method="POST" action="{{ route('customers.updateusername') }}">
     @csrf @method('PUT')

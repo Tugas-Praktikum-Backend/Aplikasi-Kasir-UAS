@@ -1,3 +1,6 @@
+<head>
+    <title>Ubah Produk</title>
+</head>
 <h1>Ubah Produk</h1> 
 <form method="POST" action="{{ route('products.update', $product) }}"> 
     @csrf @method('PUT') 
