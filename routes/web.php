@@ -100,3 +100,5 @@ Route::post('/managers/storeinvestment', [ManagerController::class, 'storeinvest
 Route::post('/managers/storepaymentmethod', [ManagerController::class, 'storepaymentmethod'])->name('managers.storepaymentmethod');
 Route::post('/managers/updateadminfee/{paymentmethod:method_id}', [ManagerController::class, 'updateadminfee'])->name('managers.updateadminfee');
 Route::delete('/managers/deletepaymentmethod/{paymentmethod:method_id}', [ManagerController::class, 'deletepaymentmethod'])->name('managers.deletepaymentmethod');
+
+Route::fallback(fn() => redirect()->route('home'));
