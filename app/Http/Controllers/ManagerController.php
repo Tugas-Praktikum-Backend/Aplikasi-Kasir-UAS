@@ -40,15 +40,17 @@ class ManagerController extends Controller
 
     public function manageemployee()
     {
-        $employees = Employees::all();
+        $employees = Employees::where('role', '!=', \App\Utils\RoleUtils::ROLE_MANAGER)->get();
 
         return view('manager.manageemployee', compact('employees'));
     }
 
     public function addemployee()
     {
-        $roles = RoleUtils::getRoles(); 
-    
+        $allRoles = RoleUtils::getRoles();
+
+        $roles = array_diff($allRoles, [RoleUtils::ROLE_MANAGER]);
+
         return view('manager.addemployee', compact('roles'));
     }
 

@@ -16,26 +16,28 @@
     </thead>
     <tbody>
         @foreach($employees as $employee)
-            <tr>
-                <td style="text-align: center">{{ $loop->iteration }}</td>
-                <td>
-                    {{ $employee->username }}
-                </td>
-                <td>
-                    Rp {{ number_format($employee->monthly_revenue, 0, ',', '.') }}
-                </td>
-                <td>
-                    {{ $employee->role }}
-                </td>
-                <td style="text-align: center">
-                    <a href="{{ route('managers.editemployee', $employee) }}"><button>Edit</button></a>
-                    <a href="{{ route('managers.givesalary', $employee) }}"><button>Berikan gaji</button></a>
-                    <form action="{{ route('managers.removeemployee', $employee) }}" method="post" style="display:inline;">
-                        @csrf @method('DELETE')
-                        <button type="submit">Hapus</button>
-                    </form>
-                </td>
-            </tr>
+            @if($employee->role !== \App\Utils\RoleUtils::ROLE_MANAGER)
+                <tr>
+                    <td style="text-align: center">{{ $loop->iteration }}</td>
+                    <td>
+                        {{ $employee->username }}
+                    </td>
+                    <td>
+                        Rp {{ number_format($employee->monthly_revenue, 0, ',', '.') }}
+                    </td>
+                    <td>
+                        {{ $employee->role }}
+                    </td>
+                    <td style="text-align: center">
+                        <a href="{{ route('managers.editemployee', $employee) }}"><button>Edit</button></a>
+                        <a href="{{ route('managers.givesalary', $employee) }}"><button>Berikan gaji</button></a>
+                        <form action="{{ route('managers.removeemployee', $employee) }}" method="post" style="display:inline;">
+                            @csrf @method('DELETE')
+                            <button type="submit">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
+            @endif
         @endforeach
     </tbody>
 </table>
