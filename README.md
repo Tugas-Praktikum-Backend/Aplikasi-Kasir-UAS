@@ -34,7 +34,7 @@ Keluar dari sistem.
 
 contoh output:
 
-<img width="110" height="43" alt="Screenshot 2026-06-23 173245" src="https://github.com/user-attachments/assets/9cf466ac-8036-44f0-a19b-8cb9ba2556fe" />
+<img width="80" height="30" alt="Screenshot 2026-06-23 173245" src="https://github.com/user-attachments/assets/9cf466ac-8036-44f0-a19b-8cb9ba2556fe" />
 
 --------------------------------------------------
 
@@ -75,7 +75,9 @@ Contoh Output :
 <img width="516" height="130" alt="Screenshot 2026-06-23 174240" src="https://github.com/user-attachments/assets/c8b08150-5696-4034-8759-93d4dca01e01" />
 
 
+
 <img width="137" height="28" alt="Screenshot 2026-06-23 174042" src="https://github.com/user-attachments/assets/5da4d8b5-441f-42d8-8b27-b88b8dff9bd3" />
+
 
 --------------------------------------------------
 
@@ -90,7 +92,9 @@ Contoh Output :
 <img width="471" height="78" alt="Screenshot 2026-06-23 174358" src="https://github.com/user-attachments/assets/d32d150d-a86d-407f-8e00-447125306b75" />
 
 
+
 <img width="126" height="28" alt="Screenshot 2026-06-23 174315" src="https://github.com/user-attachments/assets/04b71487-61be-4b84-a3e8-a72283d9df6a" />
+
 
 --------------------------------------------------
 
