@@ -30,6 +30,7 @@ Route::middleware(['auth:employee'])->group(function(){
     Route::resource('categories', CategoryController::class);
     Route::resource('clients', ClientController::class);
     Route::resource('purchases', PurchaseController::class);
+    Route::get('suppliers/history', [SupplierController::class, 'history'])->name('suppliers.history');
     Route::resource('suppliers', SupplierController::class);
     Route::resource('transactions', TransactionController::class)->only([
         'index', 'create', 'store'
@@ -68,10 +69,6 @@ Route::prefix('cashier')->middleware(['auth:employee'])->group(function(){
 
 Route::prefix('inventory')->middleware(['auth:employee'])->group(function(){
     Route::get('/', [ProductController::class, 'inventory'])->name('inventory');
-});
-
-Route::prefix('suppliers')->middleware(['auth:employee'])->group(function(){
-    Route::get('/history', [SupplierController::class, 'history'])->name('suppliers.history');
 });
 
 Route::get('/customers/login', [CustomerAuthController::class, 'showLogin'])->name('customer.login');
