@@ -50,9 +50,17 @@ class TransactionController extends Controller
             'total_price' => $product->harga * $request->quantity,
         ]);
 
-        return redirect()
-            ->route('transactions.index')
-            ->with('success', 'Transaksi berhasil dibuat.');
+    $transaction = Transaction::create([
+        'product_id' => request('product_id'),
+        'payment_method_id' => request('payment_method_id'),
+        'quantity' => request('quantity'),
+        'total_price' => $product->harga * request('quantity'),
+    ]);
+
+    return redirect()->route(
+        'transactions.receipt',
+    $transaction->id
+    );
     }
         public function receipt(Transaction $transaction)
 {
