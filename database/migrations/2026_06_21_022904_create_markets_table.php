@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('markets', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary()->default(1);
-            $table->decimal('modal_toko')->default(0);
-            $table->decimal('total_pemasukan')->default(0);
+            $table->integer('modal_toko')->default(0);
+            $table->integer('total_pemasukan')->default(0);
             $table->timestamps();
         });
     }

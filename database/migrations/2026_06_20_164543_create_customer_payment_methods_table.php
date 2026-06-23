@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('method_id');
             $table->foreign('method_id')->references('method_id')->on('payment_methods')->cascadeOnDelete();
             $table->unique(['customer_id', 'method_id']);
-            $table->decimal('balance')->default(0);
+            $table->integer('balance')->default(0);
             $table->timestamps();
         });
     }
