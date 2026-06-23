@@ -15,5 +15,5 @@
 <a href="{{ route('customers.changepassword') }}"><button>Edit password</button></a>
 <form action="{{ route('customers.destroy') }}" method="POST">
     @csrf @method('DELETE')
-    <button type="submit">Hapus akungit button>
+    <button type="submit">Hapus akun</button>
 </form>
