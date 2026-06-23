@@ -1,3 +1,6 @@
+<head>
+    <title>Daftar Kategori</title>
+</head>
 <h1>Daftar Kategori</h1>
 
 <a href="{{ route('categories.create') }}">Tambah Kategori Baru</a>
@@ -42,3 +45,5 @@
     @endforelse
   </tbody>
 </table>
+
+<a href={{ route('employees.index') }}><button>Balik</button></a>

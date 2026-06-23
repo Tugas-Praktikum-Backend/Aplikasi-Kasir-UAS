@@ -1,3 +1,6 @@
+<head>
+    <title>Manage Karyawan</title>
+</head>
 <h1>Manage Karyawan</h1>
 <a href="{{ route('managers.addemployee') }}"><button>Tambah Karyawan</button></a>
 <a href="{{ route('managers.index') }}"><button>Balik</button></a>

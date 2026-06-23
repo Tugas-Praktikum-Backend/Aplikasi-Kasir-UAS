@@ -1,3 +1,6 @@
+<head>
+    <title>Buat Employee Baru</title>
+</head>
 <h1>Buat employee baru</h1>
 <form method="POST" action="{{ route('managers.storeemployee') }}">
     @csrf

@@ -1,3 +1,6 @@
+<head>
+    <title>Restock</title>
+</head>
 <h1>Restock</h1>
 
 @if($errors->any())

@@ -6,10 +6,11 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use function redirect;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         return view('customers.index');
     }

@@ -1,4 +1,7 @@
 <html>
+    <head>
+        <title>List Diskon</title>
+    </head>
     <h1>Discount List</h1>
     <a href="{{ route('discounts.create') }}">Tambah Diskon Baru</a>
     <br><br>
@@ -21,4 +24,6 @@
         </form>
         <br>
     @endforeach
+
+    <a href={{ route('employees.index') }}><button>Balik</button></a>
 </html>

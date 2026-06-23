@@ -1,3 +1,6 @@
+<head>
+    <title>Tambah Klien</title>
+</head>
 <h1>Tambah Klien</h1>
 
 @if($errors->any())

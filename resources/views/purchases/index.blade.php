@@ -1,3 +1,6 @@
+<head>
+    <title>Riwayat Pembelian (Supplier)</title>
+</head>
 <h1>Riwayat Pembelian (Supplier)</h1>
 
 <a href="{{ route('purchases.create') }}">Catat Pembelian Baru</a>
@@ -36,3 +39,5 @@
     @endforelse
   </tbody>
 </table>
+
+<a href={{ route('employees.index') }}><button>Balik</button></a>

@@ -1,3 +1,6 @@
+<head>
+    <title>Metode Pembayaran</title>
+</head>
 <h1>Metode pembayaran Anda</h1>
 @if ($methods->isEmpty())
     <p>Belum ada metode pembayaran</p>

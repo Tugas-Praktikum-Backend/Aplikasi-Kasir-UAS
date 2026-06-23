@@ -1,3 +1,6 @@
+<head>
+    <title>Edit Karyawan</title>
+</head>
 <h1>Edit employee {{ $employee->username }}</h1>
 <form method="POST" action="{{ route('managers.updateemployee', $employee->id) }}">
     @csrf @method('PUT')

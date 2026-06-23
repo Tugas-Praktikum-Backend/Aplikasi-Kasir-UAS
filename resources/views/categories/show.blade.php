@@ -1,3 +1,6 @@
+<head>
+    <title>Kategori: {{ $category->nama }}</title>
+</head>
 <h1>Kategori: {{ $category->nama }}</h1>
 
 <a href="{{ route('categories.index') }}">Kembali ke Daftar Kategori</a>

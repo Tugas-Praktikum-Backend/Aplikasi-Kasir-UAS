@@ -3,6 +3,9 @@
 @vite('resources/js/app.js')
 
 <html>
+<head>
+    <title>Transaksi Baru</title>
+</head>
 <h1> Transaksi Baru </h1>
 
 @error('success')

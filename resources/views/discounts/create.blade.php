@@ -1,3 +1,6 @@
+<head>
+    <title>Tambah Diskon</title>
+</head>
 <h1>Add Discount</h1>
 <form method="POST" action="{{ route('discounts.store') }}">
     @csrf

@@ -1,3 +1,6 @@
+<head>
+    <title>Topup {{ $paymentmethod->method_id }}</title>
+</head>
 <h1>Topup {{ $paymentmethod->method_id }}</h1>
 <form method="POST" action="{{ route('paymentmethods.update', $paymentmethod) }}">
     @csrf @method('PUT')

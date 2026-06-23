@@ -1,3 +1,6 @@
+<head>
+    <title>List Produk</title>
+</head>
 <h1>Produk List</h1>
 
 @if(session('success'))

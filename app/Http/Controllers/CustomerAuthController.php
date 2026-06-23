@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Customer;
+use function redirect;
 
 class CustomerAuthController extends Controller
 {
     public function showLogin()
     {
+        if(Auth::guard('customer')->check()){
+            return redirect()->route('customers.index');
+        }
         return view('auth.customerlogin');
     }
 

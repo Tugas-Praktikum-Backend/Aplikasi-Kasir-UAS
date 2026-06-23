@@ -1,4 +1,7 @@
 <html>
+    <head>
+        <title>Login Employee</title>
+    </head>
 <h1> Employees Login Page </h1>
 <form method="POST" action="{{ route('employees.login') }}">
     @csrf
