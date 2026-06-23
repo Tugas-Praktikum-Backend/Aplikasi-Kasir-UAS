@@ -261,7 +261,7 @@ Menampilkan tagihan atau struk dari transaksi tertentu.
 
 Contoh Output :
 
-<img width="1241" height="205" alt="Screenshot 2026-06-24 025116" src="https://github.com/user-attachments/assets/a91c0df2-1486-49ba-9ba7-ff7aeaf39c4d" />
+<img width="744" height="181" alt="Screenshot 2026-06-24 054432" src="https://github.com/user-attachments/assets/e025fa29-5b78-468d-aa53-eb6e1abe6b98" />
 
 --------------------------------------------------
 
