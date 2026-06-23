@@ -42,7 +42,13 @@ class TransactionController extends Controller
             'total_price' => $totalPrice,
         ]);
 
-        return redirect()->route('receipts.show', $transaction->id)
-            ->with('success', 'Transaksi berhasil dibuat');
+        return redirect()->route('transactions.receipt', $transaction->id)
+                         ->with('success', 'Transaksi berhasil dibuat');
+    }
+
+    public function receipt(Transaction $transaction)
+    {
+        $transaction->load(['product', 'paymentMethod']);
+        return view('transactions.receipt', compact('transaction'));
     }
 }

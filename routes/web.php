@@ -25,8 +25,16 @@ Route::resource('clients', ClientController::class);
 Route::resource('purchases', PurchaseController::class);
 Route::resource('transactions', TransactionController::class);
 
+<<<<<<< HEAD
+
+Route::get(
+    '/transactions/{transaction}/receipt',
+    [TransactionController::class, 'receipt']
+)->name('transactions.receipt');
+=======
 Route::resource('transactions', TransactionController::class);
 Route::get('/receipts/{id}', [ReceiptController::class, 'show'])->name('receipts.show');
+>>>>>>> 458eac1c21e0881c399a80f4e3d10bd30c44cb62
 
 Route::get('/', function () {
     return view('index');
