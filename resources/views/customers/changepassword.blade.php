@@ -2,7 +2,9 @@
 <form method="POST" action="{{ route('customers.updatepassword') }}">
     @csrf @method('PUT')
     <label>Password lama:</label><br>
-    <input type="password" name="old_password" required><br><br>
+    <input type="password" name="old_password" required>
+    @error('old_password') <br> <p1 style="color:red"> Password lama salah! </p1> @enderror
+    <br><br>
 
     <label>Password baru:</label><br>
     <input type="password" name="new_password" required><br><br>

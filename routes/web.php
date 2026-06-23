@@ -29,7 +29,7 @@ Route::middleware(['auth:employee'])->group(function(){
     Route::resource('suppliers', SupplierController::class);
 });
 
-Route::prefix('/transactions')->middleware(['auth:employee'])->group(function(){
+Route::prefix('/transactions')->middleware(['auth:customer,employee'])->group(function(){
     Route::get(
         '/{transaction}/receipt', [TransactionController::class, 'receipt']
     )->name('transactions.receipt');
