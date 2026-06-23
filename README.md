@@ -1,5 +1,115 @@
 # Aplikasi Kasir (POS System)
 
+--------------------------------------------------
+
+## Setup & Instalasi
+
+Ikuti langkah-langkah berikut ini untuk menjalankan Aplikasi Kasir (POS System) di lingkungan lokal.
+
+### 1. Instalasi Dependensi Node.js
+
+Langkah pertama yang harus dilakukan adalah menginstal seluruh dependensi JavaScript yang dibutuhkan oleh aplikasi. Buka terminal Anda, lalu jalankan perintah berikut:
+
+```bash
+npm install
+
+```
+
+### 2. Migrasi dan Seeding Database
+
+Setelah dependensi terinstal. Anda perlu memasuki data-data penting dengan proses seeding, agar sistem dapat langsung digunakan, seperti data product toko dan akun karyawan.
+
+Jalankan perintah migrasi dan seeding berikut:
+
+```bash
+php artisan migrate --seed
+
+```
+
+### 3. Menjalankan Server Development
+
+Terakhir, jalankan aplikasi agar dapat diakses melalui browser dengan menggunakan perintah berikut:
+
+```bash
+composer run dev
+
+```
+
+> **FAQ:**
+> **Mengapa tidak menggunakan `php artisan serve`?**
+> Aplikasi ini menggunakan integrasi JavaScript secara aktif. Sesuai dengan best practice, file JavaScript dipisah dan pengelolaannya menggunakan Vite. Jika Anda hanya menjalankan php artisan serve, kompilasi aset frontend oleh Vite tidak akan berjalan, yang akan mengakibatkan aplikasi tidak berfungsi sesuai dengan prosedurnya. Oleh karena itu, diwajibkan untuk menggunakan perintah composer run dev.
+
+--------------------------------------------------
+# Penjelasan Data Seeding
+--------------------------------------------------
+## Penjelasan Data Seeding (Database Initialization)
+
+Apa itu *Seeding?* Proses *seeding* (melalui perintah `php artisan db:seed`) pada aplikasi ini berfungsi untuk menginisialisasi basis data dengan data *dummy* dan data operasional awal. Hal ini memastikan aplikasi dapat langsung diuji dan digunakan sesaat setelah tahap instalasi selesai. Eksekusi `DatabaseSeeder` akan memanggil beberapa *seeder* turunan secara otomatis.
+
+### 1. Data Karyawan & Hak Akses (`EmployeeSeeder`)
+
+*Seeder* ini sangat krusial karena membuat akun-akun internal toko dengan pembagian *role* yang berbeda, terutama akun **Manager** yang memegang kendali penuh atas sistem operasional.
+
+* **Akun Manager**
+* **Email:** `manager@kasir.com`
+* **Username:** `manager`
+* **Password:** `12345678`
+* **Role Akses:** `ROLE_MANAGER`
+
+
+* **Akun Kasir (Cashier)**
+* **Email:** `cashier@kasir.com`
+* **Username:** `cashier`
+* **Password:** `12345678`
+* **Role Akses:** `ROLE_CASHIER`
+
+
+* **Akun Pemasok (Supplier)**
+* **Email:** `supplier@kasir.com`
+* **Username:** `supplier`
+* **Password:** `12345678`
+* **Role Akses:** `ROLE_SUPPLIER`
+
+
+
+### 2. Data Pelanggan Awal (`CustomerSeeder`)
+
+Menyediakan satu data pelanggan terdaftar sebagai sampel pengujian pada fitur *frontend* atau sisi pembeli.
+
+* **Email:** `andika@gmail.com`
+* **Username:** `AndikaSurya`
+* **Password:** `12345678`
+
+### 3. Data Produk & Inventaris (`ProductSeeder`)
+
+*Seeder* ini menginisialisasi katalog barang dagangan, mengelompokkannya ke dalam kategori, serta mengatur status awal inventaris toko.
+
+* **Kategori Dibuat:** Sembako & Kebutuhan Pokok, Minuman, Makanan Ringan & Roti, serta Perawatan Diri & Mandi.
+* **Daftar Produk:** Sistem memuat 13 produk dari berbagai merek (seperti Indofood, Unilever, Nestle, dll.). Setiap entri produk telah dilengkapi dengan harga jual, total stok fisik awal, dan isi per karton/pcs untuk keperluan *restock*.
+
+### 4. Data Klien B2B & Pemasok (`ClientSeeder`)
+
+Menginisialisasi daftar entitas perusahaan besar atau mitra bisnis B2B yang menyuplai barang ke toko, beserta rincian harga beli produk spesifik dari entitas tersebut.
+
+* **PT Indomarco Adi Prima:** Terasosiasi dengan produk kebutuhan pokok dan makanan ringan (Indomie, Beras Sania, Bimoli, Chitato, Sari Roti).
+* **PT Tigaraksa Satria:** Terasosiasi dengan produk minuman dan cokelat (Aqua, Teh Pucuk, Susu Bear Brand, Kopi Kenangan, SilverQueen).
+* **PT Wicaksana Overseas International:** Terasosiasi dengan perlengkapan kebersihan dan perawatan (Pepsodent, Lifebuoy, Sunsilk).
+
+### 5. Data Metode Pembayaran (`PaymentMethodSeeder`)
+
+Menginisialisasi opsi kanal pembayaran beserta penetapan tarif biaya administrasi (*admin fee*) awal yang akan dibebankan pada transaksi pelanggan.
+
+* **BCA:** Biaya administrasi Rp 2.000.
+* **Mandiri:** Biaya administrasi Rp 1.000.
+
+### 6. Data Pembukuan Toko (`MarketSeeder`)
+
+Menginisialisasi profil fundamental atau dompet utama toko. Data seperti `total_pemasukan` dan `modal_toko` disetel pada titik `0` agar pencatatan arus kas dan analitik pendapatan manajer dapat dihitung secara presisi dari titik mula.
+
+--------------------------------------------------
+# Dokumentasi Fitur & URL
+--------------------------------------------------
+
 ## 1. Employees
 
 ### 1.1 Employees Login
@@ -254,7 +364,7 @@ Contoh Output :
 --------------------------------------------------
 
 ### 6.3 Transaction Bill
-URL : http://127.0.0.1:8000/transactions/{id}/bill
+URL : http://127.0.0.1:8000/transactions
 
 Penjelasan :
 Menampilkan tagihan atau struk dari transaksi tertentu.
