@@ -22,7 +22,7 @@ Dashboard utama karyawan.
 
 Contoh Output :
 
-<img width="947" height="264" alt="Screenshot 2026-06-23 172618" src="https://github.com/user-attachments/assets/b00ba507-c9eb-40bc-87a7-38afdddc1e73" />
+<img width="403" height="237" alt="Screenshot 2026-06-24 042758" src="https://github.com/user-attachments/assets/fd52a095-c308-41bb-9ca6-5679ad8b5fb4" />
 
 --------------------------------------------------
 
@@ -32,7 +32,7 @@ URL : http://127.0.0.1:8000/employees/logout
 Penjelasan :
 Keluar dari sistem.
 
-Contoh output:
+Contoh Output:
 
 <img width="80" height="30" alt="Screenshot 2026-06-23 173245" src="https://github.com/user-attachments/assets/9cf466ac-8036-44f0-a19b-8cb9ba2556fe" />
 
@@ -394,3 +394,73 @@ Contoh Output :
 <img width="409" height="178" alt="Screenshot 2026-06-24 033501" src="https://github.com/user-attachments/assets/ba4bc7bc-7287-4f3a-afe5-f0be071b161f" />
 
 --------------------------------------------------
+
+## 10. Suppliers
+
+### 10.1 Supplier List
+
+URL : http://127.0.0.1:8000/suppliers
+
+Penjelasan :
+Menampilkan daftar seluruh pemasok (*supplier*) yang bekerja sama untuk menyediakan barang atau stok ke dalam inventaris.
+
+Contoh Output :
+
+<img width="1262" height="477" alt="Screenshot 2026-06-24 044158" src="https://github.com/user-attachments/assets/e6a06dc8-fd48-4109-9d42-4087381cf266" />
+
+--------------------------------------------------
+
+### 10.2 Restock
+
+URL : http://127.0.0.1:8000/suppliers/create
+
+Penjelasan :
+Halaman form untuk mencatat transaksi pembelian barang atau penambahan stok dari supplier ke dalam inventaris toko.
+
+
+Contoh Output :
+
+<img width="320" height="442" alt="Screenshot 2026-06-24 044304" src="https://github.com/user-attachments/assets/6cc3c20a-452f-4ad0-a2e8-2c7e27ad5cfd" />
+
+--------------------------------------------------
+
+### 10.3 Restock History
+
+URL : http://127.0.0.1:8000/suppliers/history
+
+Penjelasan :
+Menampilkan riwayat transaksi pembelian barang atau pasokan stok yang pernah dilakukan dari supplier.
+
+Contoh Output :
+
+<img width="471" height="231" alt="Screenshot 2026-06-24 045022" src="https://github.com/user-attachments/assets/6190da26-ddf4-4801-8cee-fd5d8ea3eb7c" />
+
+--------------------------------------------------
+
+### 10.4 Clients List
+
+URL : http://127.0.0.1:8000/clients
+
+Penjelasan :
+Menampilkan daftar klien atau mitra bisnis yang terdaftar di dalam sistem.
+
+Contoh Output :
+
+<img width="1260" height="410" alt="Screenshot 2026-06-24 045110" src="https://github.com/user-attachments/assets/f5a18208-c4ca-4f15-b265-9b9f940de42e" />
+
+--------------------------------------------------
+
+### 10.5 Create Client
+
+URL : http://127.0.0.1:8000/clients/create
+
+Penjelasan :
+Halaman form untuk mendaftarkan dan menambahkan data klien (*client*) atau mitra bisnis baru ke dalam sistem.
+
+Contoh Output :
+
+<img width="678" height="609" alt="Screenshot 2026-06-24 045222" src="https://github.com/user-attachments/assets/6a230b06-e3a2-4f7e-8da0-dbeadb3aa831" />
+
+--------------------------------------------------
+
+
