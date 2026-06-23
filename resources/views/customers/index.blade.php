@@ -1,5 +1,5 @@
 <h1>Dashboard Customer</h1>
-<button>Riwayat Transaksi</button>
+<button> Tagihan </button>
 <br><br>
 <a href="{{ route('paymentmethods.index') }}">
     <button>Metode Pembayaran</button>

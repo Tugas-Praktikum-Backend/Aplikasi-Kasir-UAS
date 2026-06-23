@@ -16,13 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
             if($request->is('customers') || $request->is('customers/*')){
                 return route('customer.login');
             }
-            if($request->is('employees') || $request->is('employees/*')){
-                return route('employees.login');
-            }
-            $list = [
-                'discounts', 'categories', 'clients', 'purchases', 'transactions',
-                'suppliers'
-            ];
+            return route('employees.login');
         });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
