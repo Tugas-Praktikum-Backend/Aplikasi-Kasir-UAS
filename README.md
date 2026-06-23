@@ -9,6 +9,7 @@ Penjelasan :
 Halaman login untuk karyawan.
 
 Contoh Output :
+
 <img width="403" height="274" alt="Screenshot 2026-06-23 172829" src="https://github.com/user-attachments/assets/a806757a-49a1-477d-8e42-131e9b09ef21" />
 
 --------------------------------------------------
@@ -39,6 +40,9 @@ URL : http://127.0.0.1:8000/cashier
 
 Penjelasan :
 Halaman utama kasir.
+
+Contoh Output :
+<img width="327" height="198" alt="Screenshot 2026-06-23 173357" src="https://github.com/user-attachments/assets/e8132f2e-f081-470f-a4f8-066310fb83b6" />
 
 --------------------------------------------------
 
