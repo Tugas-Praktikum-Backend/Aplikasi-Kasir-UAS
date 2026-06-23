@@ -1,6 +1,6 @@
 <h1>Kategori: {{ $category->nama }}</h1>
 
-<a href="{{ route('categories.index') }}">← Kembali ke Daftar Kategori</a>
+<a href="{{ route('categories.index') }}">Kembali ke Daftar Kategori</a>
 <br><br>
 
 <table border="1" cellpadding="10" cellspacing="0">
