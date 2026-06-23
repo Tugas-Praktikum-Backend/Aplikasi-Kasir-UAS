@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CashierController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
@@ -44,6 +45,12 @@ Route::prefix('employees')->middleware(['auth:employee'])->group(function(){
 
     Route::fallback(fn() => redirect()->route('employees.index'));
 });
+
+Route::get('cashier', [CashierController::class, 'index'])->name('cashier.index');
+Route::get('cashier/create', [CashierController::class, 'create'])->name('cashier.create');
+Route::get('cashier/create/add', [CashierController::class, 'add'])->name('cashier.add');
+Route::get('cashier/create/delete', [CashierController::class, 'delete'])->name('cashier.delete');
+Route::get('cashier/create/process', [CashierController::class, 'process'])->name('cashier.process');
 
 Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 
@@ -96,3 +103,5 @@ Route::post('/managers/updateadminfee/{paymentmethod:method_id}', [ManagerContro
 Route::delete('/managers/deletepaymentmethod/{paymentmethod:method_id}', [ManagerController::class, 'deletepaymentmethod'])->name('managers.deletepaymentmethod');
 Route::post('/managers/storeemployee', [ManagerController::class, 'storeemployee'])->name('managers.storeemployee');
 Route::put('/managers/updateemployee/{employee}', [ManagerController::class, 'updateemployee'])->name('managers.updateemployee');
+
+Route::fallback(fn() => redirect()->route('home'));
