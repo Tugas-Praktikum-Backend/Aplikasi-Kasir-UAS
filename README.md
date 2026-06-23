@@ -295,7 +295,7 @@ Contoh Output :
 --------------------------------------------------
 
 ### 6.3 Transaction Bill
-URL : http://127.0.0.1:8000/transactions/{id}/bill
+URL : http://127.0.0.1:8000/transactions
 
 Penjelasan :
 Menampilkan tagihan atau struk dari transaksi tertentu.
