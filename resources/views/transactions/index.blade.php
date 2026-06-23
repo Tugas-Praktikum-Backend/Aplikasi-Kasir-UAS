@@ -56,13 +56,17 @@
                 </td>
                 <td>
                     @if(!$transaction[1])
-                        <form action='{{ route('transactions.payment') }}' method='get'>
-                            <input type='hidden' name='transaction_id' value='{{ $i }}'>
-                            <input type='hidden' name='transaction' value='@json($transaction[0])'>
-                            <input type='hidden' name='prices' value='{{ $prices }}'>
-                            <input type='hidden' id='payment' name='payment' value='BCA'>
-                            <button type='submit'> Bayar </button>
-                        </form>
+                        @if(count($payments) < 1)
+                            <p style="color:red"> Tidak ada metode pembayaran yang dipilih </p>
+                        @else
+                            <form action='{{ route('transactions.payment') }}' method='get'>
+                                <input type='hidden' name='transaction_id' value='{{ $i }}'>
+                                <input type='hidden' name='transaction' value='@json($transaction[0])'>
+                                <input type='hidden' name='prices' value='{{ $prices }}'>
+                                <input type='hidden' id='payment' name='payment' value='BCA'>
+                                <button type='submit'> Bayar </button>
+                            </form>
+                        @endif
                     @else
                         <form action='{{ route('receipts.show') }}' method='get'>
                             <input type='hidden' name='tid' value='{{ $i }}'>
