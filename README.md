@@ -110,8 +110,6 @@ Contoh Output :
 
 <img width="418" height="26" alt="Screenshot 2026-06-24 020231" src="https://github.com/user-attachments/assets/3425888b-23a1-4d4b-be5b-11a36d329875" />
 
-<img width="174" height="32" alt="Screenshot 2026-06-24 020217" src="https://github.com/user-attachments/assets/60ca5e0e-ce1b-4a90-b2a9-6af90db9a14f" />
-
 --------------------------------------------------
 
 ## 3. Inventory
