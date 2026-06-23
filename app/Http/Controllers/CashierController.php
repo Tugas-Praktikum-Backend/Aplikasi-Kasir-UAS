@@ -28,16 +28,10 @@ class CashierController extends Controller
 {
 
     public function index() {
-        $user = auth('employee')->user();
-        if($user->role !== RoleUtils::ROLE_CASHIER)return back();
-
         return view('cashier.index');
     }
 
     public function create(Request $request) {
-        $user = auth('employee')->user();
-        if($user->role !== RoleUtils::ROLE_CASHIER)return back();
-
         $products = [];
         $categories = [];
         foreach(Category::all() as $cat){
