@@ -9,7 +9,7 @@ Penjelasan :
 Halaman login untuk karyawan.
 
 Contoh Output :
-Form login karyawan.
+<img width="900" height="900" alt="unnamed" src="https://github.com/user-attachments/assets/dffb20c1-2f8b-4b27-b8c5-d341d923127f" />
 
 --------------------------------------------------
 
