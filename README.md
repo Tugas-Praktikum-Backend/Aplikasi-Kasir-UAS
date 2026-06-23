@@ -32,7 +32,7 @@ URL : http://127.0.0.1:8000/employees/logout
 Penjelasan :
 Keluar dari sistem.
 
-Contoh Output:
+Contoh Output :
 
 <img width="80" height="30" alt="Screenshot 2026-06-23 173245" src="https://github.com/user-attachments/assets/9cf466ac-8036-44f0-a19b-8cb9ba2556fe" />
 
@@ -311,7 +311,7 @@ Dashboard utama untuk manajer yang berisi ringkasan bisnis, laporan, dan analiti
 
 Contoh Output :
 
-<img width="925" height="235" alt="Screenshot 2026-06-23 180331" src="https://github.com/user-attachments/assets/5c415abd-63e7-43e3-bbfd-5d2a4aeec442" />
+<img width="474" height="242" alt="Screenshot 2026-06-24 051330" src="https://github.com/user-attachments/assets/33714f9f-6dfa-4591-90e1-83fa4aca5acf" />
 
 --------------------------------------------------
 
@@ -335,9 +335,75 @@ Halaman form untuk mendaftarkan akun karyawan baru ke dalam sistem.
 
 Contoh Output :
 
-<img width="161" height="32" alt="Screenshot 2026-06-23 180434" src="https://github.com/user-attachments/assets/9a0fb777-a33f-4638-99f0-260b802675e7" />
+<img width="358" height="401" alt="Screenshot 2026-06-24 051411" src="https://github.com/user-attachments/assets/edc6132b-98b7-48c6-9b68-878be41964c9" />
 
 --------------------------------------------------
+
+### 7.4 Manage Payment Methods
+
+URL : http://127.0.0.1:8000/managers/managepaymentmethod
+
+Penjelasan :
+Halaman bagi manajer untuk melihat dan mengelola daftar seluruh metode pembayaran yang tersedia atau dapat digunakan oleh pelanggan di dalam sistem.
+
+Contoh Output :
+
+<img width="785" height="320" alt="Screenshot 2026-06-24 051501" src="https://github.com/user-attachments/assets/6366ddaf-020a-4eea-9591-2262c7c233f7" />
+
+--------------------------------------------------
+
+### 7.5 Add Payment Method
+
+URL : http://127.0.0.1:8000/managers/addpaymentmethod
+
+Penjelasan :
+Halaman form bagi manajer untuk mendaftarkan atau menambahkan jenis metode pembayaran baru ke dalam sistem.
+
+Contoh Output :
+
+<img width="507" height="301" alt="Screenshot 2026-06-24 052020" src="https://github.com/user-attachments/assets/0939dd12-5670-426d-a306-f79485523af2" />
+
+--------------------------------------------------
+
+### 7.6 Edit Admin Fee
+
+URL : http://127.0.0.1:8000/managers/editadminfee/{paymentmethod}
+
+Penjelasan :
+Halaman form bagi manajer untuk mengatur atau mengubah besaran biaya admin pada metode pembayaran tertentu.
+
+Contoh Output :
+
+<img width="410" height="203" alt="Screenshot 2026-06-24 052028" src="https://github.com/user-attachments/assets/2a2ee970-25a4-48b6-80e1-ef3f583b9375" />
+
+--------------------------------------------------
+
+### 7.7 Delete Payment Method
+
+URL : http://127.0.0.1:8000/managers/deletepaymentmethod/{paymentmethod}
+
+Penjelasan :
+Endpoint atau aksi untuk menghapus sebuah metode pembayaran dari sistem agar tidak bisa lagi digunakan oleh pelanggan untuk bertransaksi.
+
+Contoh Output :
+
+<img width="69" height="30" alt="Screenshot 2026-06-24 052218" src="https://github.com/user-attachments/assets/0bb92d40-aae7-4fa1-88e9-d6db7145994b" />
+
+--------------------------------------------------
+
+### 7.8 Add Investment
+
+URL : http://127.0.0.1:8000/managers/addinvestment
+
+Penjelasan :
+Halaman form bagi manajer untuk mencatat penambahan modal atau dana investasi baru ke dalam arus kas bisnis.
+
+Contoh Output :
+
+<img width="352" height="203" alt="Screenshot 2026-06-24 052444" src="https://github.com/user-attachments/assets/d5fe05c0-a9ad-4ad2-b41a-39c68e25870b" />
+
+--------------------------------------------------
+
 
 ## 8. Discounts
 
@@ -364,6 +430,19 @@ Halaman form untuk membuat dan mengatur program diskon atau promo baru untuk pel
 Contoh Output :
 
 <img width="357" height="500" alt="Screenshot 2026-06-24 032111" src="https://github.com/user-attachments/assets/e27f2470-3225-4b92-8697-ad880003c00d" />
+
+--------------------------------------------------
+
+### 8.3 Delete Discount
+
+URL : http://127.0.0.1:8000/discounts/delete
+
+Penjelasan :
+Endpoint atau aksi untuk menghapus data program diskon atau promo secara permanen dari dalam sistem.
+
+Contoh Output :
+
+<img width="287" height="193" alt="Screenshot 2026-06-24 050947" src="https://github.com/user-attachments/assets/1abe5199-e5c5-4e25-ba35-46faa0582fe8" />
 
 --------------------------------------------------
 
