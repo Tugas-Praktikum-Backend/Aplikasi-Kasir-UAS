@@ -79,7 +79,7 @@
     <br> <br>
 @endif
 
-<a href="{{ route('employees.index') }}"> Kembali ke menu utama </a>
+<a href="{{ route('employees.index') }}"> <button> Kembali ke menu utama </button> </a>
 </html>
 
 <style>

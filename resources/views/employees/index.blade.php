@@ -2,11 +2,14 @@
 <html>
     <h1> Employees Dashboard </h1>
     <h2> Halo, {{ $employeeUser->username }} </h2>
-    @foreach(RoleUtils::getAllowedRoutes($employeeUser->role) as $name => $route)
-        <a href="{{ route($route) }}"> {{ ucfirst($name) }} </a>
-        <br>
-    @endforeach
-    <a href="{{ route('employees.salary') }}"> Informasi Gaji </a>
+
+    <div style="display: flex; justify-content: flex-start; gap:10px; width:100%">
+        @foreach(RoleUtils::getAllowedRoutes($employeeUser->role) as $name => $route)
+            <a href="{{ route($route) }}"> <button> {{ ucfirst($name) }} </button> </a>
+        @endforeach
+        <a href="{{ route('employees.salary') }}"> <button> Informasi Gaji </button> </a>
+    </div>
+
     <br> <br>
-    <a href="{{ route('employees.logout') }}"> Logout </a>
+    <a href="{{ route('employees.logout') }}"> <button> Logout </button> </a>
 </html>
