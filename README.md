@@ -37,7 +37,7 @@ composer run dev
 
 > **FAQ:**
 > **Mengapa tidak menggunakan `php artisan serve`?**
-> Aplikasi ini menggunakan implementasi JavaScript secara aktif. Jika hanya menjalankan `php artisan serve`, kompilasi aset JavaScript tidak akan berjalan, yang akan mengakibatkan aplikasi tidak berfungsi. Oleh karena itu, diwajibkan untuk menggunakan perintah `composer run dev`.
+> Aplikasi ini menggunakan integrasi JavaScript secara aktif. Sesuai dengan best practice, file JavaScript dipisah dan pengelolaannya menggunakan Vite. Jika Anda hanya menjalankan php artisan serve, kompilasi aset frontend oleh Vite tidak akan berjalan, yang akan mengakibatkan aplikasi tidak berfungsi sesuai dengan prosedurnya. Oleh karena itu, diwajibkan untuk menggunakan perintah composer run dev.
 
 --------------------------------------------------
 # Dokumentasi Fitur & URL
