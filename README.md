@@ -122,8 +122,6 @@ Menampilkan data inventaris.
 
 Contoh Output :
 
-
-
 <img width="1603" height="868" alt="Screenshot 2026-06-23 175347" src="https://github.com/user-attachments/assets/5f068296-b9e5-4789-9891-4b5c724b73d8" />
 
 --------------------------------------------------
@@ -175,7 +173,8 @@ Penjelasan :
 Halaman login khusus untuk pelanggan (customer).
 
 Contoh Output :
-Form login pelanggan berisi input email/username dan password.
+
+<img width="299" height="294" alt="Screenshot 2026-06-24 024851" src="https://github.com/user-attachments/assets/903f2867-a7c0-446a-ae29-23e4bcd0999d" />
 
 --------------------------------------------------
 
@@ -186,7 +185,8 @@ Penjelasan :
 Halaman pendaftaran (registrasi) akun untuk pelanggan baru.
 
 Contoh Output :
-Form pendaftaran berisi input nama lengkap, email, password, dan nomor telepon.
+
+<img width="331" height="365" alt="Screenshot 2026-06-24 024917" src="https://github.com/user-attachments/assets/d42909d1-bc59-46ab-aaf9-33d99d96d38b" />
 
 --------------------------------------------------
 
@@ -197,7 +197,9 @@ Penjelasan :
 Dashboard utama untuk pelanggan setelah berhasil login.
 
 Contoh Output :
-Ringkasan profil pelanggan, poin loyalitas (jika ada), dan riwayat pembelian terakhir.
+
+<img width="396" height="436" alt="Screenshot 2026-06-24 024937" src="https://github.com/user-attachments/assets/a38333d0-ba75-410a-b800-b9b5bcfd5099" />
+
 
 --------------------------------------------------
 
@@ -234,7 +236,8 @@ Penjelasan :
 Menampilkan tagihan atau struk (invoice) dari transaksi tertentu.
 
 Contoh Output :
-Halaman cetak struk/invoice dengan rincian produk yang dibeli, pajak, dan total tagihan.
+
+<img width="1241" height="205" alt="Screenshot 2026-06-24 025116" src="https://github.com/user-attachments/assets/a91c0df2-1486-49ba-9ba7-ff7aeaf39c4d" />
 
 --------------------------------------------------
 
@@ -245,7 +248,8 @@ Penjelasan :
 Halaman untuk memproses pembayaran dari sebuah transaksi yang belum lunas.
 
 Contoh Output :
-Pilihan metode pembayaran (tunai/kartu/e-wallet) dan form konfirmasi nominal uang yang dibayarkan.
+
+<img width="662" height="458" alt="Screenshot 2026-06-24 025208" src="https://github.com/user-attachments/assets/ca0c86c1-eb9e-4174-9c5d-39f623ee4743" />
 
 --------------------------------------------------
 
