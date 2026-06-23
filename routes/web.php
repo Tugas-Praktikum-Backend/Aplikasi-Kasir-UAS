@@ -39,18 +39,18 @@ Route::prefix('employees')->middleware(['auth:employee'])->group(function(){
 
     Route::get('/salary', [EmployeesController::class, 'salaryPage'])->name('employees.salary');
 
-    Route::get('/cashier', [CashierController::class, 'index'])->name('employees.cashier');
-    Route::get('/cashier/create', [CashierController::class, 'create'])->name('employees.cashier_create');
-    Route::get('/cashier/create/add', [CashierController::class, 'add'])->name('employees.cashier_add');
-    Route::get('/cashier/create/delete', [CashierController::class, 'delete'])->name('employees.cashier_delete');
-    Route::get('/cashier/create/process', [CashierController::class, 'process'])->name('employees.cashier_process');
-
     Route::get('/shifts', [ShiftController::class, 'index'])->name('employees.shift');
     Route::get('/shifts/start', [ShiftController::class, 'startShift'])->name('employees.start_shift');
     Route::get('/shifts/end', [ShiftController::class, 'endShift'])->name('employees.stop_shift');
 
     Route::fallback(fn() => redirect()->route('employees.index'));
 });
+
+Route::get('cashier', [CashierController::class, 'index'])->name('cashier.index');
+Route::get('cashier/create', [CashierController::class, 'create'])->name('cashier.create');
+Route::get('cashier/create/add', [CashierController::class, 'add'])->name('cashier.add');
+Route::get('cashier/create/delete', [CashierController::class, 'delete'])->name('cashier.delete');
+Route::get('cashier/create/process', [CashierController::class, 'process'])->name('cashier.process');
 
 Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 
