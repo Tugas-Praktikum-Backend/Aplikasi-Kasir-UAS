@@ -28,3 +28,5 @@
         @endforelse
     </tbody>
 </table>
+
+<button type="button" onclick="window.location.href='{{ url()->previous() }}'" style="margin-top: 10px;">Kembali</button>

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('stock');
 
             $table->integer('isipc');
-            $table->integer('hrgktn');
+            $table->bigInteger('hrgktn');
 
             $table->timestamps();
         });
