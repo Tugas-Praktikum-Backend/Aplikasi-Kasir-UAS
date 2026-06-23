@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CashierController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
@@ -37,6 +38,12 @@ Route::prefix('employees')->middleware(['auth:employee'])->group(function(){
     Route::get('/logout', [EmployeesController::class, 'logout'])->name('employees.logout');
 
     Route::get('/salary', [EmployeesController::class, 'salaryPage'])->name('employees.salary');
+
+    Route::get('/cashier', [CashierController::class, 'index'])->name('employees.cashier');
+    Route::get('/cashier/create', [CashierController::class, 'create'])->name('employees.cashier_create');
+    Route::get('/cashier/create/add', [CashierController::class, 'add'])->name('employees.cashier_add');
+    Route::get('/cashier/create/delete', [CashierController::class, 'delete'])->name('employees.cashier_delete');
+    Route::get('/cashier/create/process', [CashierController::class, 'process'])->name('employees.cashier_process');
 
     Route::get('/shifts', [ShiftController::class, 'index'])->name('employees.shift');
     Route::get('/shifts/start', [ShiftController::class, 'startShift'])->name('employees.start_shift');
