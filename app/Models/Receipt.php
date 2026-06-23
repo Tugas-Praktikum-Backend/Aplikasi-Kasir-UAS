@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Receipt extends Model
 {
-    protected $fillable = [
-        'product_id',
-        'payment_method_id',
-        'quantity',
-        'total_price',
-    ];
+    protected $table = 'transactions';
+
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class, 'id', 'id');
+    }
 
     public function product()
     {
