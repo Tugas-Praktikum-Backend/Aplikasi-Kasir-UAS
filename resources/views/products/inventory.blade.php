@@ -3,29 +3,29 @@
 </head>
 <h1>Inventory</h1>
 
-<table border="1" cellpadding="10" cellspacing="0"> 
-  <thead> 
-    <tr> 
-            <th>Product ID</th>   
+<table border="1" cellpadding="10" cellspacing="0">
+  <thead>
+    <tr>
+            <th>Product ID</th>
             <th>Merek</th>
             <th>Nama Produk</th>
             <th>Kategori</th>
             <th>Stock</th>
-            <th>PCS</th> 
-            <th>Harga Per Karton</th> 
+            <th>PCS</th>
+            <th>Harga Per Karton</th>
             <th>Harga Per PC</th>
             <th>Aksi</th>
-    </tr> 
-  </thead> 
+    </tr>
+  </thead>
 <tbody>
         @forelse($products as $product)
             <tr>
                 <td><strong>{{ $product->id }}</strong></td>
-                <td>{{ $product->inventory->merek ?? '-' }}</td> 
+                <td>{{ $product->inventory->merek ?? '-' }}</td>
                 <td>{{ $product->nama }}</td>
                 <td>{{ $product->category->nama ?? 'Tanpa Kategori' }}</td>
                 <td>{{ $product->inventory->stock ?? 0 }} KTN</td>
-                <td>{{ $product->inventory->isipc ?? 0 }} PC</td> 
+                <td>{{ $product->inventory->isipc ?? 0 }} PC</td>
                 <td>Rp {{ number_format(($product->harga * ($product->inventory->isipc ?? 1)), 0, ',', '.') }}</td>
                 <td>Rp {{ number_format($product->harga, 0, ',', '.') }}</td>
                 <td>
@@ -36,7 +36,7 @@
                     @csrf @method('DELETE')
                     <button type="submit" onclick="return confirm('Apakah anda ingin menghapus produk ini?')">Hapus</button>
                 </form>
-            </td>    
+            </td>
             </tr>
         @empty
             <tr>
@@ -46,16 +46,8 @@
     </tbody>
 </table>
 
-@php
-    $rtbalik = route('employees.index'); 
-
-    if (auth()->check() && auth()->user()->role == 'manager') {
-        $rtbalik = route('managers.index'); 
-    }
-@endphp
-
 <div style="display: flex; gap: 10px; margin-top: 10px;">
-    
+
     <button type="button" onclick="window.location.href='{{ route('products.create') }}'" style="margin-right: 5px;">
         Tambah Produk Baru
     </button>
@@ -64,7 +56,7 @@
         Product List
     </button>
 
-    <button type="button" onclick="window.location.href='{{ $rtbalik }}'">
+    <button type="button" onclick="window.location.href='{{ route('employees.index') }}'">
         Kembali
     </button>
 
