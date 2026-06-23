@@ -1,6 +1,6 @@
 <h1>Pembayaran</h1>
 
-@if ($errors->any())
+{{-- @if ($errors->any())
     <div style="color: red;">
         <ul>
             @foreach ($errors->all() as $error)
@@ -8,27 +8,41 @@
             @endforeach
         </ul>
     </div>
-@endif
+@endif --}}
 
-<p><strong>ID Transaksi:</strong> {{ $transaction->id }}</p>
-<p><strong>Produk:</strong> {{ $transaction->product->nama ?? '-' }}</p>
-<p><strong>Harga Satuan:</strong> Rp {{ number_format($transaction->product->harga ?? 0, 0, ',', '.') }}</p>
-<p><strong>Jumlah:</strong> {{ $transaction->quantity }}</p>
-<p><strong>Total Tagihan:</strong> Rp {{ number_format($transaction->total_price, 0, ',', '.') }}</p>
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Produk</th>
+            <th>Harga Satuan</th>
+            <th>Jumlah</th>
+            <th>Total Harga</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($transaction as $data)
+            <tr>
+                <td>{{ $data[1] }}</td>
+                <td>{{ $data[3] }} </td>
+                <td>{{ $data[2] }}</td>
+                <td>{{ $data[2] * $data[3] }}</td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+<p> Total Keseluruhan : Rp{{ $prices }} </p>
 
-<form action="{{ route('transactions.pay', $transaction->id) }}" method="POST">
+
+<form action="{{ route('transactions.pay') }}" method="POST">
     @csrf
 
-    <label>Metode Pembayaran</label>
+    <input type='hidden' name='transaction' value='@json($transaction)'>
+    <input type='hidden' name='prices' value='{{ $prices }}'>
+    <input type='hidden' name='payment' value='{{ $payment }}'>
+    <input type='hidden' name='transaction_id' value='{{ $tid }}'>
+
+    <label> Metode Pembayaran {{ $payment }} </label>
     <br>
-    <select name="payment_method_id" required>
-        <option value="">-- Pilih Metode Pembayaran --</option>
-        @foreach($paymentMethods as $method)
-            <option value="{{ $method->method_id }}">
-                {{ $method->method_name }}
-            </option>
-        @endforeach
-    </select>
 
     <br><br>
 

@@ -2,7 +2,9 @@
     <title>Dashboard Customer</title>
 </head>
 <h1>Dashboard Customer</h1>
-<button> Tagihan </button>
+<a href="{{ route('transactions.index') }}">
+    <button> Tagihan </button>
+</a>
 <br><br>
 <a href="{{ route('paymentmethods.index') }}">
     <button>Metode Pembayaran</button>
