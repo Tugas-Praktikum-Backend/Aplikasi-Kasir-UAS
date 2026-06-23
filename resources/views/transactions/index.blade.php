@@ -1,46 +1,40 @@
 <h1>Daftar Transaksi</h1>
 
-<a href="{{ route('transactions.create') }}">
-    Tambah Transaksi Baru
-</a>
+@if(session('success'))
+    <p style="color: green;">{{ session('success') }}</p>
+@endif
+
+<a href="{{ route('transactions.create') }}">+ Tambah Transaksi</a>
 
 <br><br>
-
-@if(session('success')) <div style="color: green;">
-{{ session('success') }} </div>
-@endif
 
 <table border="1" cellpadding="10" cellspacing="0">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>No</th>
             <th>Produk</th>
+            <th>Metode Pembayaran</th>
             <th>Jumlah</th>
             <th>Total Harga</th>
-            <th>Metode Pembayaran</th>
+            <th>Struk</th>
         </tr>
     </thead>
-
-```
-<tbody>
-    @forelse($transactions as $transaction)
-        <tr>
-            <td>{{ $transaction->id }}</td>
-            <td>{{ $transaction->product->nama }}</td>
-            <td>{{ $transaction->quantity }}</td>
-            <td>
-                Rp {{ number_format($transaction->total_price, 0, ',', '.') }}
-            </td>
-            <td>{{ $transaction->paymentMethod->method_name }}</td>
-        </tr>
-    @empty
-        <tr>
-            <td colspan="5">
-                Belum ada transaksi.
-            </td>
-        </tr>
-    @endforelse
-</tbody>
-```
-
+    <tbody>
+        @forelse($transactions as $transaction)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $transaction->product->nama ?? '-' }}</td>
+                <td>{{ $transaction->paymentMethod->method_name ?? '-' }}</td>
+                <td>{{ $transaction->quantity }}</td>
+                <td>Rp {{ number_format($transaction->total_price, 0, ',', '.') }}</td>
+                <td>
+                    <a href="{{ route('transactions.receipt', $transaction->id) }}">Lihat Struk</a>
+                </td>
+            </tr>
+        @empty
+            <tr>
+                <td colspan="6">Belum ada transaksi</td>
+            </tr>
+        @endforelse
+    </tbody>
 </table>

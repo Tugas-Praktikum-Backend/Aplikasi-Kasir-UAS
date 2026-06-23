@@ -25,6 +25,7 @@ Route::resource('suppliers', SupplierController::class);
 Route::resource('purchases', PurchaseController::class);
 Route::resource('transactions', TransactionController::class);
 
+
 Route::get(
     '/transactions/{transaction}/receipt',
     [TransactionController::class, 'receipt']

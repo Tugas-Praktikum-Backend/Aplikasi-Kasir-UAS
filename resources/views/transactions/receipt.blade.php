@@ -14,7 +14,7 @@
 
 <p>
     <strong>Harga Satuan:</strong>
-    Rp {{ number_format($transaction->product->harga,0,',','.') }}
+    Rp {{ number_format($transaction->product->harga, 0, ',', '.') }}
 </p>
 
 <p>
@@ -24,7 +24,7 @@
 
 <p>
     <strong>Total Harga:</strong>
-    Rp {{ number_format($transaction->total_price,0,',','.') }}
+    Rp {{ number_format($transaction->total_price, 0, ',', '.') }}
 </p>
 
 <p>
@@ -35,6 +35,12 @@
 <hr>
 
 <p>Terima kasih telah berbelanja.</p>
+
+<button onclick="window.print()">
+    Cetak Struk
+</button>
+
+<br><br>
 
 <a href="{{ route('transactions.index') }}">
     Kembali
