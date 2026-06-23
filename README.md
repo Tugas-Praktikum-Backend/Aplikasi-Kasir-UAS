@@ -21,6 +21,7 @@ Penjelasan :
 Dashboard utama karyawan.
 
 Contoh Output :
+
 <img width="947" height="264" alt="Screenshot 2026-06-23 172618" src="https://github.com/user-attachments/assets/b00ba507-c9eb-40bc-87a7-38afdddc1e73" />
 
 --------------------------------------------------
@@ -30,6 +31,10 @@ URL : http://127.0.0.1:8000/employees/logout
 
 Penjelasan :
 Keluar dari sistem.
+
+contoh output:
+
+<img width="221" height="87" alt="Screenshot 2026-06-23 173245" src="https://github.com/user-attachments/assets/9cf466ac-8036-44f0-a19b-8cb9ba2556fe" />
 
 --------------------------------------------------
 
@@ -42,6 +47,7 @@ Penjelasan :
 Halaman utama kasir.
 
 Contoh Output :
+
 <img width="327" height="198" alt="Screenshot 2026-06-23 173357" src="https://github.com/user-attachments/assets/e8132f2e-f081-470f-a4f8-066310fb83b6" />
 
 --------------------------------------------------
@@ -52,6 +58,10 @@ URL : http://127.0.0.1:8000/cashier/create
 Penjelasan :
 Membuat transaksi baru.
 
+Contoh Output :
+
+<img width="446" height="319" alt="Screenshot 2026-06-23 173827" src="https://github.com/user-attachments/assets/585163ce-30df-4023-b08b-e0d1efa502c6" />
+
 --------------------------------------------------
 
 ### 2.3 Add Product
@@ -59,6 +69,12 @@ URL : http://127.0.0.1:8000/cashier/create/add
 
 Penjelasan :
 Menambahkan produk ke transaksi.
+
+Contoh Output :
+
+<img width="137" height="28" alt="Screenshot 2026-06-23 174042" src="https://github.com/user-attachments/assets/5da4d8b5-441f-42d8-8b27-b88b8dff9bd3" />
+
+
 
 --------------------------------------------------
 
