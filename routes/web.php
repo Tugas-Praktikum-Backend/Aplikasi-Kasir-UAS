@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CashierController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
@@ -9,6 +8,7 @@ use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ReceiptController;
 use App\Models\Shift;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CustomerPaymentMethodController;
@@ -26,10 +26,8 @@ Route::resource('suppliers', SupplierController::class);
 Route::resource('purchases', PurchaseController::class);
 Route::resource('transactions', TransactionController::class);
 
-Route::get(
-    '/transactions/{transaction}/receipt',
-    [TransactionController::class, 'receipt']
-)->name('transactions.receipt');
+Route::resource('transactions', TransactionController::class);
+Route::get('/receipts/{id}', [ReceiptController::class, 'show'])->name('receipts.show');
 
 Route::get('/', function () {
     return view('index');
