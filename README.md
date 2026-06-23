@@ -38,30 +38,6 @@ contoh output:
 
 --------------------------------------------------
 
-### 1.4 Shift
-URL : http://127.0.0.1:8000/employees/shift
-
-Penjelasan :
-Halaman untuk melihat jadwal kerja atau pergantian shift (jam kerja) harian dan mingguan karyawan.
-
-Contoh Output :
-
-<img width="277" height="325" alt="Screenshot 2026-06-24 031443" src="https://github.com/user-attachments/assets/4ffcd083-982a-497a-b5ff-a1a08352e551" />
-
---------------------------------------------------
-
-### 1.5 Salary Information
-URL : http://127.0.0.1:8000/employees/salary
-
-Penjelasan :
-Halaman untuk melihat informasi rincian gaji, riwayat pembayaran, dan slip gaji karyawan.
-
-Contoh Output :
-
-<img width="1062" height="353" alt="Screenshot 2026-06-24 031456" src="https://github.com/user-attachments/assets/1240959a-e7f2-46a0-96e6-e37b1a2fcae5" />
-
---------------------------------------------------
-
 ## 2. Cashier
 
 ### 2.1 Cashier
@@ -277,30 +253,6 @@ Contoh Output :
 
 --------------------------------------------------
 
-### 6.5 Payment Methods
-URL : http://127.0.0.1:8000/customers/paymentmethods
-
-Penjelasan :
-Halaman untuk menampilkan dan mengelola pilihan metode pembayaran yang disimpan oleh pelanggan.
-
-Contoh Output :
-
-<img width="467" height="222" alt="Screenshot 2026-06-24 030143" src="https://github.com/user-attachments/assets/df94820e-9eea-44a8-ac4e-1206e7983be3" />
-
---------------------------------------------------
-
-### 6.6 Create Payment Methods
-URL : http://127.0.0.1:8000/customers/paymentmethods/create
-
-Penjelasan :
-Halaman form bagi pelanggan untuk menambahkan atau mendaftarkan metode pembayaran baru ke dalam akun mereka.
-
-Contoh Output :
-
-<img width="511" height="244" alt="Screenshot 2026-06-24 030412" src="https://github.com/user-attachments/assets/49d818de-bfd8-4fae-82c2-97e7d19ce36f" />
-
---------------------------------------------------
-
 ## 7. Managers
 
 ### 7.1 Manager Dashboard
@@ -336,35 +288,5 @@ Halaman form untuk mendaftarkan akun karyawan baru ke dalam sistem.
 Contoh Output :
 
 <img width="161" height="32" alt="Screenshot 2026-06-23 180434" src="https://github.com/user-attachments/assets/9a0fb777-a33f-4638-99f0-260b802675e7" />
-
---------------------------------------------------
-
-Berikut adalah bagian baru untuk **8. Discounts** beserta format lengkapnya:
-
-## 8. Discounts
-
-### 8.1 Discount List
-
-URL : [http://127.0.0.1:8000/discounts](http://127.0.0.1:8000/discounts)
-
-Penjelasan :
-Menampilkan daftar seluruh diskon, promo, atau *voucher* yang tersedia di dalam sistem, baik yang sedang aktif maupun tidak aktif.
-
-Contoh Output :
-
-<img width="240" height="147" alt="Screenshot 2026-06-24 032058" src="https://github.com/user-attachments/assets/6560a9c6-2895-46f5-bf48-7a9ae14abc31" />
-
---------------------------------------------------
-
-### 8.2 Create Discount
-
-URL : [http://127.0.0.1:8000/discounts/create](http://127.0.0.1:8000/discounts/create)
-
-Penjelasan :
-Halaman form untuk membuat dan mengatur program diskon atau promo baru untuk pelanggan.
-
-Contoh Output :
-
-<img width="357" height="500" alt="Screenshot 2026-06-24 032111" src="https://github.com/user-attachments/assets/e27f2470-3225-4b92-8697-ad880003c00d" />
 
 --------------------------------------------------
