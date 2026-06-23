@@ -28,7 +28,11 @@
                 <td>{{ $transaction->quantity }}</td>
                 <td>Rp {{ number_format($transaction->total_price, 0, ',', '.') }}</td>
                 <td>
+<<<<<<< HEAD
                     <a href="{{ route('transactions.receipt', $transaction->id) }}">Lihat Struk</a>
+=======
+                    <a href="{{ route('receipts.show', $transaction->id) }}">Lihat Struk</a>
+>>>>>>> 458eac1c21e0881c399a80f4e3d10bd30c44cb62
                 </td>
             </tr>
         @empty

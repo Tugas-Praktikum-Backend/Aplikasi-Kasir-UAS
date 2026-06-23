@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CashierController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
@@ -9,6 +8,7 @@ use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ReceiptController;
 use App\Models\Shift;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\CustomerPaymentMethodController;
@@ -22,15 +22,19 @@ Route::resource('products', ProductController::class);
 Route::resource('discounts', DiscountController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('clients', ClientController::class);
-Route::resource('suppliers', SupplierController::class);
 Route::resource('purchases', PurchaseController::class);
 Route::resource('transactions', TransactionController::class);
 
+<<<<<<< HEAD
 
 Route::get(
     '/transactions/{transaction}/receipt',
     [TransactionController::class, 'receipt']
 )->name('transactions.receipt');
+=======
+Route::resource('transactions', TransactionController::class);
+Route::get('/receipts/{id}', [ReceiptController::class, 'show'])->name('receipts.show');
+>>>>>>> 458eac1c21e0881c399a80f4e3d10bd30c44cb62
 
 Route::get('/', function () {
     return view('index');
@@ -60,6 +64,8 @@ Route::get('cashier/create/process', [CashierController::class, 'process'])->nam
 
 Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 
+Route::get('suppliers/history', [SupplierController::class, 'history'])->name('suppliers.history');
+Route::resource('suppliers', SupplierController::class);
 
 // Customer Authenication
 Route::get('customers/login', [CustomerAuthController::class, 'showLogin'])->name('customer.login');

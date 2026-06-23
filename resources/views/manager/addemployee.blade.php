@@ -21,9 +21,11 @@
     <select name="role" id="role" class="form-control">
         <option value="">-- Select a Role --</option>
         @foreach($roles as $role)
-            <option value="{{ $role }}">
-                {{ $role }}
-            </option>
+            @if($role !== \App\Utils\RoleUtils::ROLE_MANAGER)
+                <option value="{{ $role }}">
+                    {{ $role }}
+                </option>
+            @endif
         @endforeach
     </select>
     <button type="submit">Simpan</button>

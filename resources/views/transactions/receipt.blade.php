@@ -1,7 +1,13 @@
-<h1>STRUK BELANJA</h1>
+<h1>Struk Belanja</h1>
 
-<hr>
+<p><strong>ID Transaksi:</strong> {{ $receipt->id }}</p>
+<p><strong>Produk:</strong> {{ $receipt->product->nama ?? '-' }}</p>
+<p><strong>Harga Satuan:</strong> Rp {{ number_format($receipt->product->harga ?? 0, 0, ',', '.') }}</p>
+<p><strong>Jumlah:</strong> {{ $receipt->quantity }}</p>
+<p><strong>Metode Pembayaran:</strong> {{ $receipt->paymentMethod->method_name ?? '-' }}</p>
+<p><strong>Total Harga:</strong> Rp {{ number_format($receipt->total_price, 0, ',', '.') }}</p>
 
+<<<<<<< HEAD
 <p>
     <strong>ID Transaksi:</strong>
     {{ $transaction->id }}
@@ -45,3 +51,7 @@
 <a href="{{ route('transactions.index') }}">
     Kembali
 </a>
+=======
+<br>
+<a href="{{ route('transactions.index') }}">Kembali ke daftar transaksi</a>
+>>>>>>> 458eac1c21e0881c399a80f4e3d10bd30c44cb62
