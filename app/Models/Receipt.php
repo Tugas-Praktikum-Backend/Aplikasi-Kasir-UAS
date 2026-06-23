@@ -8,10 +8,13 @@ class Receipt extends Model
 {
     protected $table = 'transactions';
 
-    public function transaction()
-    {
-        return $this->belongsTo(Transaction::class, 'id', 'id');
-    }
+    protected $fillable = [
+        'product_id',
+        'quantity',
+        'total_price',
+        'payment_method_id',
+        'status',
+    ];
 
     public function product()
     {

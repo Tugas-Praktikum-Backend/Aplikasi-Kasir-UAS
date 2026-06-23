@@ -32,20 +32,7 @@
 
     <br><br>
 
-    <label>Metode Pembayaran</label>
-    <br>
-    <select name="payment_method_id" required>
-        <option value="">-- Pilih Metode Pembayaran --</option>
-        @foreach($paymentMethods as $method)
-            <option value="{{ $method->method_id }}">
-                {{ $method->method_name }}
-            </option>
-        @endforeach
-    </select>
-
-    <br><br>
-
-    <button type="submit">Simpan Transaksi</button>
+    <button type="submit">Buat Tagihan</button>
 </form>
 
 <br>

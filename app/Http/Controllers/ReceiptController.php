@@ -10,6 +10,11 @@ class ReceiptController extends Controller
     {
         $receipt = Receipt::with(['product', 'paymentMethod'])->findOrFail($id);
 
+        if ($receipt->status !== 'paid') {
+            return redirect()->route('transactions.index')
+                ->with('error', 'Struk hanya bisa dilihat setelah pembayaran berhasil.');
+        }
+
         return view('transactions.receipt', compact('receipt'));
     }
 }
