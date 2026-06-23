@@ -22,7 +22,7 @@ Dashboard utama karyawan.
 
 Contoh Output :
 
-<img width="947" height="264" alt="Screenshot 2026-06-23 172618" src="https://github.com/user-attachments/assets/b00ba507-c9eb-40bc-87a7-38afdddc1e73" />
+<img width="403" height="237" alt="Screenshot 2026-06-24 042758" src="https://github.com/user-attachments/assets/fd52a095-c308-41bb-9ca6-5679ad8b5fb4" />
 
 --------------------------------------------------
 
@@ -32,7 +32,7 @@ URL : http://127.0.0.1:8000/employees/logout
 Penjelasan :
 Keluar dari sistem.
 
-Contoh output:
+Contoh Output :
 
 <img width="80" height="30" alt="Screenshot 2026-06-23 173245" src="https://github.com/user-attachments/assets/9cf466ac-8036-44f0-a19b-8cb9ba2556fe" />
 
@@ -42,7 +42,7 @@ Contoh output:
 URL : http://127.0.0.1:8000/employees/shift
 
 Penjelasan :
-Halaman untuk melihat jadwal kerja atau pergantian shift (jam kerja) harian dan mingguan karyawan.
+Halaman untuk melihat jadwal kerja atau pergantian shift harian dan mingguan karyawan.
 
 Contoh Output :
 
@@ -194,7 +194,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/customers/login
 
 Penjelasan :
-Halaman login khusus untuk pelanggan (customer).
+Halaman login khusus untuk pelanggan.
 
 Contoh Output :
 
@@ -206,7 +206,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/customers/signup
 
 Penjelasan :
-Halaman pendaftaran (registrasi) akun untuk pelanggan baru.
+Halaman pendaftaran akun untuk pelanggan baru.
 
 Contoh Output :
 
@@ -245,7 +245,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/transactions/create
 
 Penjelasan :
-Halaman untuk mencatat dan membuat transaksi baru (selain dari halaman kasir utama).
+Halaman untuk mencatat dan membuat transaksi baru.
 
 Contoh Output :
 
@@ -257,7 +257,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/transactions/{id}/bill
 
 Penjelasan :
-Menampilkan tagihan atau struk (invoice) dari transaksi tertentu.
+Menampilkan tagihan atau struk dari transaksi tertentu.
 
 Contoh Output :
 
@@ -311,7 +311,7 @@ Dashboard utama untuk manajer yang berisi ringkasan bisnis, laporan, dan analiti
 
 Contoh Output :
 
-<img width="925" height="235" alt="Screenshot 2026-06-23 180331" src="https://github.com/user-attachments/assets/5c415abd-63e7-43e3-bbfd-5d2a4aeec442" />
+<img width="474" height="242" alt="Screenshot 2026-06-24 051330" src="https://github.com/user-attachments/assets/33714f9f-6dfa-4591-90e1-83fa4aca5acf" />
 
 --------------------------------------------------
 
@@ -335,9 +335,75 @@ Halaman form untuk mendaftarkan akun karyawan baru ke dalam sistem.
 
 Contoh Output :
 
-<img width="161" height="32" alt="Screenshot 2026-06-23 180434" src="https://github.com/user-attachments/assets/9a0fb777-a33f-4638-99f0-260b802675e7" />
+<img width="358" height="401" alt="Screenshot 2026-06-24 051411" src="https://github.com/user-attachments/assets/edc6132b-98b7-48c6-9b68-878be41964c9" />
 
 --------------------------------------------------
+
+### 7.4 Manage Payment Methods
+
+URL : http://127.0.0.1:8000/managers/managepaymentmethod
+
+Penjelasan :
+Halaman bagi manajer untuk melihat dan mengelola daftar seluruh metode pembayaran yang tersedia atau dapat digunakan oleh pelanggan di dalam sistem.
+
+Contoh Output :
+
+<img width="785" height="320" alt="Screenshot 2026-06-24 051501" src="https://github.com/user-attachments/assets/6366ddaf-020a-4eea-9591-2262c7c233f7" />
+
+--------------------------------------------------
+
+### 7.5 Add Payment Method
+
+URL : http://127.0.0.1:8000/managers/addpaymentmethod
+
+Penjelasan :
+Halaman form bagi manajer untuk mendaftarkan atau menambahkan jenis metode pembayaran baru ke dalam sistem.
+
+Contoh Output :
+
+<img width="507" height="301" alt="Screenshot 2026-06-24 052020" src="https://github.com/user-attachments/assets/0939dd12-5670-426d-a306-f79485523af2" />
+
+--------------------------------------------------
+
+### 7.6 Edit Admin Fee
+
+URL : http://127.0.0.1:8000/managers/editadminfee/{paymentmethod}
+
+Penjelasan :
+Halaman form bagi manajer untuk mengatur atau mengubah besaran biaya admin pada metode pembayaran tertentu.
+
+Contoh Output :
+
+<img width="410" height="203" alt="Screenshot 2026-06-24 052028" src="https://github.com/user-attachments/assets/2a2ee970-25a4-48b6-80e1-ef3f583b9375" />
+
+--------------------------------------------------
+
+### 7.7 Delete Payment Method
+
+URL : http://127.0.0.1:8000/managers/deletepaymentmethod/{paymentmethod}
+
+Penjelasan :
+Endpoint atau aksi untuk menghapus sebuah metode pembayaran dari sistem agar tidak bisa lagi digunakan oleh pelanggan untuk bertransaksi.
+
+Contoh Output :
+
+<img width="69" height="30" alt="Screenshot 2026-06-24 052218" src="https://github.com/user-attachments/assets/0bb92d40-aae7-4fa1-88e9-d6db7145994b" />
+
+--------------------------------------------------
+
+### 7.8 Add Investment
+
+URL : http://127.0.0.1:8000/managers/addinvestment
+
+Penjelasan :
+Halaman form bagi manajer untuk mencatat penambahan modal atau dana investasi baru ke dalam arus kas bisnis.
+
+Contoh Output :
+
+<img width="352" height="203" alt="Screenshot 2026-06-24 052444" src="https://github.com/user-attachments/assets/d5fe05c0-a9ad-4ad2-b41a-39c68e25870b" />
+
+--------------------------------------------------
+
 
 ## 8. Discounts
 
@@ -364,6 +430,19 @@ Halaman form untuk membuat dan mengatur program diskon atau promo baru untuk pel
 Contoh Output :
 
 <img width="357" height="500" alt="Screenshot 2026-06-24 032111" src="https://github.com/user-attachments/assets/e27f2470-3225-4b92-8697-ad880003c00d" />
+
+--------------------------------------------------
+
+### 8.3 Delete Discount
+
+URL : http://127.0.0.1:8000/discounts/delete
+
+Penjelasan :
+Endpoint atau aksi untuk menghapus data program diskon atau promo secara permanen dari dalam sistem.
+
+Contoh Output :
+
+<img width="287" height="193" alt="Screenshot 2026-06-24 050947" src="https://github.com/user-attachments/assets/1abe5199-e5c5-4e25-ba35-46faa0582fe8" />
 
 --------------------------------------------------
 
@@ -394,3 +473,73 @@ Contoh Output :
 <img width="409" height="178" alt="Screenshot 2026-06-24 033501" src="https://github.com/user-attachments/assets/ba4bc7bc-7287-4f3a-afe5-f0be071b161f" />
 
 --------------------------------------------------
+
+## 10. Suppliers
+
+### 10.1 Supplier List
+
+URL : http://127.0.0.1:8000/suppliers
+
+Penjelasan :
+Menampilkan daftar seluruh pemasok yang bekerja sama untuk menyediakan barang atau stok ke dalam inventaris.
+
+Contoh Output :
+
+<img width="1262" height="477" alt="Screenshot 2026-06-24 044158" src="https://github.com/user-attachments/assets/e6a06dc8-fd48-4109-9d42-4087381cf266" />
+
+--------------------------------------------------
+
+### 10.2 Restock
+
+URL : http://127.0.0.1:8000/suppliers/create
+
+Penjelasan :
+Halaman form untuk mencatat transaksi pembelian barang atau penambahan stok dari supplier ke dalam inventaris toko.
+
+
+Contoh Output :
+
+<img width="320" height="442" alt="Screenshot 2026-06-24 044304" src="https://github.com/user-attachments/assets/6cc3c20a-452f-4ad0-a2e8-2c7e27ad5cfd" />
+
+--------------------------------------------------
+
+### 10.3 Restock History
+
+URL : http://127.0.0.1:8000/suppliers/history
+
+Penjelasan :
+Menampilkan riwayat transaksi pembelian barang atau pasokan stok yang pernah dilakukan dari supplier.
+
+Contoh Output :
+
+<img width="471" height="231" alt="Screenshot 2026-06-24 045022" src="https://github.com/user-attachments/assets/6190da26-ddf4-4801-8cee-fd5d8ea3eb7c" />
+
+--------------------------------------------------
+
+### 10.4 Clients List
+
+URL : http://127.0.0.1:8000/clients
+
+Penjelasan :
+Menampilkan daftar klien atau mitra bisnis yang terdaftar di dalam sistem.
+
+Contoh Output :
+
+<img width="1260" height="410" alt="Screenshot 2026-06-24 045110" src="https://github.com/user-attachments/assets/f5a18208-c4ca-4f15-b265-9b9f940de42e" />
+
+--------------------------------------------------
+
+### 10.5 Create Client
+
+URL : http://127.0.0.1:8000/clients/create
+
+Penjelasan :
+Halaman form untuk mendaftarkan dan menambahkan data klien atau mitra bisnis baru ke dalam sistem.
+
+Contoh Output :
+
+<img width="678" height="609" alt="Screenshot 2026-06-24 045222" src="https://github.com/user-attachments/assets/6a230b06-e3a2-4f7e-8da0-dbeadb3aa831" />
+
+--------------------------------------------------
+
+
