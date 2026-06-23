@@ -14,10 +14,8 @@ return new class extends Migration
             $table->integer('quantity');
             $table->integer('total_price');
 
-            // payment method belum dipilih saat tagihan dibuat
+            // awalnya transaksi belum dibayar
             $table->string('payment_method_id')->nullable();
-
-            // status transaksi: pending / paid
             $table->string('status')->default('pending');
 
             $table->timestamps();

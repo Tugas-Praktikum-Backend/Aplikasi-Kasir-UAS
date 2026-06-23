@@ -14,6 +14,4 @@
 
 <br>
 
-<a href="{{ route('transactions.index') }}">
-    Kembali ke daftar transaksi
-</a>
+<a href="{{ route('transactions.index') }}">Kembali ke daftar transaksi</a>

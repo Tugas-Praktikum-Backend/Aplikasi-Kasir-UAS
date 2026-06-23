@@ -12,7 +12,7 @@ class ReceiptController extends Controller
 
         if ($receipt->status !== 'paid') {
             return redirect()->route('transactions.index')
-                ->with('error', 'Struk hanya bisa dilihat setelah pembayaran berhasil.');
+                ->with('error', 'Transaksi ini belum dibayar');
         }
 
         return view('transactions.receipt', compact('receipt'));

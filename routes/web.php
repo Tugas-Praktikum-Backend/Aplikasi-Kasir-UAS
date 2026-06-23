@@ -25,23 +25,15 @@ Route::resource('clients', ClientController::class);
 Route::resource('suppliers', SupplierController::class);
 Route::resource('purchases', PurchaseController::class);
 
-Route::resource('transactions', TransactionController::class)->only([
-    'index', 'create', 'store'
-]);
+Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+Route::get('/transactions/{id}/payment', [TransactionController::class, 'payment'])->name('transactions.payment');
+Route::post('/transactions/{id}/pay', [TransactionController::class, 'pay'])->name('transactions.pay');
 
-Route::get('/transactions/{id}/bill', [TransactionController::class, 'bill'])
-    ->name('transactions.bill');
-
-Route::post('/transactions/{id}/pay', [TransactionController::class, 'pay'])
-    ->name('transactions.pay');
-
-Route::get('/receipts/{id}', [ReceiptController::class, 'show'])
-    ->name('receipts.show');
+Route::get('/receipts/{id}', [ReceiptController::class, 'show'])->name('receipts.show');
 
 Route::get('/', function () {
     return view('index');
 })->name('home');
-
 
 Route::get('employees/login', [EmployeesController::class, 'loginPage']);
 Route::post('employees/login', [EmployeesController::class, 'login'])->name('employees.login');
