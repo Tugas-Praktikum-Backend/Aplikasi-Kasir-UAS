@@ -17,18 +17,16 @@
         @foreach($paymentmethod as $method)
             <tr>
                 <td>
-                    {{ $method->method_id }};
+                    {{ $method->method_id }}
                 </td>
                 <td>
-                    {{ $method->method_name }};
+                    {{ $method->method_name }}
                 </td>
                 <td>
-                    {{ $method->admin_fee }};
+                    {{ $method->admin_fee }}
                 </td>
                 <td style="text-align: center">
                     <a href="{{ route('managers.editadminfee', $method) }}"><button>Ubah biaya admin</button></a>
-                </td>
-                <td style="text-align: center">
                     <form action="{{ route('managers.deletepaymentmethod', $method) }}" method="post"style="display:inline;">
                         @csrf @method('DELETE')
                         <button type="submit">Hapus</button>

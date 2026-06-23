@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Market;
 use App\Models\Employees;
 use App\Models\PaymentMethod;
+use App\Utils\RoleUtils;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ManagerController extends Controller
 {
@@ -44,32 +47,77 @@ class ManagerController extends Controller
 
     public function addemployee()
     {
-        return view('employees.manager.addemployee');
+        $roles = RoleUtils::getRoles(); 
+    
+        return view('employees.manager.addemployee', compact('roles'));
     }
 
     public function storeemployee(Request $request)
     {
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email'    => 'required|email|unique:employees,email',
+            'password' => 'required|string|min:6',
+            'role'     => 'required|string'
+        ]);
 
+        Employees::create([
+            'username' => $request->username, 
+            'email'    => $request->email,
+            'password' => Hash::make($request->password), 
+            'role'     => $request->role,
+            'monthly_revenue'  => 0
+        ]);
+
+        return redirect()->route('managers.manageemployee')->with('success', 'Employee berhasil ditambahkan!');
     }
 
-    public function removeemployee(Employee $employee)
+    public function removeemployee(Employees $employee)
     {
-        return view('employees.manager.index', compact('employees'));
+        $employee->delete();
+
+        return redirect()->route('managers.manageemployee')->with('success', 'Employee berhasil dihapus!');
     }
 
-    public function givesalary(Employee $employee)
+    public function givesalary(Employees $employee)
     {
-
+        return view('employees.manager.givesalary', compact('employee'));
     }
 
-    public function editemployee(Employee $employee)
+    public function transfersalary(Request $request, Employees $employee)
     {
-        return view('employees.manager.manageemployee');
+        $request->validate([
+            'salary' => 'required|numeric|min:1'
+        ]);
+        
+        $employee->monthly_revenue += $request->salary;
+        
+        $employee->save();
+
+        return redirect()->route('managers.manageemployee')->with('success', 'Gaji berhasil ditambahkan!');
     }
 
-    public function updateemployee(Request $request, Employee $employee)
+    public function editemployee(Employees $employee)
     {
+        return view('employees.manager.editemployee', compact('employee'));
+    }
 
+    public function updateemployee(Request $request, Employees $employee)
+    {
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'password' => 'nullable|string|min:6', 
+        ]);
+
+        $employee->username = $request->username;
+
+        if ($request->filled('password')) {
+            $employee->password = Hash::make($request->password);
+        }
+        
+        $employee->save();
+
+        return redirect()->route('managers.manageemployee')->with('success', 'Data berhasil diperbarui!');
     }
 
     public function addpaymentmethod()

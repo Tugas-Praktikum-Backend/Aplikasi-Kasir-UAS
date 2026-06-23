@@ -34,4 +34,8 @@ class RoleUtils {
         }
         return $allowed;
     }
+
+    public static function getRoles(): array {
+    return array_keys(self::$list); 
+}
 }
