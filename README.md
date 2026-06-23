@@ -1,4 +1,4 @@
-# Aplikasi Kasir
+#### Aplikasi Kasir (POS System)
 
 ## 1. Employees
 
