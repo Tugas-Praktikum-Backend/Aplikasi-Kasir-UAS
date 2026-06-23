@@ -25,9 +25,9 @@ class CustomerAuthController extends Controller
 
         if ($customer && Hash::check($credentials['password'], $customer->password)) {
             Auth::login($customer);
-            
+
             $request->session()->regenerate();
-            return redirect()->intended('/customers');
+            return redirect()->route('customers.index');
         }
 
         return back()->withErrors([
