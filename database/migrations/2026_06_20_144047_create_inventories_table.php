@@ -16,10 +16,8 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->string('merek');
             $table->integer('stock');
-
             $table->integer('isipc');
-            $table->bigInteger('hrgktn');
-
+            $table->bigInteger('hrgktn')->default(0);
             $table->timestamps();
         });
     }
