@@ -105,6 +105,7 @@ Menginisialisasi opsi kanal pembayaran beserta penetapan tarif biaya administras
 ### 6. Data Pembukuan Toko (`MarketSeeder`)
 
 Menginisialisasi profil fundamental atau dompet utama toko. Data seperti `total_pemasukan` dan `modal_toko` disetel pada titik `0` agar pencatatan arus kas dan analitik pendapatan manajer dapat dihitung secara presisi dari titik mula.
+
 --------------------------------------------------
 # Dokumentasi Fitur & URL
 --------------------------------------------------
