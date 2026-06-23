@@ -37,13 +37,13 @@ Route::middleware(['auth:employee'])->group(function(){
     ]);
 });
 
-Route::prefix('/transactions')->middleware(['auth:customer,employee'])->group(function(){
+Route::prefix('/transactions')->middleware(['auth:customer'])->group(function(){
     Route::get('/', [TransactionController::class, 'index'])->name('transactions.index');
     Route::get('/payment', [TransactionController::class, 'payment'])->name('transactions.payment');
     Route::post('/pay', [TransactionController::class, 'pay'])->name('transactions.pay');
 });
 
-Route::prefix('/receipts')->middleware(['auth:employee'])->group(function(){
+Route::prefix('/receipts')->middleware(['auth:customer'])->group(function(){
     Route::get('/', [ReceiptController::class, 'show'])->name('receipts.show');
 });
 
