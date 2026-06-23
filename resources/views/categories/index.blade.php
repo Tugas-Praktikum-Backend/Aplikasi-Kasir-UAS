@@ -21,8 +21,11 @@
             <td>{{ $category->id }}</td>
             <td>{{ $category->nama }}</td>
             <td>
-                <form action="{{route('categories.edit', $category->id)}}" method="GET" style="display:inline; margin-right: 5px;">
+                <form action="{{ route('categories.show', $category->id) }}" method="GET" style="display:inline; margin-right: 5px;">
                     <button type="submit">Lihat Produk</button>
+                </form>
+
+                <form action="{{ route('categories.edit', $category->id) }}" method="GET" style="display:inline; margin-right: 5px;">
                     <button type="submit">Ubah</button>
                 </form>
 
