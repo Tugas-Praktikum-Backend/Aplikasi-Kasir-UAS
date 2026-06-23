@@ -14,7 +14,7 @@ class SupplierController extends Controller
     public function index()
     {
         $clients = Client::with('products')->get();
-        $market = Market::first();   // ← TAMBAH
+        $market = Market::first();
         return view('suppliers.index', compact('clients', 'market'));
     }
 
@@ -28,13 +28,13 @@ class SupplierController extends Controller
                     return [
                         'id' => $product->id,
                         'nama' => $product->nama,
-                        'harga' => $product->pivot->harga,   // ← TAMBAH
+                        'harga' => $product->pivot->harga,
                     ];
                 })->values(),
             ];
         });
 
-        $market = Market::first();   // ← TAMBAH
+        $market = Market::first();
 
         return view('suppliers.create', compact('clients', 'katalog', 'market'));
     }
@@ -47,7 +47,6 @@ class SupplierController extends Controller
             'jumlah'     => 'required|integer|min:1',
         ]);
 
-        // Cek produk ada di katalog klien + ambil harganya
         $client = Client::findOrFail($request->client_id);
         $product = $client->products()->where('products.id', $request->product_id)->first();
 
@@ -56,10 +55,8 @@ class SupplierController extends Controller
                 ->withErrors(['product_id' => 'Klien ini tidak menyediakan produk tersebut.']);
         }
 
-        // 💰 Modal otomatis = harga per produk (dari katalog klien) × jumlah
         $modal = $product->pivot->harga * $request->jumlah;
 
-        // Cek modal ga boleh lebih gede dari modal toko
         $market = Market::first();
         $modalToko = $market ? $market->modal_toko : 0;
         if ($modal > $modalToko) {
@@ -68,7 +65,6 @@ class SupplierController extends Controller
             ]);
         }
 
-        // Simpan
         Supplier::create([
             'product_id' => $request->product_id,
             'client_id'  => $request->client_id,
@@ -76,7 +72,6 @@ class SupplierController extends Controller
             'modal'      => $modal,
         ]);
 
-        // Tambah stok inventory
         $inventory = Inventory::where('product_id', $request->product_id)->first();
         if ($inventory) {
             $inventory->increment('stock', $request->jumlah);
