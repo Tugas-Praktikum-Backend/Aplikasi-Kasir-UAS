@@ -25,14 +25,15 @@ Route::middleware(['auth:employee'])->group(function(){
     Route::resource('categories', CategoryController::class);
     Route::resource('clients', ClientController::class);
     Route::resource('purchases', PurchaseController::class);
-    Route::resource('transactions', TransactionController::class);
     Route::resource('suppliers', SupplierController::class);
+    Route::resource('transactions', TransactionController::class)->only([
+        'index', 'create', 'store'
+    ]);
 });
 
 Route::prefix('/transactions')->middleware(['auth:customer,employee'])->group(function(){
-    Route::get(
-        '/{transaction}/receipt', [TransactionController::class, 'receipt']
-    )->name('transactions.receipt');
+    Route::get('/{id}/bill', [TransactionController::class, 'bill'])->name('transactions.bill');
+    Route::post('/{id}/pay', [TransactionController::class, 'pay'])->name('transactions.pay');
 });
 
 Route::prefix('/receipts')->middleware(['auth:employee'])->group(function(){
