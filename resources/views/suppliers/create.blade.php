@@ -1,4 +1,4 @@
-<h1>Beli Product</h1>
+<h1>Restock</h1>
 
 @if($errors->any())
     <ul>
@@ -7,6 +7,8 @@
         @endforeach
     </ul>
 @endif
+
+<p><strong>Modal toko saat ini:</strong> Rp {{ number_format($market->modal_toko ?? 0) }}</p>
 
 <form action="{{ route('suppliers.store') }}" method="POST">
     @csrf
@@ -26,7 +28,10 @@
         </select>
     </p>
 
-    <p>Jumlah (KTN):<br><input type="number" name="jumlah" value="{{ old('jumlah') }}"></p>
+    <p>Jumlah (KTN):<br><input type="number" name="jumlah" id="jumlah" value="{{ old('jumlah') }}"></p>
+
+    <p>Harga satuan: <span id="harga_satuan">-</span></p>
+    <p>Estimasi modal: <span id="estimasi_modal">-</span></p>
 
     <button type="submit">Simpan</button>
     <a href="{{ route('suppliers.index') }}">Batal</a>
@@ -37,13 +42,21 @@
 
     const clientSelect = document.getElementById('client_id');
     const productSelect = document.getElementById('product_id');
+    const jumlahInput = document.getElementById('jumlah');
+    const hargaSatuanEl = document.getElementById('harga_satuan');
+    const estimasiModalEl = document.getElementById('estimasi_modal');
     const oldProduct = "{{ old('product_id') }}";
+
+    function formatRupiah(n) {
+        return 'Rp ' + (n || 0).toLocaleString('id-ID');
+    }
 
     function isiProduk(clientId) {
         const produk = katalog[clientId] || [];
 
         if (!clientId || produk.length === 0) {
             productSelect.innerHTML = '<option value="">-- Tidak ada produk --</option>';
+            updateInfoHarga();
             return;
         }
 
@@ -55,11 +68,28 @@
             if (String(p.id) === oldProduct) opt.selected = true;
             productSelect.appendChild(opt);
         });
+        updateInfoHarga();
     }
 
-    clientSelect.addEventListener('change', function () {
-        isiProduk(this.value);
-    });
+    function updateInfoHarga() {
+        const clientId = clientSelect.value;
+        const productId = productSelect.value;
+        const produk = (katalog[clientId] || []).find(p => String(p.id) === String(productId));
+
+        if (!produk) {
+            hargaSatuanEl.textContent = '-';
+            estimasiModalEl.textContent = '-';
+            return;
+        }
+
+        const jumlah = parseInt(jumlahInput.value) || 0;
+        hargaSatuanEl.textContent = formatRupiah(produk.harga);
+        estimasiModalEl.textContent = formatRupiah(produk.harga * jumlah);
+    }
+
+    clientSelect.addEventListener('change', function () { isiProduk(this.value); });
+    productSelect.addEventListener('change', updateInfoHarga);
+    jumlahInput.addEventListener('input', updateInfoHarga);
 
     if (clientSelect.value) {
         isiProduk(clientSelect.value);
