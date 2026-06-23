@@ -16,6 +16,7 @@ class RoleUtils {
     public const PERM_SUPPLIER = "suppliers.index";
     public const PERM_SHIFT = "employees.shift";
     public const PERM_INVENTORY = "products.index";
+    public const PERM_PRODUCTS = "inventory";
     public const PERM_CATEGORY = "categories.index";
     public const PERM_CLIENT = "clients.index";
     public const PERM_DISCOUNT = "discounts.index";
@@ -25,10 +26,12 @@ class RoleUtils {
             self::PERM_CASHIER, self::PERM_SHIFT, self::PERM_DISCOUNT
         ],
         self::ROLE_MANAGER => [
-            self::PERM_MANAGER
+            self::PERM_MANAGER, self::PERM_SUPPLIER, self::PERM_INVENTORY, self::PERM_CATEGORY,
+            self::PERM_CLIENT, self::PERM_CASHIER, self::PERM_DISCOUNT, self::PERM_PRODUCTS
         ],
         self::ROLE_SUPPLIER => [
-            self::PERM_SUPPLIER, self::PERM_INVENTORY, self::PERM_CATEGORY, self::PERM_CLIENT
+            self::PERM_SUPPLIER, self::PERM_SHIFT, self::PERM_INVENTORY, self::PERM_PRODUCTS,
+            self::PERM_CATEGORY, self::PERM_CLIENT
         ]
     ];
 
@@ -41,6 +44,6 @@ class RoleUtils {
     }
 
     public static function getRoles(): array {
-    return array_keys(self::$list);
-}
+        return array_keys(self::$list);
+    }
 }
