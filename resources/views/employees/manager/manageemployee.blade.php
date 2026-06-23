@@ -1,6 +1,5 @@
 <h1>Manage Karyawan</h1>
-<button>Tambah Karyawan</button>
-<button>Hapus Karyawan</button>
+<a href="{{ route('managers.addemployee') }}"><button>Tambah Karyawan</button></a>
 <a href="{{ route('managers.index') }}"><button>Balik</button></a>
 @if ($employees->isEmpty())
     <p>Belum ada employee yang tersimpan.</p>
@@ -20,18 +19,18 @@
             <tr>
                 <td style="text-align: center">{{ $loop->iteration }}</td>
                 <td>
-                    {{ $employee->name }};
+                    {{ $employee->username }}
                 </td>
                 <td>
-                    {{ $employee->salary }};
+                    Rp {{ number_format($employee->monthly_revenue, 0, ',', '.') }}
                 </td>
                 <td>
-                    {{ $employee->role }};
+                    {{ $employee->role }}
                 </td>
                 <td style="text-align: center">
-                    <a href="{{ route('managers.editemployee', $employee) }}"><button>Ubah</button></a>
+                    <a href="{{ route('managers.editemployee', $employee) }}"><button>Edit</button></a>
                     <a href="{{ route('managers.givesalary', $employee) }}"><button>Berikan gaji</button></a>
-                    <form action="{{ route('managers.deleteemployee', $employee) }}" method="post" style="display:inline;">
+                    <form action="{{ route('managers.removeemployee', $employee) }}" method="post" style="display:inline;">
                         @csrf @method('DELETE')
                         <button type="submit">Hapus</button>
                     </form>
