@@ -31,8 +31,10 @@
     </tbody>
 </table>
 <p><strong>Metode Pembayaran:</strong> {{ $receipt['payment_method'] ?? '-' }}</p>
-<p><strong>Subtotal:</strong> Rp{{ number_format($receipt['total_price'], 0, ',', '.') }}</p>
-
+@if($fee > 0)
+    <p> Biaya Admin: Rp{{ number_format($fee, 2, ',', '.') }} </p>
+@endif
+<p><strong>Total:</strong> Rp{{ number_format($receipt['total_price'], 0, ',', '.') }}</p>
 <br>
 
 <a href="{{ route('transactions.index') }}"> <button> Kembali ke daftar transaksi </button> </a>

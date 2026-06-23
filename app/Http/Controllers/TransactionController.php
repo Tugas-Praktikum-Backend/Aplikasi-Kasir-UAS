@@ -25,6 +25,11 @@ class TransactionController extends Controller
         $transactions = Customer::query()->where('id', $uid)->first();
         $list = [];
 
+        $payments = [];
+        foreach(CustomerPaymentMethod::query()->where('customer_id', $uid)->get() as $cpm){
+            $payments[] = $cpm->method_id;
+        }
+
         foreach(json_decode($transactions->bills, true) as $id => $data){
             $products = [];
             foreach($data as $item => $amount){
@@ -50,16 +55,16 @@ class TransactionController extends Controller
 
             $hasPaid = false;
             $paid = Transaction::query()->where('customer_id', $uid)->get()->toArray();
+            $paymentMethod = '';
             foreach($paid as $paidId => $paidData){
-                if($id === $paidId)$hasPaid = true;
+                if($id === $paidId) {
+                    $hasPaid = true;
+                    $paymentMethod = $paidData['payment_method'];
+                    break;
+                }
             }
 
-            $list[$id] = [$products, $hasPaid];
-        }
-
-        $payments = [];
-        foreach(CustomerPaymentMethod::query()->where('customer_id', $uid)->get() as $data){
-            $payments[] = $data->method_id;
+            $list[$id] = [$products, $hasPaid, $paymentMethod];
         }
 
         return view('transactions.index', compact('list', 'payments'));
@@ -78,8 +83,15 @@ class TransactionController extends Controller
         $methods = CustomerPaymentMethod::query()->where('customer_id', $uid)->get();
         $balance = $methods->where('method_id', $payment)->first()['balance'] ?? 0;
 
+        $fee = (
+            PaymentMethod::query()->where('method_id', $payment)->first()?->toArray() ??
+            ['admin_fee' => 0]
+        )['admin_fee'];
+
+        $prices += $fee;
+
         return view('transactions.payment', compact(
-            'transaction', 'prices', 'payment', 'tid', 'balance'
+            'transaction', 'prices', 'payment', 'tid', 'balance', 'fee'
         ));
     }
 

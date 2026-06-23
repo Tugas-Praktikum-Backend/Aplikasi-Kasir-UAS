@@ -35,11 +35,16 @@
                 @endphp
                 <td>{{ $productString }}</td>
                 <td>
+                @if($transaction[1])
+                    <p> {{ $transaction[2] }} </p>
+                @else
                     <select id='payment_method'>
                         @foreach ($payments as $payment)
                             <option value={{ $payment }}> {{ $payment }} </option>
                         @endforeach
                     </select>
+                @endif
+
                 </td>
                 <td>Rp {{ number_format($prices, 0, ',', '.') }}</td>
                 <td>

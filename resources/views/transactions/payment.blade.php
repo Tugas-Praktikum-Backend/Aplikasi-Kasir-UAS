@@ -1,3 +1,4 @@
+@php use App\Models\PaymentMethod; @endphp
 <h1>Pembayaran</h1>
 
 <table border="1" cellpadding="10" cellspacing="0">
@@ -24,6 +25,9 @@
         @endforeach
     </tbody>
 </table>
+@if($fee > 0)
+    <p> Biaya Admin : Rp{{ number_format($fee, 2, ',', '.') }} </p>
+@endif
 <p> Total Keseluruhan : Rp{{ number_format($prices, 2, ',', '.') }} </p>
 <p> Saldo Saat Ini : Rp{{ number_format($balance, 2, ',', '.') }} </p>
 

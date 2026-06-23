@@ -46,6 +46,11 @@ class ReceiptController extends Controller
             ];
         }
 
-        return view('transactions.receipt', compact('receipt', 'products', 'tid'));
+        $fee = (
+            PaymentMethod::query()->where('method_id', $receipt['payment_method'])
+                ->first()?->toArray() ?? ['admin_fee' => 0]
+        )['admin_fee'];
+
+        return view('transactions.receipt', compact('receipt', 'products', 'tid', 'fee'));
     }
 }
