@@ -43,11 +43,26 @@
     </tbody>
 </table>
 
-<br>
-<form action="{{ route('products.create') }}" method="GET" style="display:inline; margin-right: 5px;">
-    <button type="submit">Tambah Produk Baru</button>
-</form>
+@php
+    $rtbalik = route('employees.index'); 
 
-<form action="{{ route('products.index') }}" method="GET" style="display:inline; margin-right: 5px;">
-    <button type="submit">Kembali ke Product List</button>
-</form>
+    if (auth()->check() && auth()->user()->role == 'manager') {
+        $rtbalik = route('managers.index'); 
+    }
+@endphp
+
+<div style="display: flex; gap: 10px; margin-top: 10px;">
+    
+    <button type="button" onclick="window.location.href='{{ route('products.create') }}'" style="margin-right: 5px;">
+        Tambah Produk Baru
+    </button>
+
+    <button type="button" onclick="window.location.href='{{ route('products.index') }}'" style="margin-right: 5px;">
+        Product List
+    </button>
+
+    <button type="button" onclick="window.location.href='{{ $rtbalik }}'">
+        Kembali
+    </button>
+
+</div>
