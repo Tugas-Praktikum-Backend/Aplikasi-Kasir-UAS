@@ -42,7 +42,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/employees/shift
 
 Penjelasan :
-Halaman untuk melihat jadwal kerja atau pergantian shift (jam kerja) harian dan mingguan karyawan.
+Halaman untuk melihat jadwal kerja atau pergantian shift harian dan mingguan karyawan.
 
 Contoh Output :
 
@@ -194,7 +194,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/customers/login
 
 Penjelasan :
-Halaman login khusus untuk pelanggan (customer).
+Halaman login khusus untuk pelanggan.
 
 Contoh Output :
 
@@ -206,7 +206,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/customers/signup
 
 Penjelasan :
-Halaman pendaftaran (registrasi) akun untuk pelanggan baru.
+Halaman pendaftaran akun untuk pelanggan baru.
 
 Contoh Output :
 
@@ -245,7 +245,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/transactions/create
 
 Penjelasan :
-Halaman untuk mencatat dan membuat transaksi baru (selain dari halaman kasir utama).
+Halaman untuk mencatat dan membuat transaksi baru.
 
 Contoh Output :
 
@@ -257,7 +257,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/transactions/{id}/bill
 
 Penjelasan :
-Menampilkan tagihan atau struk (invoice) dari transaksi tertentu.
+Menampilkan tagihan atau struk dari transaksi tertentu.
 
 Contoh Output :
 
@@ -481,7 +481,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/suppliers
 
 Penjelasan :
-Menampilkan daftar seluruh pemasok (*supplier*) yang bekerja sama untuk menyediakan barang atau stok ke dalam inventaris.
+Menampilkan daftar seluruh pemasok yang bekerja sama untuk menyediakan barang atau stok ke dalam inventaris.
 
 Contoh Output :
 
@@ -534,7 +534,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/clients/create
 
 Penjelasan :
-Halaman form untuk mendaftarkan dan menambahkan data klien (*client*) atau mitra bisnis baru ke dalam sistem.
+Halaman form untuk mendaftarkan dan menambahkan data klien atau mitra bisnis baru ke dalam sistem.
 
 Contoh Output :
 
