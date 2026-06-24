@@ -110,6 +110,19 @@ Menginisialisasi profil fundamental atau dompet utama toko. Data seperti `total_
 # Dokumentasi Fitur & URL
 --------------------------------------------------
 
+### 0.1 Landing Page
+
+URL : http://127.0.0.1:8000/
+
+Penjelasan :
+Halaman utama dari aplikasi Kasir yang menjadi akses pertama bagi pengguna untuk masuk ke dalam sistem.
+
+Contoh Output :
+
+<img width="525" height="154" alt="Screenshot 2026-06-24 074227" src="https://github.com/user-attachments/assets/eeaae68f-469d-42aa-a5ea-4bf31c27eeca" />
+
+--------------------------------------------------
+
 ## 1. Employees
 
 ### 1.1 Employees Login
@@ -449,7 +462,19 @@ Contoh Output :
 
 --------------------------------------------------
 
-### 7.4 Manage Payment Methods
+### 7.4 Edit Employee
+URL : http://127.0.0.1:8000/managers/editemployees/{employee}
+
+Penjelasan :
+Halaman form bagi manajer untuk mengubah atau memperbarui data profil karyawan tertentu berdasarkan ID karyawan.
+
+Contoh Output :
+
+<img width="468" height="327" alt="Screenshot 2026-06-24 073634" src="https://github.com/user-attachments/assets/36ab7c2f-dce4-405f-8917-d356f3e6a60f" />
+
+--------------------------------------------------
+
+### 7.5 Manage Payment Methods
 
 URL : http://127.0.0.1:8000/managers/managepaymentmethod
 
@@ -462,7 +487,7 @@ Contoh Output :
 
 --------------------------------------------------
 
-### 7.5 Add Payment Method
+### 7.6 Add Payment Method
 
 URL : http://127.0.0.1:8000/managers/addpaymentmethod
 
@@ -475,7 +500,7 @@ Contoh Output :
 
 --------------------------------------------------
 
-### 7.6 Edit Admin Fee
+### 7.7 Edit Admin Fee
 
 URL : http://127.0.0.1:8000/managers/editadminfee/{paymentmethod}
 
@@ -488,7 +513,7 @@ Contoh Output :
 
 --------------------------------------------------
 
-### 7.7 Delete Payment Method
+### 7.8 Delete Payment Method
 
 URL : http://127.0.0.1:8000/managers/deletepaymentmethod/{paymentmethod}
 
@@ -501,7 +526,7 @@ Contoh Output :
 
 --------------------------------------------------
 
-### 7.8 Add Investment
+### 7.9 Add Investment
 
 URL : http://127.0.0.1:8000/managers/addinvestment
 
