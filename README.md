@@ -42,7 +42,7 @@ composer run dev
 --------------------------------------------------
 # Penjelasan Data Seeding
 --------------------------------------------------
-## Penjelasan Data Seeding (Database Initialization)
+## Penjelasan Data Seeding
 
 Apa itu *Seeding?* Proses *seeding* (melalui perintah `php artisan db:seed`) pada aplikasi ini berfungsi untuk menginisialisasi basis data dengan data *dummy* dan data operasional awal. Hal ini memastikan aplikasi dapat langsung diuji dan digunakan sesaat setelah tahap instalasi selesai. Eksekusi `DatabaseSeeder` akan memanggil beberapa *seeder* turunan secara otomatis.
 
