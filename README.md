@@ -40,7 +40,7 @@ composer run dev
 > Aplikasi ini menggunakan integrasi JavaScript secara aktif. Sesuai dengan best practice, file JavaScript dipisah dan pengelolaannya menggunakan Vite. Jika Anda hanya menjalankan php artisan serve, kompilasi aset frontend oleh Vite tidak akan berjalan, yang akan mengakibatkan aplikasi tidak berfungsi sesuai dengan prosedurnya. Oleh karena itu, diwajibkan untuk menggunakan perintah composer run dev.
 
 --------------------------------------------------
-# Penjelasan Data Seeding
+# Penjelasan Data Seeding (Database Initialization)
 --------------------------------------------------
 ## Penjelasan Data Seeding
 
