@@ -777,3 +777,28 @@ Contoh Output :
 <img width="687" height="606" alt="Screenshot 2026-06-24 081035" src="https://github.com/user-attachments/assets/288798cf-0ab7-4c91-8192-67f5c8506ae6" />
 
 --------------------------------------------------
+## 11. Purchases
+
+### 11.1 Purchase List
+URL : http://127.0.0.1:8000/purchases
+
+Penjelasan :
+Menampilkan daftar seluruh transaksi pembelian inventaris yang dilakukan oleh toko.
+
+Contoh Output :
+
+<img width="678" height="249" alt="Screenshot 2026-06-24 081850" src="https://github.com/user-attachments/assets/0e3c0b90-a27b-4800-b28e-baf6298857a6" />
+
+--------------------------------------------------
+
+### 11.2 Create Purchase
+URL : http://127.0.0.1:8000/purchases/create
+
+Penjelasan :
+Halaman form untuk mencatat transaksi pembelian barang inventaris baru ke dalam sistem.
+
+Contoh Output :
+
+<img width="388" height="259" alt="Screenshot 2026-06-24 081740" src="https://github.com/user-attachments/assets/fcf0a59e-7ef8-4906-8cbb-0845bf5f3ab7" />
+
+--------------------------------------------------
