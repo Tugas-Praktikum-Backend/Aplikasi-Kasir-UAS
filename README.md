@@ -152,7 +152,7 @@ Contoh Output :
 URL : http://127.0.0.1:8000/employees/shift
 
 Penjelasan :
-Halaman untuk melihat jadwal kerja atau pergantian shift harian dan mingguan karyawan.
+Halaman untuk melakukan absen masuk dan absen pulang shift.
 
 Contoh Output :
 
