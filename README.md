@@ -388,6 +388,18 @@ Contoh Output :
 
 --------------------------------------------------
 
+### 5.7 Customer Logout
+
+URL : http://127.0.0.1:8000/customers/logout
+
+Penjelasan :
+Endpoint untuk memproses keluarnya pelanggan dari sistem.
+
+Contoh Output :
+
+<img width="76" height="34" alt="Screenshot 2026-06-24 080232" src="https://github.com/user-attachments/assets/c4a376f7-41d6-44d1-9be6-07f415f33edb" />
+
+--------------------------------------------------
 ## 6. Transactions
 
 ### 6.1 Transaction List
@@ -459,6 +471,19 @@ Halaman form bagi pelanggan untuk menambahkan atau mendaftarkan metode pembayara
 Contoh Output :
 
 <img width="511" height="244" alt="Screenshot 2026-06-24 030412" src="https://github.com/user-attachments/assets/49d818de-bfd8-4fae-82c2-97e7d19ce36f" />
+
+--------------------------------------------------
+
+### 6.7 Top Up Payment Method
+
+URL : http://127.0.0.1:8000/customers/paymentmethods/{paymentmethod}/topup
+
+Penjelasan :
+Halaman form atau proses bagi pelanggan untuk mengisi saldo top-up pada metode pembayaran tertentu yang mereka simpan.
+
+Contoh Output :
+
+<img width="360" height="202" alt="Screenshot 2026-06-24 080100" src="https://github.com/user-attachments/assets/cbc13577-1953-45c8-a4df-3b4cf194ae78" />
 
 --------------------------------------------------
 
@@ -577,6 +602,18 @@ Contoh Output :
 
 --------------------------------------------------
 
+### 7.10 Give Salary
+
+URL : http://127.0.0.1:8000/managers/givesalary/{employee}
+
+Penjelasan :
+Halaman form atau endpoint bagi manajer untuk memproses dan mencatat pembayaran gaji kepada karyawan tertentu berdasarkan ID karyawan.
+
+Contoh Output :
+
+<img width="418" height="202" alt="Screenshot 2026-06-24 080620" src="https://github.com/user-attachments/assets/94dfa9f5-e670-43a8-88ae-511be8d41c15" />
+
+--------------------------------------------------
 
 ## 8. Discounts
 
@@ -644,6 +681,19 @@ Halaman form untuk membuat dan menambahkan kategori produk baru ke dalam sistem.
 Contoh Output :
 
 <img width="409" height="178" alt="Screenshot 2026-06-24 033501" src="https://github.com/user-attachments/assets/ba4bc7bc-7287-4f3a-afe5-f0be071b161f" />
+
+--------------------------------------------------
+
+### 9.3 Edit Category
+
+URL : http://127.0.0.1:8000/categories/{category}/edit
+
+Penjelasan :
+Halaman form untuk memperbarui nama atau detail dari kategori produk.
+
+Contoh Output :
+
+<img width="279" height="181" alt="Screenshot 2026-06-24 080942" src="https://github.com/user-attachments/assets/73047e5c-31aa-4a49-a1d8-74e0f02d5116" />
 
 --------------------------------------------------
 
@@ -715,4 +765,15 @@ Contoh Output :
 
 --------------------------------------------------
 
+### 10.6 Edit Client
 
+URL : http://127.0.0.1:8000/clients/{client}/edit
+
+Penjelasan :
+Halaman form untuk memperbarui data informasi profil klien B2B.
+
+Contoh Output :
+
+<img width="687" height="606" alt="Screenshot 2026-06-24 081035" src="https://github.com/user-attachments/assets/288798cf-0ab7-4c91-8192-67f5c8506ae6" />
+
+--------------------------------------------------
