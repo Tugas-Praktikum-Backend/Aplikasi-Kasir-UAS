@@ -347,6 +347,44 @@ Contoh Output :
 
 <img width="396" height="436" alt="Screenshot 2026-06-24 024937" src="https://github.com/user-attachments/assets/a38333d0-ba75-410a-b800-b9b5bcfd5099" />
 
+--------------------------------------------------
+
+### 5.4 Change Username
+
+URL : http://127.0.0.1:8000/customers/changeusername 
+
+Penjelasan :
+Halaman form bagi pelanggan untuk mengganti username akun mereka.
+
+Contoh Output :
+
+<img width="294" height="307" alt="Screenshot 2026-06-24 074918" src="https://github.com/user-attachments/assets/9c81d8fd-b65a-4217-b1e5-f52c86fcb4b9" />
+
+--------------------------------------------------
+
+### 5.5 Change Password
+
+URL : http://127.0.0.1:8000/customers/changepassword 
+
+Penjelasan :
+Halaman form bagi pelanggan untuk mengganti kata sandi akun mereka.
+
+Contoh Output :
+
+<img width="281" height="295" alt="Screenshot 2026-06-24 074925" src="https://github.com/user-attachments/assets/c69f82bc-08db-4f35-beea-3e3adf241820" />
+
+--------------------------------------------------
+
+### 5.6 Delete Account
+
+URL : http://127.0.0.1:8000/customers/deleteaccount
+
+Penjelasan :
+Halaman atau endpoint untuk menghapus akun pelanggan secara permanen dari sistem.
+
+Contoh Output :
+
+<img width="104" height="28" alt="Screenshot 2026-06-24 074932" src="https://github.com/user-attachments/assets/b7e2065d-291f-4a2c-b2cd-3a864cd85f3d" />
 
 --------------------------------------------------
 
