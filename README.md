@@ -777,6 +777,7 @@ Contoh Output :
 <img width="687" height="606" alt="Screenshot 2026-06-24 081035" src="https://github.com/user-attachments/assets/288798cf-0ab7-4c91-8192-67f5c8506ae6" />
 
 --------------------------------------------------
+
 ## 11. Purchases
 
 ### 11.1 Purchase List
